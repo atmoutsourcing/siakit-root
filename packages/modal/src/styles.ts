@@ -93,7 +93,6 @@ const Content = styled(Dialog.Content, {
       full: {
         width: 'calc(100% - 32px)',
         height: 'calc(100% - 32px)',
-        borderRadius: 0,
       },
     },
   },

@@ -55,7 +55,7 @@ export function DefaultLayout() {
         </Grid>
       </Flex>
 
-      <Flex flex justify="center" padding="0 16px" direction="column" overflow>
+      <Flex align="center" padding="0 16px" direction="column" overflow>
         <Grid
           flex
           maxWidth={1366}

@@ -20,7 +20,12 @@
     "eslint-config-siakit": "*",
     "tsup": "^5.10.1",
     "typescript": "^4.5.3",
-    "@siakit/tsconfig": "*"
+    "@siakit/tsconfig": "*",
+    "react": "^18.2.0",
+    "@siakit/core": "*",
+    "@siakit/layout": "*",
+    "@siakit/hover-card": "*",
+    "@siakit/text": "*"
   },
   "peerDependencies": {
     "react": "^18.2.0",
