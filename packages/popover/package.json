@@ -1,0 +1,36 @@
+{
+  "name": "@siakit/popover",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "license": "MIT",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
+    "lint": "TIMING=1 eslint src/**/*.ts* --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "@siakit/tsconfig": "*",
+    "eslint": "^8.22.0",
+    "eslint-config-siakit": "*",
+    "tsup": "^5.10.1",
+    "typescript": "^4.5.3"
+  },
+  "peerDependencies": {
+    "@siakit/card": "*",
+    "@siakit/core": "*",
+    "react": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@radix-ui/react-popover": "^1.0.0"
+  }
+}

@@ -1,6 +1,5 @@
 {
   "name": "siakit",
-  "version": "0.0.0",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -8,18 +7,24 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build --filter=docs^... && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.24.3",
+    "eslint": "^8.22.0",
     "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
+    "npm": ">=8.0.0",
+    "node": ">=16.0.0"
   },
   "dependencies": {},
   "packageManager": "yarn@1.22.19"
