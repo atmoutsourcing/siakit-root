@@ -31,6 +31,21 @@ export function Sidebar() {
 
       <Flex direction="column">
         <Heading size="md">Form</Heading>
+
+        <Flex direction="column" padding="0 0 0 16px">
+          <Link to="/form/input">input</Link>
+          <Link to="/form/select">select</Link>
+          <Link to="/form/select-multi">select-multi</Link>
+          <Link to="/form/number-input">number-input</Link>
+          <Link to="/form/money-input">money-input</Link>
+          <Link to="/form/switch">switch</Link>
+          <Link to="/form/date-picker">date-picker</Link>
+          <Link to="/form/percentage-input">percentage-input</Link>
+          <Link to="/form/textarea">textarea</Link>
+          <Link to="/form/language-picker">language-picker</Link>
+          <Link to="/form/password-input">password-input</Link>
+          <Link to="/form/phone-input">phone-input</Link>
+        </Flex>
       </Flex>
 
       <Flex direction="column">
@@ -52,6 +67,8 @@ export function Sidebar() {
           <Link to="/data-display/list">list</Link>
           <Link to="/data-display/page-header">page-header</Link>
           <Link to="/data-display/separator">separator</Link>
+          <Link to="/data-display/table">table</Link>
+          <Link to="/data-display/pagination">pagination</Link>
         </Flex>
       </Flex>
 

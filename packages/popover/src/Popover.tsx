@@ -1,6 +1,6 @@
 import * as RadixPopover from '@radix-ui/react-popover'
 
-interface PopoverProps {
+interface PopoverProps extends RadixPopover.PopoverProps {
   children: React.ReactNode
 }
 

@@ -3,6 +3,7 @@ import { Flex } from '@siakit/layout'
 
 const Container = styled(Flex, {
   backgroundColor: '$cardBackground',
+  boxShadow: '$sm',
 
   borderRadius: 8,
   border: '1px solid $gray3',

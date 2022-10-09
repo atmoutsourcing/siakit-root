@@ -7,12 +7,26 @@ import { LinkButtonPage } from './pages/action/LinkButton'
 import { BadgePage } from './pages/datadisplay/BadgePage'
 import { ListPage } from './pages/datadisplay/ListPage'
 import { PageHeaderPage } from './pages/datadisplay/PageHeaderPage'
+import { PaginationPage } from './pages/datadisplay/PaginationPage'
 import { SeparatorPage } from './pages/datadisplay/SeparatorPage'
+import { TablePage } from './pages/datadisplay/TablePage'
 import { AccordionPage } from './pages/disclosure/AccordionPage'
 import { AlertPage } from './pages/feedback/AlertPage'
 import { ProgressBarPage } from './pages/feedback/ProgressBarPage'
 import { ShimmerPage } from './pages/feedback/ShimmerPage'
 import { SpinnerPage } from './pages/feedback/SpinnerPage'
+import { DatePickerPage } from './pages/form/DatePickerPage'
+import { InputPage } from './pages/form/InputPage'
+import { LanguagePickerPage } from './pages/form/LanguagePickerPage'
+import { MoneyInputPage } from './pages/form/MoneyInputPage'
+import { NumberInputPage } from './pages/form/NumberInputPage'
+import { PasswordInputPage } from './pages/form/PasswordInputPage'
+import { PercentageInputPage } from './pages/form/PercentageInputPage'
+import { PhoneInputPage } from './pages/form/PhoneInputPage'
+import { SelectMultiPage } from './pages/form/SelectMultiPage'
+import { SelectPage } from './pages/form/SelectPage'
+import { SwitchPage } from './pages/form/SwitchPage'
+import { TextAreaPage } from './pages/form/TextAreaPage'
 import { GettingStarted } from './pages/GettingStarted'
 import { CardPage } from './pages/layout/CardPage'
 import { FlexPage } from './pages/layout/FlexPage'
@@ -49,6 +63,21 @@ export function Router() {
           <Route path="link-button" element={<LinkButtonPage />} />
         </Route>
 
+        <Route path="/form">
+          <Route path="input" element={<InputPage />} />
+          <Route path="select" element={<SelectPage />} />
+          <Route path="select-multi" element={<SelectMultiPage />} />
+          <Route path="number-input" element={<NumberInputPage />} />
+          <Route path="money-input" element={<MoneyInputPage />} />
+          <Route path="switch" element={<SwitchPage />} />
+          <Route path="date-picker" element={<DatePickerPage />} />
+          <Route path="percentage-input" element={<PercentageInputPage />} />
+          <Route path="textarea" element={<TextAreaPage />} />
+          <Route path="language-picker" element={<LanguagePickerPage />} />
+          <Route path="password-input" element={<PasswordInputPage />} />
+          <Route path="phone-input" element={<PhoneInputPage />} />
+        </Route>
+
         <Route path="/feedback">
           <Route path="alert" element={<AlertPage />} />
           <Route path="spinner" element={<SpinnerPage />} />
@@ -61,6 +90,8 @@ export function Router() {
           <Route path="list" element={<ListPage />} />
           <Route path="page-header" element={<PageHeaderPage />} />
           <Route path="separator" element={<SeparatorPage />} />
+          <Route path="table" element={<TablePage />} />
+          <Route path="pagination" element={<PaginationPage />} />
         </Route>
 
         <Route path="/overlay">

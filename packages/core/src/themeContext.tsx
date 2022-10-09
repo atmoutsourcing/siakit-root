@@ -25,9 +25,20 @@ import { tomato } from './themes/tomato'
 import { violet } from './themes/violet'
 import { yellow } from './themes/yellow'
 
-const { styled, keyframes, createTheme, globalCss } = createStitches({
+const {
+  theme: themeKeys,
+  styled,
+  keyframes,
+  createTheme,
+  globalCss,
+} = createStitches({
   theme: {
     colors: baseTheme,
+    shadows: {
+      sm: '0 1px 2px rgb(0, 0, 0, 0.1), 0 1px 1px rgb(0, 0, 0, 0.06)',
+      md: '0 4px 3px rgb(0, 0, 0, 0.07), 0 2px 2px rgb(0, 0, 0, 0.06)',
+      lg: '0 4px 3px rgb(0, 0, 0, 0.07), 0 2px 2px rgb(0, 0, 0, 0.06)',
+    },
   },
   utils: {
     px: (value: number) => ({
@@ -399,9 +410,10 @@ type Color =
 interface ThemeContextData {
   toggleTheme: () => void
   theme: Theme
-  changeCurrentColor: (color: 'violet' | 'crimson') => void
+  changeCurrentColor: (color: Color) => void
   currentColor: Color
   resetTheme: () => void
+  themeKeys: any
 }
 
 const ThemeContext = createContext({} as ThemeContextData)
@@ -502,12 +514,15 @@ function ThemeProvider({ children }: ThemeProviderProps) {
 
     return 'light'
   })
+
   const [currentColor, setCurrentColor] = useState<Color>(() => {
     const persistedColor = localStorage.getItem('color')
 
     if (persistedColor) {
       return persistedColor as Color
     }
+
+    localStorage.setItem('color', 'violet')
 
     return 'violet'
   })
@@ -527,7 +542,7 @@ function ThemeProvider({ children }: ThemeProviderProps) {
     setTheme(newTheme)
   }
 
-  function changeCurrentColor(color: 'violet' | 'crimson') {
+  function changeCurrentColor(color: Color) {
     html.classList.remove(availableThemes[`${currentColor}-${theme}`])
     html.classList.add(availableThemes[`${color}-${theme}`])
 
@@ -558,6 +573,7 @@ function ThemeProvider({ children }: ThemeProviderProps) {
         changeCurrentColor,
         currentColor,
         resetTheme,
+        themeKeys,
       }}
     >
       {children}

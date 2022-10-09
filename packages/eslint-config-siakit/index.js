@@ -49,6 +49,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-no-bind': 'off',
     'no-nested-ternary': 'off',
+    'import/no-duplicates': 'off',
     'import/prefer-default-export': 'off',
     'import-helpers/order-imports': [
       'warn',

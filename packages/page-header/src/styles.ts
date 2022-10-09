@@ -29,6 +29,11 @@ const Container = styled(Card, {
       alignItems: 'center',
 
       padding: '0 8px',
+
+      '& svg': {
+        width: 16,
+        height: 16,
+      },
     },
 
     '& strong': {
