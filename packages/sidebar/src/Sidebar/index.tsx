@@ -13,24 +13,10 @@ function SidebarComponent({
   open,
   onOpenChange,
 }: SidebarComponentProps) {
-  const {
-    menuItemSelected,
-    isExpanded,
-    changeExpanded,
-    selectMenuItem,
-    selectSubMenuItem,
-  } = useContext(SidebarContext)
+  const { menuItemSelected, isExpanded, changeExpanded } =
+    useContext(SidebarContext)
 
   const childrenIsArray = useMemo(() => Array.isArray(children), [children])
-
-  // useEffect(() => {
-  //   if (!open) {
-  //     changeExpanded(true)
-
-  //     // selectMenuItem('')
-  //     // selectSubMenuItem(null)
-  //   }
-  // }, [open])
 
   useEffect(() => {
     if (childrenIsArray) {
