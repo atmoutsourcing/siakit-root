@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@siakit/core": "*",
-    "@siakit/button": "*",
-    "@siakit/layout": "*",
-    "@siakit/sidebar": "*",
+    "@siakit/core": "0.0.1",
+    "@siakit/button": "0.0.1",
+    "@siakit/layout": "0.0.1",
+    "@siakit/sidebar": "0.0.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
