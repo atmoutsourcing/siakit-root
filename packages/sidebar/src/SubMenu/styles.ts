@@ -1,0 +1,14 @@
+import { styled } from '@siakit/core'
+
+export const SubMenuContainer = styled('div', {
+  flex: 1,
+
+  height: '100%',
+
+  display: 'flex',
+  flexDirection: 'column',
+
+  backgroundColor: '$shape',
+  outline: '1px solid $gray3',
+  zIndex: 1,
+})
