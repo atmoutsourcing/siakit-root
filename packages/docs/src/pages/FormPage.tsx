@@ -17,6 +17,8 @@ import {
   LanguagePicker,
   ColorPicker,
   Slider,
+  DatePicker,
+  TimePicker,
 } from '@siakit/form-components'
 import { Card } from '@siakit/card'
 import { Flex } from '@siakit/layout'
@@ -55,6 +57,8 @@ export function FormPage() {
   )
   const [colorPicker, setColorPicker] = useState<Color | null>(null)
   const [sliderValue, setSliderValue] = useState([0])
+  const [datePicker, setDatePicker] = useState<Date | undefined>(new Date())
+  const [timePicker, setTimePicker] = useState<number[]>([])
 
   console.log(textInput)
   console.log(numberInput)
@@ -72,6 +76,8 @@ export function FormPage() {
   console.log(languagePicker)
   console.log(colorPicker)
   console.log(sliderValue)
+  console.log(datePicker)
+  console.log(timePicker)
 
   return (
     <Card margin padding gap>
@@ -231,7 +237,27 @@ export function FormPage() {
         <FormControl>
           <FormLabel>Slider</FormLabel>
 
-          <Slider value={sliderValue} onChange={setSliderValue} disabled />
+          <Slider value={sliderValue} onChange={setSliderValue} />
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Date Picker</FormLabel>
+
+          <DatePicker
+            value={datePicker}
+            onChange={setDatePicker}
+            placeholder="Date picker"
+          />
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Time Picker</FormLabel>
+
+          <TimePicker
+            value={timePicker}
+            onChange={setTimePicker}
+            placeholder="Time picker"
+          />
         </FormControl>
       </Flex>
     </Card>

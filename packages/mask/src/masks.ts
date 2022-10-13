@@ -13,6 +13,7 @@ export const masks = {
   year: '9999',
   trackNumber: 'AA999999999AA',
   monthAndYear: '99/9999',
+  date: '99/99/9999',
 }
 
 export type MaskType = keyof typeof masks
