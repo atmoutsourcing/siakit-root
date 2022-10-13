@@ -1,6 +1,6 @@
 import { styled } from '@siakit/core'
 
-export const MenuTitleContainer = styled('div', {
+export const MenuTitle = styled('div', {
   height: 32,
 
   display: 'flex',
