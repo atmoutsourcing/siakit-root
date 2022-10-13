@@ -8,7 +8,7 @@ type SubMenuProps = {
 
 export function SubMenu({ children, value }: SubMenuProps) {
   return (
-    <SubMenuContainer>
+    <SubMenuContainer key={value}>
       {Children.map(children, (child, index) => {
         return cloneElement(
           child,

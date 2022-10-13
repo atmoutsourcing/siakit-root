@@ -20,16 +20,30 @@ function SidebarComponent({
 
   useEffect(() => {
     if (childrenIsArray) {
-      const findSubMenu = children.find(
-        (child: any) =>
-          child?.type.name === 'SubMenu' &&
-          child?.props.value === menuItemSelected,
-      )
+      if (Array.isArray(children[1])) {
+        const findSubMenu = children[1].find(
+          (child: any) =>
+            child?.type?.name === 'SubMenu' &&
+            child?.props?.value === menuItemSelected,
+        )
 
-      if (!menuItemSelected || (menuItemSelected && !findSubMenu)) {
-        changeExpanded(true)
+        if (!menuItemSelected || (menuItemSelected && !findSubMenu)) {
+          changeExpanded(true)
+        } else {
+          changeExpanded(false)
+        }
       } else {
-        changeExpanded(false)
+        const findSubMenu = children.find(
+          (child: any) =>
+            child?.type?.name === 'SubMenu' &&
+            child?.props?.value === menuItemSelected,
+        )
+
+        if (!menuItemSelected || (menuItemSelected && !findSubMenu)) {
+          changeExpanded(true)
+        } else {
+          changeExpanded(false)
+        }
       }
     } else {
       changeExpanded(true)
@@ -43,13 +57,21 @@ function SidebarComponent({
       <SidebarContainer isOpen={open}>
         {childrenIsArray ? children[0] : children}
 
-        {childrenIsArray &&
-          !isExpanded &&
-          children.find(
-            (child: any) =>
-              child?.type.name === 'SubMenu' &&
-              child?.props.value === menuItemSelected,
-          )}
+        {childrenIsArray && !isExpanded && (
+          <>
+            {Array.isArray(children[1])
+              ? children[1].find(
+                  (child: any) =>
+                    child?.type?.name === 'SubMenu' &&
+                    child?.props?.value === menuItemSelected,
+                )
+              : children.find(
+                  (child: any) =>
+                    child?.type?.name === 'SubMenu' &&
+                    child?.props?.value === menuItemSelected,
+                )}
+          </>
+        )}
       </SidebarContainer>
     </>
   )

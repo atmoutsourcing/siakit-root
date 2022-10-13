@@ -17,6 +17,8 @@ type DefaultLayoutProps = {
   children: ReactNode
 }
 
+const submenus = ['option1', 'option2']
+
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const { theme, togggleTheme } = useTheme()
   const [sidebarVisible, setSidebarVisible] = useState(false)
@@ -34,6 +36,30 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
           <MenuItem value="option4">Option 4</MenuItem>
           <MenuItem value="option5">Option 5</MenuItem>
         </Menu>
+
+        {/* {submenus.map((item) => (
+          <SubMenu key={item} value={item}>
+            <SubMenuItem
+              onClick={() => {
+                console.log('navigate')
+                setSidebarVisible(false)
+              }}
+            >
+              item 1
+            </SubMenuItem>
+          </SubMenu>
+        ))} */}
+
+        <SubMenu value="option1">
+          <SubMenuItem
+            onClick={() => {
+              console.log('navigate')
+              setSidebarVisible(false)
+            }}
+          >
+            item 1
+          </SubMenuItem>
+        </SubMenu>
 
         <SubMenu value="option1">
           <SubMenuItem
