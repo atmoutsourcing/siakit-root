@@ -1,5 +1,14 @@
 # @siakit/form-components
 
+## 0.0.2
+
+### Patch Changes
+
+- add date and time picker
+- Updated dependencies
+  - @siakit/icon-button@0.0.2
+  - @siakit/mask@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
