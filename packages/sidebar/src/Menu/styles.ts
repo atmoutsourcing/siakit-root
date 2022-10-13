@@ -6,6 +6,8 @@ export const MenuContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
+  overflowY: 'auto',
+
   zIndex: 2,
 
   width: 48,

@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.5
+
+### Patch Changes
+
+- add overflow-y in menu and submenu
+
 ## 0.0.4
 
 ### Patch Changes

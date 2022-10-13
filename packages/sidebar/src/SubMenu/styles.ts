@@ -8,6 +8,8 @@ export const SubMenuContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
+  overflowY: 'auto',
+
   backgroundColor: '$shape',
   outline: '1px solid $gray4',
   zIndex: 1,
