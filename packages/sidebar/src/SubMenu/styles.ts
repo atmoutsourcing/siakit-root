@@ -9,6 +9,6 @@ export const SubMenuContainer = styled('div', {
   flexDirection: 'column',
 
   backgroundColor: '$shape',
-  outline: '1px solid $gray3',
+  outline: '1px solid $gray4',
   zIndex: 1,
 })

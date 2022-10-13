@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType } from 'react'
+import { ComponentProps, ElementType, forwardRef } from 'react'
 import { FlexContainer } from './styles'
 
 type FlexProps = {
@@ -17,60 +17,66 @@ type FlexProps = {
   as?: ElementType
 } & ComponentProps<typeof FlexContainer>
 
-export function Flex({
-  flex,
-  margin,
-  padding,
-  gap,
-  width,
-  minWidth,
-  maxWidth,
-  height,
-  minHeight,
-  maxHeight,
-  css,
-  children,
-  ...props
-}: FlexProps) {
-  return (
-    <FlexContainer
-      css={{
-        ...css,
+export const Flex = forwardRef<HTMLDivElement, FlexProps>(
+  (
+    {
+      flex,
+      margin,
+      padding,
+      gap,
+      width,
+      minWidth,
+      maxWidth,
+      height,
+      minHeight,
+      maxHeight,
+      css,
+      children,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <FlexContainer
+        ref={ref}
+        css={{
+          ...css,
 
-        flex: typeof flex === 'boolean' ? 1 : flex,
+          flex: typeof flex === 'boolean' ? 1 : flex,
 
-        margin:
-          typeof margin === 'boolean'
-            ? 16
-            : typeof margin === 'number'
-            ? `${margin}px`
-            : margin,
+          margin:
+            typeof margin === 'boolean'
+              ? 16
+              : typeof margin === 'number'
+              ? `${margin}px`
+              : margin,
 
-        padding:
-          typeof padding === 'boolean'
-            ? 16
-            : typeof padding === 'number'
-            ? `${padding}px`
-            : padding,
+          padding:
+            typeof padding === 'boolean'
+              ? 16
+              : typeof padding === 'number'
+              ? `${padding}px`
+              : padding,
 
-        gap:
-          typeof gap === 'boolean'
-            ? 16
-            : typeof gap === 'number'
-            ? `${gap}px`
-            : gap,
+          gap:
+            typeof gap === 'boolean'
+              ? 16
+              : typeof gap === 'number'
+              ? `${gap}px`
+              : gap,
 
-        width,
-        minWidth,
-        maxWidth,
+          width,
+          minWidth,
+          maxWidth,
 
-        height,
-        minHeight,
-        maxHeight,
-      }}
-      {...props}
-    >
-      {children}
-    </FlexContainer>
-  )
-}
+          height,
+          minHeight,
+          maxHeight,
+        }}
+        {...props}
+      >
+        {children}
+      </FlexContainer>
+    )
+  },
+)

@@ -14,7 +14,7 @@ export const MenuItemContainer = styled('a', {
   gap: 12,
 
   fontSize: '$sm',
-  fontWeight: '$default',
+  fontWeight: '$regular',
 
   color: '$gray6',
 

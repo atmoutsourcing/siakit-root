@@ -6,27 +6,28 @@ import { light } from './themes/light'
 
 const scale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export const colors = {
-  amber: 'amber',
-  blue: 'blue',
-  brown: 'brown',
-  crimson: 'crimson',
-  cyan: 'cyan',
-  grass: 'grass',
-  gray: 'gray',
-  green: 'green',
-  indigo: 'indigo',
-  lime: 'lime',
-  mint: 'mint',
   orange: 'orange',
+  tomato: 'tomato',
+  red: 'red',
+  crimson: 'crimson',
   pink: 'pink',
   plum: 'plum',
   purple: 'purple',
-  red: 'red',
-  sky: 'sky',
-  teal: 'teal',
-  tomato: 'tomato',
   violet: 'violet',
+  indigo: 'indigo',
+  blue: 'blue',
+  cyan: 'cyan',
+  teal: 'teal',
+  green: 'green',
+  grass: 'grass',
+  brown: 'brown',
+
+  sky: 'sky',
+  mint: 'mint',
+  lime: 'lime',
   yellow: 'yellow',
+  amber: 'amber',
+  gray: 'gray',
 }
 
 export type Theme = 'light' | 'dark'

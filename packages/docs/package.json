@@ -9,13 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@siakit/core": "0.0.1",
-    "@siakit/button": "0.0.1",
-    "@siakit/layout": "0.0.1",
-    "@siakit/sidebar": "0.0.1",
+    "@siakit/avatar": "*",
+    "@siakit/button": "*",
+    "@siakit/core": "*",
+    "@siakit/dropdown": "*",
+    "@siakit/form-components": "*",
+    "@siakit/icon-button": "*",
+    "@siakit/layout": "*",
+    "@siakit/page-header": "*",
+    "@siakit/sidebar": "*",
+    "@siakit/card": "*",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
