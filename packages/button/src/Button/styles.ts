@@ -13,6 +13,8 @@ export const ButtonContainer = styled('button', {
   justifyContent: 'center',
   gap: 6,
 
+  lineHeight: 0,
+
   transition: 'background-color 0.150s, color 0.150s',
 
   svg: {

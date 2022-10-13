@@ -12,6 +12,8 @@ export const IconButtonContainer = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
 
+  lineHeight: 0,
+
   transition: 'background-color 0.150s, color 0.150s',
 
   '&:disabled': {

@@ -1,6 +1,6 @@
 {
-  "name": "@siakit/icon-button",
-  "version": "0.0.3",
+  "name": "@siakit/form-unform",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -23,6 +23,10 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@siakit/core": "*"
+    "@siakit/core": "*",
+    "@siakit/form-components": "*",
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
+    "yup": "^0.32.11"
   }
 }
