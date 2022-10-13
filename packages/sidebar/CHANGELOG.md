@@ -1,5 +1,15 @@
 # @siakit/sidebar
 
+## 0.0.2
+
+### Patch Changes
+
+- Add more components
+- Updated dependencies
+  - @siakit/core@0.0.2
+  - @siakit/separator@0.0.2
+  - @siakit/tooltip@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
