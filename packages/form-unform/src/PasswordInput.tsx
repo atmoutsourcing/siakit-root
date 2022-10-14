@@ -1,18 +1,22 @@
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  PasswordInput as PasswordInputComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 import { useEffect, useState } from 'react'
 
-type TextInputProps = {
+type PasswordInputProps = {
   name: string
   label?: string
   placeholder?: string
 }
 
-export function TextInput({ name, label, placeholder }: TextInputProps) {
+export function PasswordInput({
+  name,
+  label,
+  placeholder,
+}: PasswordInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -36,7 +40,7 @@ export function TextInput({ name, label, placeholder }: TextInputProps) {
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <PasswordInputComponent
         value={fieldValue}
         onChange={setFieldValue}
         placeholder={placeholder}
