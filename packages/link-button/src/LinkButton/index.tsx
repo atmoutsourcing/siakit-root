@@ -8,7 +8,7 @@ type LinkButtonProps = {
   variant?: 'primary' | 'secondary' | 'ghost'
 } & ComponentProps<typeof LinkButtonContainer>
 
-export function IconLinkButton({
+export function LinkButton({
   colorScheme,
   variant,
   children,
