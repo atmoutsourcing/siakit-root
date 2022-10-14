@@ -28,13 +28,13 @@ export const FlexContainer = styled('div', {
         justifyContent: 'center',
       },
       between: {
-        justifyContent: 'flex-between',
+        justifyContent: 'space-between',
       },
       around: {
-        justifyContent: 'flex-around',
+        justifyContent: 'space-around',
       },
       evenly: {
-        justifyContent: 'flex-evenly',
+        justifyContent: 'space-evenly',
       },
       stretch: {
         justifyContent: 'stretch',
