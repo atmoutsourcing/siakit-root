@@ -18,9 +18,21 @@ export const Heading = styled('h2', {
       '5xl': { fontSize: '$8xl' },
       '6xl': { fontSize: '$9xl' },
     },
+    weight: {
+      regular: {
+        fontWeight: '$regular',
+      },
+      medium: {
+        fontWeight: '$medium',
+      },
+      bold: {
+        fontWeight: '$bold',
+      },
+    },
   },
 
   defaultVariants: {
     size: 'md',
+    weight: 'bold',
   },
 })
