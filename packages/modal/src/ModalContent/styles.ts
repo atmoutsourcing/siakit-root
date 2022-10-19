@@ -35,7 +35,7 @@ export const Content = styled(Dialog.Content, {
   left: '50%',
   transform: 'translate(-50%, -50%)',
 
-  background: '$cardBackground',
+  background: '$shape',
   borderRadius: 8,
   display: 'flex',
   flexDirection: 'column',
