@@ -18,7 +18,7 @@ export const Spinner = styled('div', {
   borderLeftColor: '$gray11',
 
   variants: {
-    isInverted: {
+    inverted: {
       true: {
         borderColor: '$gray11',
         borderLeftColor: '$gray4',

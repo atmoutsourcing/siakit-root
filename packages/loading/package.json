@@ -1,6 +1,6 @@
 {
-  "name": "@siakit/spinner",
-  "version": "0.0.2",
+  "name": "@siakit/loading",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -23,6 +23,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@siakit/core": "*"
+    "@siakit/core": "*",
+    "@siakit/spinner": "*"
   }
 }
