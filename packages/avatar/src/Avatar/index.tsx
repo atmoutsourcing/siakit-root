@@ -24,6 +24,19 @@ interface AvatarImageProps extends AvatarBaseProps {
 
 type AvatarProps = AvatarNameProps | AvatarImageProps
 
+const headingSize = {
+  xs: 'xxs',
+  sm: 'xxs',
+  md: 'xs',
+  lg: 'sm',
+  xl: 'md',
+  '2xl': 'lg',
+  '3xl': '2xl',
+} as const
+
+type HeadingSizeType = keyof typeof headingSize
+type HeadingSizeValues = typeof headingSize[HeadingSizeType]
+
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
   ({ name, src, size = 'md', badge = false, ...props }, ref) => {
     function renderShortName(): string {
@@ -62,19 +75,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         >
           {!src && !!name && (
             <Heading
-              size={
-                size === 'xs' || size === 'sm'
-                  ? 'xxs'
-                  : size === 'md'
-                  ? 'xs'
-                  : size === 'lg'
-                  ? 'sm'
-                  : size === 'xl'
-                  ? 'md'
-                  : size === '2xl'
-                  ? 'lg'
-                  : '2xl'
-              }
+              size={headingSize[size] as HeadingSizeValues}
               weight="medium"
               lowContrast
             >
