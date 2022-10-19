@@ -1,6 +1,6 @@
 {
-  "name": "@siakit/form-components",
-  "version": "0.0.3",
+  "name": "@siakit/table",
+  "version": "0.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@siakit/eslint-config": "*",
     "@siakit/ts-config": "*",
+    "@types/dot-object": "^2.1.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
@@ -23,19 +24,15 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.0",
-    "@radix-ui/react-radio-group": "^1.0.0",
-    "@radix-ui/react-slider": "^1.0.0",
-    "@radix-ui/react-switch": "^1.0.0",
-    "@siakit/core": "*",
-    "@siakit/icon-button": "*",
     "@siakit/layout": "*",
-    "@siakit/mask": "*",
-    "@siakit/text": "*",
-    "@siakit/tooltip": "*",
-    "@siakit/popover": "*",
-    "date-fns": "^2.29.3",
-    "react-day-picker": "^8.3.5",
-    "react-select": "^5.5.0"
+    "@siakit/pagination": "*",
+    "@siakit/badge": "*",
+    "@siakit/link-button": "*",
+    "@siakit/dropdown": "*",
+    "@siakit/icon-button": "*",
+    "dot-object": "^2.1.4"
+  },
+  "peerDependencies": {
+    "@siakit/core": "*"
   }
 }

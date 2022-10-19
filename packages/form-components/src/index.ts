@@ -22,3 +22,5 @@ export * from './ColorPicker'
 export * from './Slider'
 export * from './DatePicker'
 export * from './TimePicker'
+
+export type { OptionType } from './Select'

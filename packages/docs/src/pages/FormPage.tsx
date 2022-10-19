@@ -19,16 +19,12 @@ import {
   Slider,
   DatePicker,
   TimePicker,
+  OptionType,
 } from '@siakit/form-components'
 import { Card } from '@siakit/card'
 import { Flex } from '@siakit/layout'
 import { useState } from 'react'
 import { Color } from '@siakit/core'
-
-type OptionType = {
-  value: string
-  label: string
-}
 
 type FlagOptionType = {
   value: string

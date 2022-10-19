@@ -1,5 +1,11 @@
 # @siakit/card
 
+## 0.0.2
+
+### Patch Changes
+
+- add pagination, table and modify other components
+
 ## 0.0.1
 
 ### Patch Changes

@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
+import { PaginationPage } from '../pages/PaginationPage'
+import { TablePage } from '../pages/TablePage'
 import { Test } from '../Test'
 
 export function AppRoutes() {
@@ -11,6 +13,8 @@ export function AppRoutes() {
         <Route path="" element={<FormPage />} />
         <Route path="unform" element={<FormUnform />} />
       </Route>
+      <Route path="table" element={<TablePage />} />
+      <Route path="pagination" element={<PaginationPage />} />
     </Routes>
   )
 }

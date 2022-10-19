@@ -1,5 +1,13 @@
 # @siakit/dropdown
 
+## 0.0.2
+
+### Patch Changes
+
+- add pagination, table and modify other components
+- Updated dependencies
+  - @siakit/card@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

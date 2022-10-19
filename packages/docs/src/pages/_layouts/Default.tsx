@@ -17,14 +17,12 @@ type DefaultLayoutProps = {
   children: ReactNode
 }
 
-const submenus = ['option1', 'option2']
-
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const { theme, togggleTheme } = useTheme()
   const [sidebarVisible, setSidebarVisible] = useState(false)
 
   return (
-    <Flex flex>
+    <Flex flex overflow>
       <Sidebar
         open={sidebarVisible}
         onOpenChange={(value) => setSidebarVisible(value)}
@@ -73,7 +71,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         </SubMenu>
       </Sidebar>
 
-      <Flex flex direction="column">
+      <Flex flex direction="column" overflow>
         <PageHeader title="Title">
           <Flex gap={8}>
             <IconButton

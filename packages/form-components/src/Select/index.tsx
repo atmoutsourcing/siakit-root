@@ -31,10 +31,17 @@ function ClearIndicatorCustom({ innerProps }: any) {
   )
 }
 
-type OptionType = {
+type OptionStringType = {
   value: string
   label: string
 }
+
+type OptionNumberType = {
+  value: number
+  label: string
+}
+
+export type OptionType = OptionStringType | OptionNumberType
 
 type SelectProps = {
   value: OptionType | null
@@ -43,6 +50,7 @@ type SelectProps = {
   placeholder?: string
   disabled?: boolean
   menuPlacement?: 'auto' | 'bottom' | 'top'
+  isClearable?: boolean
 }
 
 type RestProps = {
@@ -56,6 +64,7 @@ export function Select({
   placeholder = '',
   disabled,
   menuPlacement,
+  isClearable = true,
   ...props
 }: SelectProps) {
   const { isErrored } = props as RestProps
@@ -67,7 +76,7 @@ export function Select({
       classNamePrefix="react-select"
       menuPlacement={menuPlacement}
       isDisabled={disabled}
-      isClearable={true}
+      isClearable={isClearable}
       components={{
         ClearIndicator: ClearIndicatorCustom,
       }}
