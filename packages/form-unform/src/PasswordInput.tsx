@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react'
+
 import {
   FormControl,
   FormLabel,
   PasswordInput as PasswordInputComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
-import { useEffect, useState } from 'react'
 
 type PasswordInputProps = {
   name: string

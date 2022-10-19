@@ -1,7 +1,8 @@
-import { Flex } from '@siakit/layout'
-import { Text } from '@siakit/text'
-import { Table } from '@siakit/table'
 import { useEffect, useState } from 'react'
+
+import { Flex } from '@siakit/layout'
+import { Table } from '@siakit/table'
+import { Text } from '@siakit/text'
 
 export function TablePage() {
   const totalCount = 600
@@ -18,7 +19,7 @@ export function TablePage() {
   }, [])
 
   return (
-    <Flex flex direction="column" overflow>
+    <Flex flex direction="column" overflow padding gap>
       <Text>header</Text>
 
       <Table

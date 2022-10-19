@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react'
+
 import {
   FormControl,
   FormLabel,
   TextInput as TextInputComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
-import { useEffect, useState } from 'react'
 
 type TextInputProps = {
   name: string

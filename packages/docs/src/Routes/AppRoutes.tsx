@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
+
+import { AvatarPage } from '../pages/AvatarPage'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
 import { PaginationPage } from '../pages/PaginationPage'
@@ -15,6 +17,7 @@ export function AppRoutes() {
       </Route>
       <Route path="table" element={<TablePage />} />
       <Route path="pagination" element={<PaginationPage />} />
+      <Route path="avatar" element={<AvatarPage />} />
     </Routes>
   )
 }

@@ -8,7 +8,8 @@ export const Heading = styled('h2', {
 
   variants: {
     size: {
-      xs: { fontSize: '$md', fontWeight: '$medium' },
+      xxs: { fontSize: '$xs' },
+      xs: { fontSize: '$md' },
       sm: { fontSize: '$xl' },
       md: { fontSize: '$2xl' },
       lg: { fontSize: '$4xl' },
@@ -27,6 +28,11 @@ export const Heading = styled('h2', {
       },
       bold: {
         fontWeight: '$bold',
+      },
+    },
+    lowContrast: {
+      true: {
+        color: '$gray11',
       },
     },
   },

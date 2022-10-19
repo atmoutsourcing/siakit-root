@@ -1,3 +1,7 @@
+import { useState } from 'react'
+
+import { Card } from '@siakit/card'
+import { Color } from '@siakit/core'
 import {
   FormControl,
   FormLabel,
@@ -21,10 +25,7 @@ import {
   TimePicker,
   OptionType,
 } from '@siakit/form-components'
-import { Card } from '@siakit/card'
 import { Flex } from '@siakit/layout'
-import { useState } from 'react'
-import { Color } from '@siakit/core'
 
 type FlagOptionType = {
   value: string

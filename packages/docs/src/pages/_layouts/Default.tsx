@@ -1,17 +1,19 @@
-import { useTheme } from '@siakit/core'
-import { IconButton } from '@siakit/icon-button'
-import { Flex } from '@siakit/layout'
-import { PageHeader } from '@siakit/page-header'
-import { Menu, Sidebar, MenuItem, SubMenu, SubMenuItem } from '@siakit/sidebar'
-import { Moon, Sun } from 'phosphor-react'
 import { ReactNode, useState } from 'react'
+
+import { Moon, Sun } from 'phosphor-react'
+
 import { Avatar } from '@siakit/avatar'
+import { useTheme } from '@siakit/core'
 import {
   Dropdown,
   DropdownContent,
   DropdownTrigger,
   DropdownItem,
 } from '@siakit/dropdown'
+import { IconButton } from '@siakit/icon-button'
+import { Flex } from '@siakit/layout'
+import { PageHeader } from '@siakit/page-header'
+import { Menu, Sidebar, MenuItem, SubMenu, SubMenuItem } from '@siakit/sidebar'
 
 type DefaultLayoutProps = {
   children: ReactNode
@@ -72,7 +74,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
       </Sidebar>
 
       <Flex flex direction="column" overflow>
-        <PageHeader title="Title">
+        <PageHeader title="Title" onGoBack={() => console.log('on go back')}>
           <Flex gap={8}>
             <IconButton
               variant="ghost"

@@ -1,6 +1,6 @@
 {
   "name": "@siakit/card",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,7 +16,6 @@
   "devDependencies": {
     "@siakit/eslint-config": "*",
     "@siakit/ts-config": "*",
-    "@siakit/core": "*",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
@@ -24,6 +23,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@siakit/layout": "*"
+    "@siakit/layout": "*",
+    "@siakit/core": "*"
   }
 }

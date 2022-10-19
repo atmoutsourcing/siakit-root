@@ -29,26 +29,28 @@ export const AvatarContainer = styled('div', {
           width: 8,
           borderWidth: 1,
         },
-
-        '& strong': {
-          fontSize: '0.75rem',
-        },
       },
       sm: {
         width: 32,
         height: 32,
 
         '&::after': {
+          height: 10,
+          width: 10,
+          borderWidth: 1.5,
+        },
+      },
+      md: {
+        width: 40,
+        height: 40,
+
+        '&::after': {
           height: 12,
           width: 12,
           borderWidth: 1.5,
         },
-
-        '& strong': {
-          fontSize: '0.875rem',
-        },
       },
-      md: {
+      lg: {
         width: 48,
         height: 48,
 
@@ -57,12 +59,8 @@ export const AvatarContainer = styled('div', {
           width: 16,
           borderWidth: 2,
         },
-
-        '& strong': {
-          fontSize: '1rem',
-        },
       },
-      lg: {
+      xl: {
         width: 64,
         height: 64,
 
@@ -71,12 +69,8 @@ export const AvatarContainer = styled('div', {
           width: 22,
           borderWidth: 2.5,
         },
-
-        '& strong': {
-          fontSize: '1.25rem',
-        },
       },
-      xl: {
+      '2xl': {
         width: 96,
         height: 96,
 
@@ -85,12 +79,8 @@ export const AvatarContainer = styled('div', {
           width: 32,
           borderWidth: 3,
         },
-
-        '& strong': {
-          fontSize: '1.875rem',
-        },
       },
-      '2xl': {
+      '3xl': {
         width: 128,
         height: 128,
 
@@ -99,10 +89,6 @@ export const AvatarContainer = styled('div', {
           width: 42,
           borderWidth: 3.5,
         },
-
-        '& strong': {
-          fontSize: '2.25rem',
-        },
       },
     },
     badge: {
@@ -110,8 +96,6 @@ export const AvatarContainer = styled('div', {
         '&::after': {
           position: 'absolute',
           content: '',
-          width: 16,
-          height: 16,
           backgroundColor: '$orange9',
           borderRadius: '50%',
           bottom: 0,

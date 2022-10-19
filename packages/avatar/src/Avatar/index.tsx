@@ -1,9 +1,11 @@
-import { Tooltip } from '@siakit/tooltip'
 import { forwardRef } from 'react'
+
+import { Heading } from '@siakit/heading'
+import { Tooltip } from '@siakit/tooltip'
 
 import { AvatarContainer } from './styles'
 
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
 
 type AvatarBaseProps = {
   size?: Size
@@ -58,7 +60,27 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
           }
           {...props}
         >
-          {!src && !!name && <strong>{renderShortName()}</strong>}
+          {!src && !!name && (
+            <Heading
+              size={
+                size === 'xs' || size === 'sm'
+                  ? 'xxs'
+                  : size === 'md'
+                  ? 'xs'
+                  : size === 'lg'
+                  ? 'sm'
+                  : size === 'xl'
+                  ? 'md'
+                  : size === '2xl'
+                  ? 'lg'
+                  : '2xl'
+              }
+              weight="medium"
+              lowContrast
+            >
+              {renderShortName()}
+            </Heading>
+          )}
         </AvatarContainer>
       </Tooltip>
     )

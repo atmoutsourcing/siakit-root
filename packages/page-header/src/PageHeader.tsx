@@ -1,26 +1,30 @@
 import { ReactNode } from 'react'
 
+import { Card } from '@siakit/card'
 import { Heading } from '@siakit/heading'
-
-import { PageHeaderContainer } from './styles'
+import { IconButton } from '@siakit/icon-button'
+import { Flex } from '@siakit/layout'
 
 interface PageHeaderProps {
-  title: string
+  title?: string
   children?: ReactNode
   onGoBack?: () => void
 }
 
-export function PageHeader({
-  title,
-  children,
-  onGoBack,
-  ...props
-}: PageHeaderProps) {
+export function PageHeader({ title, children, onGoBack }: PageHeaderProps) {
   return (
-    <PageHeaderContainer {...props}>
-      <div>
+    <Card
+      height={48}
+      gap
+      flexWrap="wrap"
+      justify="between"
+      align="center"
+      padding="0 16px"
+      css={{ borderRadius: 0 }}
+    >
+      <Flex gap={8} align="center">
         {onGoBack && (
-          <button type="button" onClick={onGoBack}>
+          <IconButton variant="ghost" colorScheme="gray">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -33,12 +37,17 @@ export function PageHeader({
                 clipRule="evenodd"
               />
             </svg>
-          </button>
+          </IconButton>
         )}
 
-        <Heading size="xs">{title}</Heading>
-      </div>
+        {!!title && (
+          <Heading size="xs" weight="medium">
+            {title}
+          </Heading>
+        )}
+      </Flex>
+
       {children}
-    </PageHeaderContainer>
+    </Card>
   )
 }
