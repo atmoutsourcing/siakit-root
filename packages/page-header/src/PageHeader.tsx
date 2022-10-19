@@ -19,10 +19,10 @@ export function PageHeader({ title, children, onGoBack }: PageHeaderProps) {
       flexWrap="wrap"
       justify="between"
       align="center"
-      padding="0 16px"
+      padding="0 16px 0 8px"
       css={{ borderRadius: 0 }}
     >
-      <Flex gap={8} align="center">
+      <Flex gap={8} padding={!onGoBack ? '0 0 0 8px' : 0} align="center">
         {onGoBack && (
           <IconButton variant="ghost" colorScheme="gray">
             <svg
