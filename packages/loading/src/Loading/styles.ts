@@ -9,7 +9,8 @@ export const Overlay = styled('div', {
   bottom: 0,
 
   display: 'flex',
-  placeItems: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
 
   zIndex: 10000,
 })
