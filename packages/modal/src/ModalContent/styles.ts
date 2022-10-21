@@ -23,6 +23,7 @@ export const Overlay = styled(Dialog.Overlay, {
   height: '100vh',
   inset: 0,
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  zIndex: 9000,
 
   '&[data-state=open]': {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
@@ -34,6 +35,8 @@ export const Content = styled(Dialog.Content, {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
+
+  zIndex: 9005,
 
   background: '$shape',
   borderRadius: 8,
@@ -100,7 +103,7 @@ export const Content = styled(Dialog.Content, {
 
 export const Title = styled(Dialog.Title, {
   fontSize: 18,
-  fontWeight: 600,
+  fontWeight: 500,
   margin: 16,
   paddingRight: 32,
 })

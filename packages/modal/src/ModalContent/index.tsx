@@ -1,5 +1,6 @@
-import * as Dialog from '@radix-ui/react-dialog'
 import { ReactNode } from 'react'
+
+import * as Dialog from '@radix-ui/react-dialog'
 
 import { CloseButton, Content, Overlay, Title } from './styles'
 
