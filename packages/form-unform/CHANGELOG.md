@@ -1,5 +1,14 @@
 # @siakit/form-unform
 
+## 0.0.5
+
+### Patch Changes
+
+- fix
+- Updated dependencies
+  - @siakit/core@0.0.3
+  - @siakit/form-components@0.0.4
+
 ## 0.0.4
 
 ### Patch Changes
