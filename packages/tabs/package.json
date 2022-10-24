@@ -1,6 +1,6 @@
 {
   "name": "@siakit/tabs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@radix-ui/react-tabs": "^1.0.1",
-    "@siakit/core": "*"
+    "@siakit/core": "*",
+    "@siakit/badge": "*"
   }
 }

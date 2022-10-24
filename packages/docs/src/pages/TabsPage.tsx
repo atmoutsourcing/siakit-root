@@ -1,27 +1,30 @@
 import { useState } from 'react'
 
-import { Button } from '@siakit/button'
+import { Card } from '@siakit/card'
 import { Flex } from '@siakit/layout'
 import { Tabs, TabsList, TabsItem, TabsContent } from '@siakit/tabs'
 import { Text } from '@siakit/text'
 
 export function TabsPage() {
-  const [item, setItem] = useState('')
+  const [item, setItem] = useState('item1')
 
   return (
-    <Flex>
-      <Button type="button" onClick={() => setItem('item2')}>
-        set value
-      </Button>
+    <Flex flex>
       <Tabs value={item} onValueChange={setItem}>
         <TabsList>
           <TabsItem value="item1">item 1</TabsItem>
-          <TabsItem value="item2">item 2</TabsItem>
-          <TabsItem value="item3">item 3</TabsItem>
+          <TabsItem value="item2" disabled badge={12}>
+            item 2
+          </TabsItem>
+          <TabsItem value="item3" badge={32}>
+            item 3
+          </TabsItem>
         </TabsList>
 
         <TabsContent value="item1">
-          <Text>item 1</Text>
+          <Card flex margin padding>
+            <Text>item 1</Text>
+          </Card>
         </TabsContent>
 
         <TabsContent value="item2">

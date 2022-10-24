@@ -3,14 +3,21 @@ import { styled } from '@siakit/core'
 
 export const Tabs = styled(RadixTabs.Root, {
   flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
 })
 
-export const TabsList = styled(RadixTabs.List, {})
+export const TabsList = styled(RadixTabs.List, {
+  position: 'relative',
+  display: 'flex',
 
-export const TabsItem = styled(RadixTabs.Trigger, {
-  '&[data-state="active"]': {
-    backgroundColor: 'tomato',
+  '&:after': {
+    content: '',
+    position: 'absolute',
+    height: 2,
+    width: '100%',
+    backgroundColor: '$gray6',
+    bottom: 0,
+    zIndex: 5,
   },
 })
-
-export const TabsContent = styled(RadixTabs.Content, {})
