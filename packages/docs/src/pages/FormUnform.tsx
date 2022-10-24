@@ -52,7 +52,7 @@ export function FormUnform() {
               name="password"
               label="Senha"
               placeholder="Senha"
-              strength={10}
+              strength={0}
             />
           </Flex>
         </Flex>
