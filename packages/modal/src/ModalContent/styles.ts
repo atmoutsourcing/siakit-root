@@ -101,13 +101,6 @@ export const Content = styled(Dialog.Content, {
   },
 })
 
-export const Title = styled(Dialog.Title, {
-  fontSize: 18,
-  fontWeight: 500,
-  margin: 16,
-  paddingRight: 32,
-})
-
 export const CloseButton = styled(IconButton, {
   position: 'absolute',
   top: 8,

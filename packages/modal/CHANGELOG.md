@@ -1,5 +1,11 @@
 # @siakit/modal
 
+## 0.0.6
+
+### Patch Changes
+
+- add various components
+
 ## 0.0.5
 
 ### Patch Changes

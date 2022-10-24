@@ -1,6 +1,6 @@
 {
   "name": "@siakit/modal",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -25,6 +25,8 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.0",
     "@siakit/core": "*",
-    "@siakit/icon-button": "*"
+    "@siakit/icon-button": "*",
+    "@siakit/heading": "*",
+    "@siakit/layout": "*"
   }
 }

@@ -1,8 +1,10 @@
 import { ReactNode } from 'react'
 
 import * as Dialog from '@radix-ui/react-dialog'
+import { Heading } from '@siakit/heading'
+import { Flex } from '@siakit/layout'
 
-import { CloseButton, Content, Overlay, Title } from './styles'
+import { CloseButton, Content, Overlay } from './styles'
 
 interface ModalContentProps {
   children: ReactNode
@@ -21,7 +23,13 @@ export function ModalContent({
       <Overlay />
 
       <Content size={size} {...props}>
-        {!!title && <Title>{title}</Title>}
+        {!!title && (
+          <Flex padding="16px 32px 16px 16px">
+            <Heading size="xs" weight="medium">
+              {title}
+            </Heading>
+          </Flex>
+        )}
 
         <div>{children}</div>
 

@@ -1,5 +1,6 @@
-import { IconButton } from '@siakit/icon-button'
 import { ChangeEvent } from 'react'
+
+import { IconButton } from '@siakit/icon-button'
 
 import { Input, Suffix, TextInputContainer } from './styles'
 

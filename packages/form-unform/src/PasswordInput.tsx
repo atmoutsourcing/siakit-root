@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ComponentProps, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -11,7 +11,7 @@ type PasswordInputProps = {
   name: string
   label?: string
   placeholder?: string
-}
+} & ComponentProps<typeof PasswordInputComponent>
 
 export function PasswordInput({
   name,

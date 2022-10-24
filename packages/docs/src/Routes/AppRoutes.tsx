@@ -1,10 +1,19 @@
 import { Routes, Route } from 'react-router-dom'
 
 import { AvatarPage } from '../pages/AvatarPage'
+import { BadgePage } from '../pages/BadgePage'
+import { CardPage } from '../pages/CardPage'
+import { DrawerPage } from '../pages/DrawerPage'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
+import { LoadingPage } from '../pages/LoadingPage'
+import { ModalPage } from '../pages/ModalPage'
 import { PaginationPage } from '../pages/PaginationPage'
 import { TablePage } from '../pages/TablePage'
+import { TabsPage } from '../pages/TabsPage'
+import { TestPage } from '../pages/TestPage'
+import { TimelinePage } from '../pages/TimelinePage'
+import { ToastPage } from '../pages/ToastPage'
 import { Test } from '../Test'
 
 export function AppRoutes() {
@@ -18,6 +27,15 @@ export function AppRoutes() {
       <Route path="table" element={<TablePage />} />
       <Route path="pagination" element={<PaginationPage />} />
       <Route path="avatar" element={<AvatarPage />} />
+      <Route path="test" element={<TestPage />} />
+      <Route path="loading" element={<LoadingPage />} />
+      <Route path="modal" element={<ModalPage />} />
+      <Route path="drawer" element={<DrawerPage />} />
+      <Route path="card" element={<CardPage />} />
+      <Route path="timeline" element={<TimelinePage />} />
+      <Route path="toast" element={<ToastPage />} />
+      <Route path="badge" element={<BadgePage />} />
+      <Route path="tabs" element={<TabsPage />} />
     </Routes>
   )
 }

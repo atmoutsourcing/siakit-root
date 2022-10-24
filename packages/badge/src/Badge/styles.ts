@@ -8,12 +8,12 @@ export const BadgeContainer = styled('div', {
 
   height: 20,
 
-  px: 6,
+  padding: '0 6px',
   gap: 4,
 
   fontSize: 12,
   lineHeight: '14px',
-  fontWeight: 600,
+  fontWeight: 500,
 
   transition: 'background-color 0.150s, color 0.150s',
 

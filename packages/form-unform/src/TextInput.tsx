@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ComponentProps, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -11,7 +11,7 @@ type TextInputProps = {
   name: string
   label?: string
   placeholder?: string
-}
+} & ComponentProps<typeof TextInputComponent>
 
 export function TextInput({ name, label, placeholder }: TextInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
