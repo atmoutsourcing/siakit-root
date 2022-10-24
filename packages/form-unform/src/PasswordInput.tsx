@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -11,12 +11,14 @@ type PasswordInputProps = {
   name: string
   label?: string
   placeholder?: string
-} & ComponentProps<typeof PasswordInputComponent>
+  strength?: number
+}
 
 export function PasswordInput({
   name,
   label,
   placeholder,
+  strength,
 }: PasswordInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -45,6 +47,7 @@ export function PasswordInput({
         value={fieldValue}
         onChange={setFieldValue}
         placeholder={placeholder}
+        strength={strength}
       />
     </FormControl>
   )

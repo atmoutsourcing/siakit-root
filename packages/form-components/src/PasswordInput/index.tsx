@@ -1,9 +1,16 @@
 import { ChangeEvent, useState } from 'react'
 
+import { themeKeys } from '@siakit/core'
 import { IconButton } from '@siakit/icon-button'
 import { Flex } from '@siakit/layout'
+import { Text } from '@siakit/text'
 
-import { Input, Suffix, PasswordInputContainer } from './styles'
+import {
+  Input,
+  Suffix,
+  PasswordInputContainer,
+  StrengthContainer,
+} from './styles'
 
 type PasswordInputProps = {
   value: string
@@ -113,7 +120,34 @@ export function PasswordInput({
           )}
         </IconButton>
       </PasswordInputContainer>
-      {strength}
+
+      {typeof strength === 'number' && (
+        <StrengthContainer>
+          <div>
+            <div
+              style={{
+                height: '100%',
+                width: `${strength}%`,
+                borderRadius: 2,
+                backgroundColor:
+                  strength > 0 && strength <= 30
+                    ? themeKeys.colors.red9.value
+                    : strength > 30 && strength < 70
+                    ? themeKeys.colors.amber9.value
+                    : themeKeys.colors.green9.value,
+              }}
+            />
+          </div>
+
+          {strength > 0 && (
+            <Text size="xs" lowContrast>
+              {strength > 0 && strength <= 30 && 'Senha fraca'}
+              {strength > 30 && strength < 70 && 'Senha média'}
+              {strength >= 70 && 'Senha forte'}
+            </Text>
+          )}
+        </StrengthContainer>
+      )}
     </Flex>
   )
 }

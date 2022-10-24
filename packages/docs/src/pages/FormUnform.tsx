@@ -5,7 +5,12 @@ import * as yup from 'yup'
 import { Button } from '@siakit/button'
 import { Card } from '@siakit/card'
 import { Footer } from '@siakit/footer'
-import { getValidationErrors, Form, FormHandles } from '@siakit/form-unform'
+import {
+  getValidationErrors,
+  Form,
+  FormHandles,
+  PasswordInput,
+} from '@siakit/form-unform'
 import { Flex } from '@siakit/layout'
 
 const formSchema = yup.object({
@@ -43,8 +48,12 @@ export function FormUnform() {
       >
         <Flex direction="column" padding>
           <Flex gap={8}>
-            {/* <TextInput name="test" label="test" placeholder="test" />
-            <TextInput name="test2" label="test" placeholder="test" /> */}
+            <PasswordInput
+              name="password"
+              label="Senha"
+              placeholder="Senha"
+              strength={10}
+            />
           </Flex>
         </Flex>
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import { Card } from '@siakit/card'
 import { Flex } from '@siakit/layout'
+import { Table } from '@siakit/table'
 import { Tabs, TabsList, TabsItem, TabsContent } from '@siakit/tabs'
 import { Text } from '@siakit/text'
 
@@ -9,7 +9,7 @@ export function TabsPage() {
   const [item, setItem] = useState('item1')
 
   return (
-    <Flex flex>
+    <Flex flex overflow>
       <Tabs value={item} onValueChange={setItem}>
         <TabsList>
           <TabsItem value="item1">item 1</TabsItem>
@@ -22,9 +22,17 @@ export function TabsPage() {
         </TabsList>
 
         <TabsContent value="item1">
-          <Card flex margin padding>
-            <Text>item 1</Text>
-          </Card>
+          <Flex overflow>
+            <Table
+              headers={[
+                {
+                  label: 'name',
+                  dataIndex: 'name',
+                },
+              ]}
+              data={new Array(100).fill('asd').map((item) => ({ name: item }))}
+            />
+          </Flex>
         </TabsContent>
 
         <TabsContent value="item2">

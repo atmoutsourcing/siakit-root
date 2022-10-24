@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom'
 
 import { Provider } from '@siakit/core'
+import { DialogProvider } from '@siakit/dialog'
 import { LoadingProvider } from '@siakit/loading'
 import { ToastProvider } from '@siakit/toast'
 
@@ -12,11 +13,13 @@ export function App() {
     <Provider>
       <ToastProvider>
         <LoadingProvider>
-          <DefaultLayout>
-            <BrowserRouter>
-              <AppRoutes />
-            </BrowserRouter>
-          </DefaultLayout>
+          <DialogProvider>
+            <DefaultLayout>
+              <BrowserRouter>
+                <AppRoutes />
+              </BrowserRouter>
+            </DefaultLayout>
+          </DialogProvider>
         </LoadingProvider>
       </ToastProvider>
     </Provider>

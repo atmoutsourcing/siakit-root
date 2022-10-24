@@ -52,3 +52,18 @@ export const Input = styled('input', {
 })
 
 export const Suffix = styled('div')
+
+export const StrengthContainer = styled('div', {
+  height: '$5',
+
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+
+  '> div': {
+    flex: 1,
+    height: '$1',
+    backgroundColor: '$gray3',
+    borderRadius: '$full',
+  },
+})

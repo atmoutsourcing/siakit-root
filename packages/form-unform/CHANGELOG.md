@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.7
+
+### Patch Changes
+
+- add password strength
+- Updated dependencies
+  - @siakit/form-components@0.0.6
+
 ## 0.0.6
 
 ### Patch Changes

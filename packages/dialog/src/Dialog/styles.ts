@@ -12,6 +12,7 @@ const Overlay = styled(AlertDialog.Overlay, {
   height: '100vh',
   inset: 0,
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  zIndex: 9050,
 
   '&[data-state=open]': {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
@@ -24,7 +25,7 @@ const Content = styled(AlertDialog.Content, {
   left: '50%',
   transform: 'translate(-50%, -50%)',
 
-  background: '$cardBackground',
+  background: '$shape',
   borderRadius: 8,
   display: 'flex',
   flexDirection: 'column',
@@ -37,6 +38,8 @@ const Content = styled(AlertDialog.Content, {
   gap: 24,
 
   maxWidth: 272,
+
+  zIndex: 9055,
 
   '&:focus': {
     boxShadow: 'none',

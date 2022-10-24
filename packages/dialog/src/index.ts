@@ -1,1 +1,1 @@
-export * from './Dialog'
+export * from './contexts/dialogContext'

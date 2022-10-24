@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { AvatarPage } from '../pages/AvatarPage'
 import { BadgePage } from '../pages/BadgePage'
 import { CardPage } from '../pages/CardPage'
+import { DialogPage } from '../pages/DialogPage'
 import { DrawerPage } from '../pages/DrawerPage'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
@@ -36,6 +37,7 @@ export function AppRoutes() {
       <Route path="toast" element={<ToastPage />} />
       <Route path="badge" element={<BadgePage />} />
       <Route path="tabs" element={<TabsPage />} />
+      <Route path="dialog" element={<DialogPage />} />
     </Routes>
   )
 }

@@ -1,5 +1,11 @@
 # @siakit/dialog
 
+## 0.0.3
+
+### Patch Changes
+
+- add password strength
+
 ## 0.0.2
 
 ### Patch Changes
