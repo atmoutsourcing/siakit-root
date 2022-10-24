@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.8
+
+### Patch Changes
+
+- add onChange to passwordInput
+
 ## 0.0.7
 
 ### Patch Changes

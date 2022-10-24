@@ -12,6 +12,7 @@ type PasswordInputProps = {
   label?: string
   placeholder?: string
   strength?: number
+  onChange?: (value: string) => void
 }
 
 export function PasswordInput({
@@ -19,6 +20,7 @@ export function PasswordInput({
   label,
   placeholder,
   strength,
+  onChange,
 }: PasswordInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -39,13 +41,21 @@ export function PasswordInput({
     })
   }, [fieldName, registerField, fieldValue])
 
+  function handleChange(value: string) {
+    setFieldValue(value)
+
+    if (onChange) {
+      onChange(value)
+    }
+  }
+
   return (
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
       <PasswordInputComponent
         value={fieldValue}
-        onChange={setFieldValue}
+        onChange={handleChange}
         placeholder={placeholder}
         strength={strength}
       />
