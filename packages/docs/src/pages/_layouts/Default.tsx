@@ -30,11 +30,11 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         onOpenChange={(value) => setSidebarVisible(value)}
       >
         <Menu>
-          <MenuItem value="option1">Option 1</MenuItem>
-          <MenuItem value="option2">Option 2</MenuItem>
-          <MenuItem value="option3">Option 3</MenuItem>
-          <MenuItem value="option4">Option 4</MenuItem>
-          <MenuItem value="option5">Option 5</MenuItem>
+          {new Array(40).fill('').map((item) => (
+            <MenuItem value="option1" key={item}>
+              Option 1
+            </MenuItem>
+          ))}
         </Menu>
 
         {/* {submenus.map((item) => (
@@ -51,14 +51,17 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         ))} */}
 
         <SubMenu value="option1">
-          <SubMenuItem
-            onClick={() => {
-              console.log('navigate')
-              setSidebarVisible(false)
-            }}
-          >
-            item 1
-          </SubMenuItem>
+          {new Array(50).fill('').map((item) => (
+            <SubMenuItem
+              key={item}
+              onClick={() => {
+                console.log('navigate')
+                setSidebarVisible(false)
+              }}
+            >
+              item 1
+            </SubMenuItem>
+          ))}
         </SubMenu>
 
         <SubMenu value="option1">

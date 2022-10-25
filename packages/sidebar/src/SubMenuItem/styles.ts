@@ -2,6 +2,7 @@ import { styled } from '@siakit/core'
 
 export const SubMenuItemContainer = styled('a', {
   position: 'relative',
+  minHeight: 32,
   height: 32,
   paddingLeft: 12,
 
