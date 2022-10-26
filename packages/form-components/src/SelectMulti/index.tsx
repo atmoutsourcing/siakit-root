@@ -1,7 +1,7 @@
 import { themeKeys } from '@siakit/core'
 import { IconButton } from '@siakit/icon-button'
-import { OptionType } from '../Select'
 
+import { OptionType } from '../Select'
 import { SelectMultiContainer } from './styles'
 
 function ClearIndicatorCustom({ innerProps }: any) {
@@ -33,8 +33,8 @@ function ClearIndicatorCustom({ innerProps }: any) {
 }
 
 type SelectMultiProps = {
-  value: OptionType[]
-  onChange: (value: OptionType[]) => void
+  value: OptionType[] | null
+  onChange: (value: OptionType[] | null) => void
   options: OptionType[]
   placeholder?: string
   disabled?: boolean

@@ -3,23 +3,26 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  MaskInput as MaskInputComponent,
 } from '@siakit/form-components'
+import { MaskType } from '@siakit/mask'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type MaskInputProps = {
   name: string
+  mask: MaskType
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
 }
 
-export function TextInput({
+export function MaskInput({
   name,
+  mask,
   label,
   placeholder,
   onChange,
-}: TextInputProps) {
+}: MaskInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -51,7 +54,8 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <MaskInputComponent
+        mask={mask}
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}

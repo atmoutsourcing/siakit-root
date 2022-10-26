@@ -1,5 +1,6 @@
 import { Color, colors } from '@siakit/core'
 import { Tooltip } from '@siakit/tooltip'
+
 import { ColorButton, ColorItem, ColorPickerContainer } from './styles'
 
 type ColorPickerProps = {

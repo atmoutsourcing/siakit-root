@@ -1,5 +1,6 @@
 import { Flex } from '@siakit/layout'
 import { Text } from '@siakit/text'
+
 import {
   SliderContainer,
   SliderTrack,
@@ -26,6 +27,7 @@ export function Slider({
     <Flex
       align="center"
       css={disabled ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+      height={32}
     >
       <SliderContainer
         value={value}

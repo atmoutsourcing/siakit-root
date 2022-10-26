@@ -1,6 +1,6 @@
 import { styled } from '@siakit/core'
 
-export const TextareaInputContainer = styled('div', {
+export const TextAreaInputContainer = styled('div', {
   position: 'relative',
   width: '100%',
 
@@ -36,7 +36,7 @@ export const TextareaInputContainer = styled('div', {
   },
 })
 
-export const Textarea = styled('textarea', {
+export const TextArea = styled('textarea', {
   outline: 0,
   border: 0,
   backgroundColor: 'transparent',

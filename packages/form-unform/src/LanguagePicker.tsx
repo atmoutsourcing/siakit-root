@@ -3,26 +3,29 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  LanguagePicker as LanguagePickerComponent,
+  FlagOptionType,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type LanguagePickerProps = {
   name: string
   label?: string
   placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (option: FlagOptionType | null) => void
 }
 
-export function TextInput({
+export function LanguagePicker({
   name,
   label,
   placeholder,
   onChange,
-}: TextInputProps) {
+}: LanguagePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState<FlagOptionType | null>(
+    defaultValue ?? null,
+  )
 
   useEffect(() => {
     registerField({
@@ -30,16 +33,16 @@ export function TextInput({
       getValue: () => {
         return fieldValue
       },
-      setValue: (_, value) => {
+      setValue: (_, value: FlagOptionType | null) => {
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue(null)
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: string) {
+  function handleChange(value: FlagOptionType | null) {
     setFieldValue(value)
 
     if (onChange) {
@@ -51,7 +54,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <LanguagePickerComponent
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}

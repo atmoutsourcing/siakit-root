@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.12
+
+### Patch Changes
+
+- fix sidebar title and add various form components
+- Updated dependencies
+  - @siakit/form-components@0.0.8
+
 ## 0.0.11
 
 ### Patch Changes

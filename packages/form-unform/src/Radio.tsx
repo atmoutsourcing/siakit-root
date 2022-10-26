@@ -3,23 +3,19 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  OptionType,
+  Radio as RadioComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type RadioProps = {
   name: string
+  options: OptionType[]
   label?: string
-  placeholder?: string
   onChange?: (value: string) => void
 }
 
-export function TextInput({
-  name,
-  label,
-  placeholder,
-  onChange,
-}: TextInputProps) {
+export function Radio({ name, options, label, onChange }: RadioProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -28,16 +24,20 @@ export function TextInput({
     registerField({
       name: fieldName,
       getValue: () => {
+        if (typeof options[0].value === 'number') {
+          return Number(fieldValue)
+        }
+
         return fieldValue
       },
       setValue: (_, value) => {
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue(false)
       },
     })
-  }, [fieldName, registerField, fieldValue])
+  }, [fieldName, registerField, fieldValue, options])
 
   function handleChange(value: string) {
     setFieldValue(value)
@@ -51,10 +51,10 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <RadioComponent
+        options={options}
         value={fieldValue}
         onChange={handleChange}
-        placeholder={placeholder}
       />
     </FormControl>
   )

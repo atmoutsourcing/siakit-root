@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.8
+
+### Patch Changes
+
+- fix sidebar title and add various form components
+
 ## 0.0.7
 
 ### Patch Changes

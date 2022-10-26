@@ -9,7 +9,7 @@ export * from './PasswordInput'
 export * from './MoneyInput'
 export * from './MaskInput'
 export * from './PercentageInput'
-export * from './TextareaInput'
+export * from './TextAreaInput'
 
 export * from './Switch'
 export * from './Checkbox'

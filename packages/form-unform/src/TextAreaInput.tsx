@@ -3,23 +3,25 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  TextAreaInput as TextAreaInputComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type TextAreaInputProps = {
   name: string
   label?: string
   placeholder?: string
+  rows?: number
   onChange?: (value: string) => void
 }
 
-export function TextInput({
+export function TextAreaInput({
   name,
   label,
   placeholder,
+  rows = 5,
   onChange,
-}: TextInputProps) {
+}: TextAreaInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -51,10 +53,11 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <TextAreaInputComponent
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        rows={rows}
       />
     </FormControl>
   )

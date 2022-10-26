@@ -1,9 +1,10 @@
-import { IconButton } from '@siakit/icon-button'
 import { ChangeEvent } from 'react'
 
-import { Textarea, Suffix, TextareaInputContainer } from './styles'
+import { IconButton } from '@siakit/icon-button'
 
-type TextareaInputProps = {
+import { TextAreaInputContainer, TextArea, Suffix } from './styles'
+
+type TextAreaInputProps = {
   value: string
   onChange: (value: string) => void
   rows?: number
@@ -15,14 +16,14 @@ type RestProps = {
   isErrored: boolean
 }
 
-export function TextareaInput({
+export function TextAreaInput({
   value,
   onChange,
   rows = 5,
   placeholder,
   disabled,
   ...props
-}: TextareaInputProps) {
+}: TextAreaInputProps) {
   const { isErrored } = props as RestProps
 
   function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
@@ -36,8 +37,8 @@ export function TextareaInput({
   }
 
   return (
-    <TextareaInputContainer isErrored={isErrored} disabled={disabled}>
-      <Textarea
+    <TextAreaInputContainer isErrored={isErrored} disabled={disabled}>
+      <TextArea
         value={value}
         onChange={handleChange}
         rows={rows}
@@ -72,6 +73,6 @@ export function TextareaInput({
           </svg>
         </IconButton>
       </Suffix>
-    </TextareaInputContainer>
+    </TextAreaInputContainer>
   )
 }

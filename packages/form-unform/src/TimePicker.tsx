@@ -3,43 +3,41 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  TimePicker as TimePickerComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type TimePickerProps = {
   name: string
   label?: string
   placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (value: number[]) => void
 }
 
-export function TextInput({
+export function TimePicker({
   name,
   label,
   placeholder,
   onChange,
-}: TextInputProps) {
+}: TimePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState<number[]>(defaultValue ?? [])
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      getValue: () => {
-        return fieldValue
-      },
+      getValue: () => fieldValue,
       setValue: (_, value) => {
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue([])
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: string) {
+  function handleChange(value: number[]) {
     setFieldValue(value)
 
     if (onChange) {
@@ -51,7 +49,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <TimePickerComponent
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}

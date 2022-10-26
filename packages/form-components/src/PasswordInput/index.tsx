@@ -34,8 +34,6 @@ export function PasswordInput({
 }: PasswordInputProps) {
   const { isErrored } = props as RestProps
 
-  console.log('pass input', strength)
-
   const [hidden, setHidden] = useState(true)
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {

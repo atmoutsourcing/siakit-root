@@ -3,43 +3,35 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  Slider as SliderComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type SliderProps = {
   name: string
   label?: string
-  placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (value: number[]) => void
 }
 
-export function TextInput({
-  name,
-  label,
-  placeholder,
-  onChange,
-}: TextInputProps) {
+export function Slider({ name, label, onChange }: SliderProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState<number[]>(defaultValue ?? [0])
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      getValue: () => {
-        return fieldValue
-      },
+      getValue: () => fieldValue[0],
       setValue: (_, value) => {
-        setFieldValue(value)
+        setFieldValue([value])
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue([0])
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: string) {
+  function handleChange(value: number[]) {
     setFieldValue(value)
 
     if (onChange) {
@@ -51,11 +43,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
-        value={fieldValue}
-        onChange={handleChange}
-        placeholder={placeholder}
-      />
+      <SliderComponent value={fieldValue} onChange={handleChange} />
     </FormControl>
   )
 }

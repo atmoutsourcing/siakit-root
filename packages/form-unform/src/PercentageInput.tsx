@@ -3,23 +3,23 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  PercentageInput as PercentageInputComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type PercentageInputProps = {
   name: string
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
 }
 
-export function TextInput({
+export function PercentageInput({
   name,
   label,
   placeholder,
   onChange,
-}: TextInputProps) {
+}: PercentageInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -51,7 +51,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <PercentageInputComponent
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}

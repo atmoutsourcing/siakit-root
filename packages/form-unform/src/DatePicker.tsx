@@ -3,26 +3,28 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  DatePicker as DatePickerComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type DatePickerProps = {
   name: string
   label?: string
   placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (value: Date | null) => void
 }
 
-export function TextInput({
+export function DatePicker({
   name,
   label,
   placeholder,
   onChange,
-}: TextInputProps) {
+}: DatePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState<Date | null>(
+    defaultValue ?? null,
+  )
 
   useEffect(() => {
     registerField({
@@ -34,12 +36,12 @@ export function TextInput({
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue(null)
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: string) {
+  function handleChange(value: Date | null) {
     setFieldValue(value)
 
     if (onChange) {
@@ -51,7 +53,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
+      <DatePickerComponent
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}

@@ -3,26 +3,20 @@ import { useEffect, useState } from 'react'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  Switch as SwitchComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type SwitchProps = {
   name: string
   label?: string
-  placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (value: boolean) => void
 }
 
-export function TextInput({
-  name,
-  label,
-  placeholder,
-  onChange,
-}: TextInputProps) {
+export function Switch({ name, label, onChange }: SwitchProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState<boolean>(defaultValue ?? false)
 
   useEffect(() => {
     registerField({
@@ -34,12 +28,12 @@ export function TextInput({
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue(false)
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: string) {
+  function handleChange(value: boolean) {
     setFieldValue(value)
 
     if (onChange) {
@@ -51,11 +45,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
-        value={fieldValue}
-        onChange={handleChange}
-        placeholder={placeholder}
-      />
+      <SwitchComponent value={fieldValue} onChange={handleChange} />
     </FormControl>
   )
 }

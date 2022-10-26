@@ -1,10 +1,12 @@
-import { IconButton } from '@siakit/icon-button'
 import { ChangeEvent, useState } from 'react'
-import { toMask } from '@siakit/mask'
-import { format, isValid } from 'date-fns'
-import { Popover, PopoverTrigger } from '@siakit/popover'
 import { DayPicker } from 'react-day-picker'
+
+import { format, isValid } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+
+import { IconButton } from '@siakit/icon-button'
+import { toMask } from '@siakit/mask'
+import { Popover, PopoverTrigger } from '@siakit/popover'
 
 import 'react-day-picker/dist/style.css'
 
@@ -16,8 +18,8 @@ import {
 } from './styles'
 
 type DatePickerProps = {
-  value: Date | undefined
-  onChange: (value: Date | undefined) => void
+  value: Date | null
+  onChange: (value: Date | null) => void
   placeholder?: string
   disabled?: boolean
 }
@@ -43,8 +45,8 @@ export function DatePicker({
 
     return ''
   })
-  const [selected, setSelected] = useState<Date | undefined>(value)
-  const [monthSelected, setMonthSelect] = useState<Date | undefined>(value)
+  const [selected, setSelected] = useState<Date | null>(value)
+  const [monthSelected, setMonthSelect] = useState<Date | null>(value)
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const targetValue = event.target.value
@@ -82,9 +84,9 @@ export function DatePicker({
 
   function handleClear() {
     setInputValue('')
-    onChange(undefined)
-    setSelected(undefined)
-    setMonthSelect(undefined)
+    onChange(null)
+    setSelected(null)
+    setMonthSelect(null)
   }
 
   return (
@@ -154,9 +156,9 @@ export function DatePicker({
         <CustomPopoverContent align="end">
           <DayPicker
             mode="single"
-            selected={selected}
+            selected={selected ?? undefined}
             onSelect={handleChange}
-            month={monthSelected}
+            month={monthSelected ?? undefined}
             onMonthChange={setMonthSelect}
             locale={ptBR}
           />

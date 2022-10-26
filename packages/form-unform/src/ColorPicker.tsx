@@ -1,28 +1,25 @@
 import { useEffect, useState } from 'react'
 
+import { Color } from '@siakit/core'
 import {
   FormControl,
   FormLabel,
-  TextInput as TextInputComponent,
+  ColorPicker as ColorPickerComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type ColorPickerProps = {
   name: string
   label?: string
-  placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (value: Color | null) => void
 }
 
-export function TextInput({
-  name,
-  label,
-  placeholder,
-  onChange,
-}: TextInputProps) {
+export function ColorPicker({ name, label, onChange }: ColorPickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState<Color | null>(
+    defaultValue ?? null,
+  )
 
   useEffect(() => {
     registerField({
@@ -34,12 +31,12 @@ export function TextInput({
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue('')
+        setFieldValue(null)
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: string) {
+  function handleChange(value: Color | null) {
     setFieldValue(value)
 
     if (onChange) {
@@ -51,11 +48,7 @@ export function TextInput({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <TextInputComponent
-        value={fieldValue}
-        onChange={handleChange}
-        placeholder={placeholder}
-      />
+      <ColorPickerComponent value={fieldValue} onChange={handleChange} />
     </FormControl>
   )
 }

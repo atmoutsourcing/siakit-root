@@ -30,7 +30,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         onOpenChange={(value) => setSidebarVisible(value)}
       >
         <Menu>
-          {new Array(40).fill('').map((item) => (
+          {new Array(20).fill('').map((item) => (
             <MenuItem value="option1" key={item}>
               Option 1
             </MenuItem>

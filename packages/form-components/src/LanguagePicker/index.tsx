@@ -1,9 +1,9 @@
 import { themeKeys } from '@siakit/core'
 import { IconButton } from '@siakit/icon-button'
+
 import { BrasilFlag } from './flags/brasil-flag'
 import { EspanhaFlag } from './flags/espanha-flag'
 import { EstadosUnidosFlag } from './flags/estados-unidos-flag'
-
 import { LanguageItem, LanguagePickerContainer } from './styles'
 
 function ClearIndicatorCustom({ innerProps }: any) {
@@ -34,7 +34,7 @@ function ClearIndicatorCustom({ innerProps }: any) {
   )
 }
 
-type FlagOptionType = {
+export type FlagOptionType = {
   value: string
   label: string
   flag: string

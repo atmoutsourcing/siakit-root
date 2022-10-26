@@ -1,12 +1,8 @@
 import { Flex } from '@siakit/layout'
 import { Text } from '@siakit/text'
 
+import { OptionType } from '../Select'
 import { RadioItem, RadioIndicator, RadioContainer } from './styles'
-
-type OptionType = {
-  value: string
-  label: string
-}
 
 type RadioProps = {
   value: string
@@ -33,8 +29,8 @@ export function Radio({
       {options.map((option) => (
         <Flex key={option.value} gap={8} align="center">
           <RadioItem
-            id={option.value}
-            value={option.value}
+            id={String(option.value)}
+            value={String(option.value)}
             isErrored={isErrored}
             disabled={disabled}
             {...props}
@@ -45,7 +41,7 @@ export function Radio({
           <Text
             as="label"
             size="sm"
-            htmlFor={option.value}
+            htmlFor={String(option.value)}
             css={disabled ? { cursor: 'not-allowed', opacity: 0.5 } : {}}
           >
             {option.label}

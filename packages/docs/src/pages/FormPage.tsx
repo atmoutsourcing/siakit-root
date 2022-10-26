@@ -12,7 +12,7 @@ import {
   MoneyInput,
   MaskInput,
   PercentageInput,
-  TextareaInput,
+  TextAreaInput,
   Switch,
   Checkbox,
   Radio,
@@ -41,20 +41,22 @@ export function FormPage() {
   const [moneyInput, setMoneyInput] = useState('10000')
   const [maskInput, setMaskInput] = useState('12345678912')
   const [percentageInput, setPercentageInput] = useState('75')
-  const [textareaInput, setTextareaInput] = useState(
+  const [textAreaInput, setTextAreaInput] = useState(
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   )
   const [switchValue, setSwitchValue] = useState(true)
   const [checkboxValue, setCheckboxValue] = useState(false)
   const [radioValue, setRadioValue] = useState('')
   const [selectValue, setSelectValue] = useState<OptionType | null>(null)
-  const [selectMultiValue, setSelectMultiValue] = useState<OptionType[]>([])
+  const [selectMultiValue, setSelectMultiValue] = useState<OptionType[] | null>(
+    null,
+  )
   const [languagePicker, setLanguagePicker] = useState<FlagOptionType | null>(
     null,
   )
   const [colorPicker, setColorPicker] = useState<Color | null>(null)
   const [sliderValue, setSliderValue] = useState([0])
-  const [datePicker, setDatePicker] = useState<Date | undefined>(new Date())
+  const [datePicker, setDatePicker] = useState<Date | null>(new Date())
   const [timePicker, setTimePicker] = useState<number[]>([])
 
   console.log(textInput)
@@ -64,7 +66,7 @@ export function FormPage() {
   console.log(moneyInput)
   console.log(maskInput)
   console.log(percentageInput)
-  console.log(textareaInput)
+  console.log(textAreaInput)
   console.log(switchValue)
   console.log(checkboxValue)
   console.log(radioValue)
@@ -145,9 +147,9 @@ export function FormPage() {
 
         <FormControl>
           <FormLabel>Textarea input</FormLabel>
-          <TextareaInput
-            value={textareaInput}
-            onChange={setTextareaInput}
+          <TextAreaInput
+            value={textAreaInput}
+            onChange={setTextAreaInput}
             placeholder="Textarea input"
           />
         </FormControl>
