@@ -21,7 +21,7 @@ export const ColorButton = styled('button', {
 
   cursor: 'pointer',
 
-  '&:not(:disabled):hover': {
+  '&:hover:not([disabled])': {
     borderColor: '$gray5',
   },
 

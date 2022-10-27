@@ -23,7 +23,7 @@ export const LinkButtonContainer = styled('button', {
     cursor: 'not-allowed',
   },
 
-  '&:hover:not(:disabled)': {
+  '&:hover:not([disabled])': {
     textDecoration: 'underline',
   },
 

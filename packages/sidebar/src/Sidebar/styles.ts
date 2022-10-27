@@ -4,6 +4,7 @@ export const SidebarContainer = styled('div', {
   display: 'flex',
   width: 240,
   zIndex: 2,
+  overflow: 'auto',
 
   '@media (max-width: 992px)': {
     position: 'fixed',

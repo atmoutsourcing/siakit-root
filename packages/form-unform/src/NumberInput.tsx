@@ -12,6 +12,7 @@ type NumberInputProps = {
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function NumberInput({
@@ -19,6 +20,7 @@ export function NumberInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: NumberInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -55,6 +57,7 @@ export function NumberInput({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

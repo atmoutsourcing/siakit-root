@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
+
 import { applyGlobalCss } from './global'
 import { createTheme } from './styles'
 import { dark } from './themes/dark'
@@ -6,28 +7,28 @@ import { light } from './themes/light'
 
 const scale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export const colors = {
-  orange: 'orange',
-  tomato: 'tomato',
-  red: 'red',
-  crimson: 'crimson',
-  pink: 'pink',
-  plum: 'plum',
-  purple: 'purple',
-  violet: 'violet',
-  indigo: 'indigo',
-  blue: 'blue',
-  cyan: 'cyan',
-  teal: 'teal',
-  green: 'green',
-  grass: 'grass',
-  brown: 'brown',
+  orange: 'Laranja',
+  tomato: 'Tomate',
+  red: 'Vermelho',
+  crimson: 'Crimson',
+  pink: 'Rosa',
+  plum: 'Plum',
+  purple: 'Roxo',
+  violet: 'Violeta',
+  indigo: 'Índigo',
+  blue: 'Azul',
+  cyan: 'Ciano',
+  teal: 'Teal',
+  green: 'Verde',
+  grass: 'Grama',
+  brown: 'Marrom',
 
-  sky: 'sky',
-  mint: 'mint',
-  lime: 'lime',
-  yellow: 'yellow',
-  amber: 'amber',
-  gray: 'gray',
+  sky: 'Céu',
+  mint: 'Menta',
+  lime: 'Verde lima',
+  yellow: 'Amarelo',
+  amber: 'Âmbar',
+  gray: 'Cinza',
 }
 
 export type Theme = 'light' | 'dark'

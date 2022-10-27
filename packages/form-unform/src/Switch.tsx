@@ -11,9 +11,10 @@ type SwitchProps = {
   name: string
   label?: string
   onChange?: (value: boolean) => void
+  disabled?: boolean
 }
 
-export function Switch({ name, label, onChange }: SwitchProps) {
+export function Switch({ name, label, onChange, disabled }: SwitchProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState<boolean>(defaultValue ?? false)
@@ -45,7 +46,11 @@ export function Switch({ name, label, onChange }: SwitchProps) {
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <SwitchComponent value={fieldValue} onChange={handleChange} />
+      <SwitchComponent
+        value={fieldValue}
+        onChange={handleChange}
+        disabled={disabled}
+      />
     </FormControl>
   )
 }

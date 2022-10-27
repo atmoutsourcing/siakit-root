@@ -1,5 +1,7 @@
-import { useTheme } from '@siakit/core'
 import { ComponentProps } from 'react'
+
+import { useTheme } from '@siakit/core'
+
 import { FooterContainer } from './styles'
 
 type FooterProps = ComponentProps<typeof FooterContainer>
@@ -9,7 +11,7 @@ export function Footer({ children, ...props }: FooterProps) {
 
   return (
     <FooterContainer
-      css={{ backgroundColor: theme === 'light' ? '$gray3' : '$gray5' }}
+      css={{ backgroundColor: theme === 'light' ? '$gray2' : '$gray5' }}
       {...props}
     >
       {children}

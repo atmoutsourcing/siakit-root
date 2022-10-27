@@ -13,6 +13,7 @@ type LanguagePickerProps = {
   label?: string
   placeholder?: string
   onChange?: (option: FlagOptionType | null) => void
+  disabled?: boolean
 }
 
 export function LanguagePicker({
@@ -20,6 +21,7 @@ export function LanguagePicker({
   label,
   placeholder,
   onChange,
+  disabled,
 }: LanguagePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -58,6 +60,7 @@ export function LanguagePicker({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

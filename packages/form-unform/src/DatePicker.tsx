@@ -12,6 +12,7 @@ type DatePickerProps = {
   label?: string
   placeholder?: string
   onChange?: (value: Date | null) => void
+  disabled?: boolean
 }
 
 export function DatePicker({
@@ -19,6 +20,7 @@ export function DatePicker({
   label,
   placeholder,
   onChange,
+  disabled,
 }: DatePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -57,6 +59,7 @@ export function DatePicker({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

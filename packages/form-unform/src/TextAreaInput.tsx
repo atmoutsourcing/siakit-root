@@ -13,6 +13,7 @@ type TextAreaInputProps = {
   placeholder?: string
   rows?: number
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function TextAreaInput({
@@ -21,6 +22,7 @@ export function TextAreaInput({
   placeholder,
   rows = 5,
   onChange,
+  disabled,
 }: TextAreaInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -58,6 +60,7 @@ export function TextAreaInput({
         onChange={handleChange}
         placeholder={placeholder}
         rows={rows}
+        disabled={disabled}
       />
     </FormControl>
   )

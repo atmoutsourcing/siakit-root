@@ -1,6 +1,6 @@
 import { styled } from '@siakit/core'
 
-export const MenuTitle = styled('div', {
+export const MenuTitleContainer = styled('div', {
   height: 32,
 
   display: 'flex',
@@ -19,6 +19,11 @@ export const MenuTitle = styled('div', {
       true: { paddingLeft: 16 },
       false: {
         justifyContent: 'center',
+      },
+    },
+    isDarkTheme: {
+      true: {
+        color: '$gray11',
       },
     },
   },

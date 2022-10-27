@@ -1,31 +1,30 @@
 import { useEffect, useState } from 'react'
 
-import { Color } from '@siakit/core'
 import {
   FormControl,
   FormLabel,
-  ColorPicker as ColorPickerComponent,
+  RichTextInput as RichTextInputComponent,
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type ColorPickerProps = {
+type RichTextInputProps = {
   name: string
   label?: string
-  onChange?: (value: Color | null) => void
+  placeholder?: string
+  onChange?: (value: string) => void
   disabled?: boolean
 }
 
-export function ColorPicker({
+export function RichTextInput({
   name,
   label,
+  placeholder,
   onChange,
   disabled,
-}: ColorPickerProps) {
+}: RichTextInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState<Color | null>(
-    defaultValue ?? null,
-  )
+  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
 
   useEffect(() => {
     registerField({
@@ -37,12 +36,12 @@ export function ColorPicker({
         setFieldValue(value)
       },
       clearValue: () => {
-        setFieldValue(null)
+        setFieldValue('')
       },
     })
   }, [fieldName, registerField, fieldValue])
 
-  function handleChange(value: Color | null) {
+  function handleChange(value: string) {
     setFieldValue(value)
 
     if (onChange) {
@@ -54,10 +53,11 @@ export function ColorPicker({
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <ColorPickerComponent
+      <RichTextInputComponent
         value={fieldValue}
         onChange={handleChange}
-        disabled
+        placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

@@ -1,4 +1,5 @@
 import { ReactNode, useContext, useEffect, useMemo } from 'react'
+
 import { SidebarContext, SidebarProvider } from '../contexts/SidebarContext'
 import { SidebarContainer, SidebarOverlay } from './styles'
 

@@ -42,6 +42,8 @@ export const SliderThumb = styled(RadixSlider.Thumb, {
   borderRadius: '$full',
   border: '1px solid $gray3',
 
+  cursor: 'pointer',
+
   '&:focus': {
     boxShadow: '0 0 0 2px black',
   },

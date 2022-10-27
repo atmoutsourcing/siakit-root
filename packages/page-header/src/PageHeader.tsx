@@ -20,7 +20,11 @@ export function PageHeader({ title, children, onGoBack }: PageHeaderProps) {
       justify="between"
       align="center"
       padding="0 16px 0 8px"
-      css={{ borderRadius: 0 }}
+      css={{
+        borderRadius: 0,
+        border: 'none',
+        borderBottom: '1px solid $gray4',
+      }}
     >
       <Flex gap={8} padding={!onGoBack ? '0 0 0 8px' : 0} align="center">
         {onGoBack && (

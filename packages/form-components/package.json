@@ -1,6 +1,6 @@
 {
   "name": "@siakit/form-components",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "@siakit/eslint-config": "*",
     "@siakit/ts-config": "*",
+    "@types/lodash.difference": "^4.5.7",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
@@ -31,10 +32,18 @@
     "@siakit/icon-button": "*",
     "@siakit/layout": "*",
     "@siakit/mask": "*",
+    "@siakit/popover": "*",
     "@siakit/text": "*",
     "@siakit/tooltip": "*",
-    "@siakit/popover": "*",
+    "@tiptap/extension-image": "^2.0.0-beta.199",
+    "@tiptap/extension-link": "^2.0.0-beta.199",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.199",
+    "@tiptap/extension-task-item": "^2.0.0-beta.199",
+    "@tiptap/extension-task-list": "^2.0.0-beta.199",
+    "@tiptap/react": "^2.0.0-beta.199",
+    "@tiptap/starter-kit": "^2.0.0-beta.199",
     "date-fns": "^2.29.3",
+    "lodash.difference": "^4.5.0",
     "react-day-picker": "^8.3.5",
     "react-select": "^5.5.0"
   }

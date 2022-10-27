@@ -1,8 +1,10 @@
 import { ReactElement, useContext, useMemo } from 'react'
+
+import { useTheme } from '@siakit/core'
 import { Tooltip } from '@siakit/tooltip'
+
 import { SidebarContext } from '../contexts/SidebarContext'
 import { MenuItemContainer } from './styles'
-import { useTheme } from '@siakit/core'
 
 type MenuItemProps = {
   children: string
@@ -29,10 +31,11 @@ export function MenuItem({
 
   const isSelected = useMemo(
     () => menuItemSelected === value,
-    [menuItemSelected],
+    [menuItemSelected, value],
   )
 
   const shortName = children[0].toUpperCase()
+
   return (
     <Tooltip content={!isExpanded ? tooltip : undefined} side="right">
       <MenuItemContainer

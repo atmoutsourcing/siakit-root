@@ -14,6 +14,7 @@ type MaskInputProps = {
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function MaskInput({
@@ -22,6 +23,7 @@ export function MaskInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: MaskInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -59,6 +61,7 @@ export function MaskInput({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -15,6 +15,7 @@ type SelectProps = {
   label?: string
   placeholder?: string
   onChange?: (option: OptionType | null) => void
+  disabled?: boolean
 }
 
 export function Select({
@@ -24,11 +25,25 @@ export function Select({
   label,
   placeholder,
   onChange,
+  disabled,
 }: SelectProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
+  const processValue = useCallback(
+    (value: string | number | OptionType | null) => {
+      if (typeof value === 'string' || typeof value === 'number') {
+        const findOption = options.find((option) => option.value === value)
+
+        return findOption ?? null
+      } else {
+        return value
+      }
+    },
+    [options],
+  )
+
   const [fieldValue, setFieldValue] = useState<OptionType | null>(
-    defaultValue ?? null,
+    processValue(defaultValue) ?? null,
   )
 
   useEffect(() => {
@@ -42,19 +57,13 @@ export function Select({
         return fieldValue?.value ?? null
       },
       setValue: (_, value: string | number | OptionType | null) => {
-        if (typeof value === 'string' || typeof value === 'number') {
-          const findOption = options.find((option) => option.value === value)
-
-          setFieldValue(findOption ?? null)
-        } else {
-          setFieldValue(value)
-        }
+        setFieldValue(processValue(value))
       },
       clearValue: () => {
         setFieldValue(null)
       },
     })
-  }, [fieldName, registerField, fieldValue, returnType, options])
+  }, [fieldName, registerField, fieldValue, returnType, options, processValue])
 
   function handleChange(value: OptionType | null) {
     setFieldValue(value)
@@ -73,6 +82,7 @@ export function Select({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

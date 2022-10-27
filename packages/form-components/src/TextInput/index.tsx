@@ -1,14 +1,15 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, InputHTMLAttributes } from 'react'
 
 import { IconButton } from '@siakit/icon-button'
 
 import { Input, Suffix, TextInputContainer } from './styles'
 
-type TextInputProps = {
+type TextInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange'
+> & {
   value: string
   onChange: (value: string) => void
-  placeholder?: string
-  disabled?: boolean
 }
 
 type RestProps = {

@@ -12,6 +12,7 @@ type PhoneInputProps = {
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function PhoneInput({
@@ -19,6 +20,7 @@ export function PhoneInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: PhoneInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -55,6 +57,7 @@ export function PhoneInput({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

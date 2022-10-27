@@ -1,5 +1,6 @@
-import { styled } from '@siakit/core'
 import ReactSelect from 'react-select'
+
+import { styled } from '@siakit/core'
 
 export const SelectContainer = styled(ReactSelect, {
   '.react-select__control': {

@@ -76,7 +76,7 @@ export const dark = {
   white: '#ffffff',
   black: '#000000',
 
-  appBackground: '$gray2',
+  appBackground: '$gray1',
   textTitle: '$gray12',
   shape: '$gray3',
 }

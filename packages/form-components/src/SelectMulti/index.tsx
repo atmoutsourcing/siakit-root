@@ -72,6 +72,7 @@ export function SelectMulti({
       onChange={(data) => onChange(data as OptionType[])}
       menuPortalTarget={document.body}
       isErrored={isErrored}
+      noOptionsMessage={() => <span>Nenhuma opção</span>}
       styles={{
         menuPortal: (base) => ({
           ...base,

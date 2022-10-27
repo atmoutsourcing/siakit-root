@@ -13,5 +13,10 @@ export const Form = styled(UnformForm, {
         flex: 1,
       },
     },
+    overflow: {
+      true: {
+        overflow: 'auto',
+      },
+    },
   },
 })

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -15,6 +15,7 @@ type SelectMultiProps = {
   label?: string
   placeholder?: string
   onChange?: (option: OptionType[]) => void
+  disabled?: boolean
 }
 
 export function SelectMulti({
@@ -24,10 +25,38 @@ export function SelectMulti({
   label,
   placeholder,
   onChange,
+  disabled,
 }: SelectMultiProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState<OptionType[]>(defaultValue ?? [])
+  const processValue = useCallback(
+    (value: OptionType[] | (string | number)[]) => {
+      if (!value || !value.length) {
+        return []
+      } else {
+        const values = [] as OptionType[]
+
+        value.forEach((item) => {
+          if (typeof item === 'object') {
+            values.push(item)
+          } else {
+            const findOption = options.find((option) => option.value === item)
+
+            if (findOption) {
+              values.push(findOption)
+            }
+          }
+        })
+
+        return values
+      }
+    },
+    [options],
+  )
+
+  const [fieldValue, setFieldValue] = useState<OptionType[]>(
+    processValue(defaultValue) ?? [],
+  )
 
   useEffect(() => {
     registerField({
@@ -40,31 +69,13 @@ export function SelectMulti({
         return fieldValue?.map((option) => option.value) ?? null
       },
       setValue: (_, value) => {
-        if (!value || !value.length) {
-          setFieldValue([])
-        } else {
-          const values = [] as OptionType[]
-
-          value.forEach((item) => {
-            if (typeof item === 'object') {
-              values.push(item)
-            } else {
-              const findOption = options.find((option) => option.value === item)
-
-              if (findOption) {
-                values.push(findOption)
-              }
-            }
-          })
-
-          setFieldValue(values)
-        }
+        setFieldValue(processValue(value))
       },
       clearValue: () => {
         setFieldValue([])
       },
     })
-  }, [fieldName, registerField, fieldValue, returnType, options])
+  }, [fieldName, registerField, fieldValue, returnType, options, processValue])
 
   function handleChange(value: OptionType[] | null) {
     setFieldValue(value ?? [])
@@ -83,6 +94,7 @@ export function SelectMulti({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

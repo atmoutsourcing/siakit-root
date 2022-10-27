@@ -1,6 +1,7 @@
+import { ReactNode } from 'react'
+
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { Card } from '@siakit/card'
-import { ReactNode } from 'react'
 
 type DropdownContentProps = {
   children: ReactNode

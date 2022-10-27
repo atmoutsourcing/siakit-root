@@ -1,6 +1,10 @@
-import { IconButton } from '@siakit/icon-button'
 import { ChangeEvent, useState } from 'react'
+
+import { IconButton } from '@siakit/icon-button'
+import { Flex } from '@siakit/layout'
+import { toMask } from '@siakit/mask'
 import { Popover, PopoverTrigger } from '@siakit/popover'
+import { Text } from '@siakit/text'
 
 import {
   Input,
@@ -9,9 +13,6 @@ import {
   CustomPopoverContent,
   Item,
 } from './styles'
-import { Flex } from '@siakit/layout'
-import { Text } from '@siakit/text'
-import { toMask } from '@siakit/mask'
 
 type TimePickerProps = {
   value: number[]

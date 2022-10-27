@@ -15,7 +15,7 @@ export const TabsItemContainer = styled(RadixTabs.Trigger, {
   transition: 'all 0.150s',
   zIndex: 10,
 
-  '&:not(:disabled):hover': {
+  '&:hover:not([disabled])': {
     color: '$gray10',
     backgroundColor: '$gray3',
   },

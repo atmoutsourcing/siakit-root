@@ -1,6 +1,6 @@
 {
   "name": "@siakit/sidebar",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -24,6 +24,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@radix-ui/react-scroll-area": "^1.0.1",
     "@siakit/core": "*",
     "@siakit/separator": "*",
     "@siakit/tooltip": "*"

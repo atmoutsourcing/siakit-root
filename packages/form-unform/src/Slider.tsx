@@ -11,12 +11,13 @@ type SliderProps = {
   name: string
   label?: string
   onChange?: (value: number[]) => void
+  disabled?: boolean
 }
 
-export function Slider({ name, label, onChange }: SliderProps) {
+export function Slider({ name, label, onChange, disabled }: SliderProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState<number[]>(defaultValue ?? [0])
+  const [fieldValue, setFieldValue] = useState<number[]>([defaultValue] ?? [0])
 
   useEffect(() => {
     registerField({
@@ -43,7 +44,11 @@ export function Slider({ name, label, onChange }: SliderProps) {
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-      <SliderComponent value={fieldValue} onChange={handleChange} />
+      <SliderComponent
+        value={fieldValue}
+        onChange={handleChange}
+        disabled={disabled}
+      />
     </FormControl>
   )
 }

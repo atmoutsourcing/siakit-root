@@ -13,7 +13,14 @@ import {
 import { IconButton } from '@siakit/icon-button'
 import { Flex } from '@siakit/layout'
 import { PageHeader } from '@siakit/page-header'
-import { Menu, Sidebar, MenuItem, SubMenu, SubMenuItem } from '@siakit/sidebar'
+import {
+  Menu,
+  MenuTitle,
+  Sidebar,
+  MenuItem,
+  SubMenu,
+  SubMenuItem,
+} from '@siakit/sidebar'
 
 type DefaultLayoutProps = {
   children: ReactNode
@@ -21,6 +28,7 @@ type DefaultLayoutProps = {
 
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const { theme, togggleTheme } = useTheme()
+
   const [sidebarVisible, setSidebarVisible] = useState(false)
 
   return (
@@ -30,28 +38,17 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         onOpenChange={(value) => setSidebarVisible(value)}
       >
         <Menu>
-          {new Array(20).fill('').map((item) => (
-            <MenuItem value="option1" key={item}>
+          <MenuTitle>Connections</MenuTitle>
+
+          {new Array(20).fill('').map((item, index) => (
+            <MenuItem value={`option${index + 1}`} key={item}>
               Option 1
             </MenuItem>
           ))}
         </Menu>
 
-        {/* {submenus.map((item) => (
-          <SubMenu key={item} value={item}>
-            <SubMenuItem
-              onClick={() => {
-                console.log('navigate')
-                setSidebarVisible(false)
-              }}
-            >
-              item 1
-            </SubMenuItem>
-          </SubMenu>
-        ))} */}
-
         <SubMenu value="option1">
-          {new Array(50).fill('').map((item) => (
+          {new Array(50).fill('').map((item, index) => (
             <SubMenuItem
               key={item}
               onClick={() => {
@@ -59,12 +56,12 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
                 setSidebarVisible(false)
               }}
             >
-              item 1
+              Item item
             </SubMenuItem>
           ))}
         </SubMenu>
 
-        <SubMenu value="option1">
+        <SubMenu value="option2">
           <SubMenuItem
             onClick={() => {
               console.log('navigate')

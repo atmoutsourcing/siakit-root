@@ -12,6 +12,8 @@ export const SwitchContainer = styled(SwitchPrimitive.Root, {
 
   margin: '$1 0',
 
+  cursor: 'pointer',
+
   '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)',
 
   '&:focus': {

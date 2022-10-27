@@ -13,6 +13,7 @@ type PasswordInputProps = {
   placeholder?: string
   strength?: number
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function PasswordInput({
@@ -21,6 +22,7 @@ export function PasswordInput({
   placeholder,
   strength,
   onChange,
+  disabled,
 }: PasswordInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -58,6 +60,7 @@ export function PasswordInput({
         onChange={handleChange}
         placeholder={placeholder}
         strength={strength}
+        disabled={disabled}
       />
     </FormControl>
   )

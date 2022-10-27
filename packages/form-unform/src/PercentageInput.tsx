@@ -12,6 +12,7 @@ type PercentageInputProps = {
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function PercentageInput({
@@ -19,6 +20,7 @@ export function PercentageInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: PercentageInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -55,6 +57,7 @@ export function PercentageInput({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

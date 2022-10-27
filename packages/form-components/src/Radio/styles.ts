@@ -14,6 +14,8 @@ export const RadioItem = styled(RadioPrimitive.Item, {
   height: '$5',
   borderRadius: '$full',
 
+  cursor: 'pointer',
+
   '&:focus': {
     boxShadow: '0 0 0 2px black',
   },

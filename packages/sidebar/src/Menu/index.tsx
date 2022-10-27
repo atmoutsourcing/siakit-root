@@ -1,5 +1,7 @@
-import { useTheme } from '@siakit/core'
 import { ReactNode, useContext } from 'react'
+
+import { useTheme } from '@siakit/core'
+
 import { SidebarContext } from '../contexts/SidebarContext'
 import { MenuContainer } from './styles'
 

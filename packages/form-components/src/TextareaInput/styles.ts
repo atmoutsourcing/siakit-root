@@ -56,6 +56,11 @@ export const TextArea = styled('textarea', {
   '&::placeholder': {
     color: '$gray8',
   },
+
+  '&:disabled': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+  },
 })
 
 export const Suffix = styled('div', {

@@ -12,6 +12,7 @@ type MoneyInputProps = {
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function MoneyInput({
@@ -19,6 +20,7 @@ export function MoneyInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: MoneyInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -55,6 +57,7 @@ export function MoneyInput({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

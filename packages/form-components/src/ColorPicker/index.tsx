@@ -21,7 +21,7 @@ export function ColorPicker({ value, onChange, disabled }: ColorPickerProps) {
   return (
     <ColorPickerContainer>
       {Object.keys(colors).map((color) => (
-        <Tooltip key={color} content={color}>
+        <Tooltip key={color} content={colors[color as Color]}>
           <ColorButton
             type="button"
             isSelected={color === value}

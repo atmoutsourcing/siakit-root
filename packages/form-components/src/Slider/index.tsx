@@ -26,7 +26,7 @@ export function Slider({
   return (
     <Flex
       align="center"
-      css={disabled ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
+      css={disabled ? { opacity: 0.5, '*': { cursor: 'not-allowed' } } : {}}
       height={32}
     >
       <SliderContainer

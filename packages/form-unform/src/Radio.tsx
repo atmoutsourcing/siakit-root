@@ -13,9 +13,16 @@ type RadioProps = {
   options: OptionType[]
   label?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
-export function Radio({ name, options, label, onChange }: RadioProps) {
+export function Radio({
+  name,
+  options,
+  label,
+  onChange,
+  disabled,
+}: RadioProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -55,6 +62,7 @@ export function Radio({ name, options, label, onChange }: RadioProps) {
         options={options}
         value={fieldValue}
         onChange={handleChange}
+        disabled={disabled}
       />
     </FormControl>
   )

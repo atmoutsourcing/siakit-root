@@ -13,9 +13,16 @@ type CheckboxProps = {
   options: OptionType[]
   label?: string
   onChange?: (value: { [key: string]: boolean }) => void
+  disabled?: boolean
 }
 
-export function Checkbox({ name, options, label, onChange }: CheckboxProps) {
+export function Checkbox({
+  name,
+  options,
+  label,
+  onChange,
+  disabled,
+}: CheckboxProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState<{ [key: string]: boolean }>(
@@ -60,6 +67,7 @@ export function Checkbox({ name, options, label, onChange }: CheckboxProps) {
             label={option.label}
             value={fieldValue[option.value]}
             onChange={(value) => handleChange(option.value, value)}
+            disabled={disabled}
           />
         ))}
       </>

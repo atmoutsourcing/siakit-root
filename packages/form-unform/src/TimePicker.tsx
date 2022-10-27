@@ -12,6 +12,7 @@ type TimePickerProps = {
   label?: string
   placeholder?: string
   onChange?: (value: number[]) => void
+  disabled?: boolean
 }
 
 export function TimePicker({
@@ -19,6 +20,7 @@ export function TimePicker({
   label,
   placeholder,
   onChange,
+  disabled,
 }: TimePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -53,6 +55,7 @@ export function TimePicker({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )

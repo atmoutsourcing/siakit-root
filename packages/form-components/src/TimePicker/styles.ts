@@ -54,10 +54,11 @@ export const Input = styled('input', {
 
 export const Suffix = styled('div')
 
-export const CustomPopoverContent = styled(PopoverContent, {})
+export const CustomPopoverContent = styled(PopoverContent)
 
 export const Item = styled('button', {
-  height: '$6',
+  minHeight: 28,
+  height: 28,
   width: '$12',
 
   display: 'flex',

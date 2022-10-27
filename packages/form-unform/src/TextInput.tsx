@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { InputHTMLAttributes, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -7,11 +7,14 @@ import {
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type TextInputProps = {
+type TextInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange'
+> & {
   name: string
   label?: string
-  placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function TextInput({
@@ -19,6 +22,7 @@ export function TextInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: TextInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -55,6 +59,7 @@ export function TextInput({
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}
+        disabled={disabled}
       />
     </FormControl>
   )
