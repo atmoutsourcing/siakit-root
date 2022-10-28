@@ -21,6 +21,7 @@ import {
   SubMenu,
   SubMenuItem,
 } from '@siakit/sidebar'
+import { Text } from '@siakit/text'
 
 type DefaultLayoutProps = {
   children: ReactNode
@@ -74,7 +75,11 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
       </Sidebar>
 
       <Flex flex direction="column" overflow>
-        <PageHeader title="Title" onGoBack={() => console.log('on go back')}>
+        <PageHeader
+          title="Title"
+          onGoBack={() => console.log('on go back')}
+          leftContent={<Text>teste</Text>}
+        >
           <Flex gap={8}>
             <IconButton
               variant="ghost"

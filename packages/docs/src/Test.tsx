@@ -1,16 +1,16 @@
+import { useState } from 'react'
+
+import { Plus } from 'phosphor-react'
+
 import { Button } from '@siakit/button'
 import { Color, colors, useTheme } from '@siakit/core'
-import { Flex, Grid } from '@siakit/layout'
-import { Plus } from 'phosphor-react'
 import { FormControl, FormLabel, TextInput } from '@siakit/form-components'
-import { useState } from 'react'
+import { Flex, Grid } from '@siakit/layout'
 
 export function Test() {
   const { changeColor } = useTheme()
 
   const [inputValue, setInputValue] = useState('')
-
-  console.log(inputValue)
 
   return (
     <Flex flex direction="column" justify="center" gap overflow>

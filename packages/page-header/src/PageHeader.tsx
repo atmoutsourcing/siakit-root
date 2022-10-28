@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 
 import { Card } from '@siakit/card'
 import { Heading } from '@siakit/heading'
@@ -9,9 +9,35 @@ interface PageHeaderProps {
   title?: string
   children?: ReactNode
   onGoBack?: () => void
+  leftContent?: ReactNode
 }
 
-export function PageHeader({ title, children, onGoBack }: PageHeaderProps) {
+export function PageHeader({
+  title,
+  children,
+  onGoBack,
+  leftContent,
+}: PageHeaderProps) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  const resize = useCallback(() => {
+    if (windowWidth > 992 && window.innerWidth <= 992) {
+      setWindowWidth(window.innerWidth)
+    }
+
+    if (windowWidth <= 992 && window.innerWidth > 992) {
+      setWindowWidth(window.innerWidth)
+    }
+  }, [windowWidth])
+
+  useEffect(() => {
+    window.addEventListener('resize', resize)
+
+    return () => {
+      window.removeEventListener('resize', resize)
+    }
+  }, [resize])
+
   return (
     <Card
       height={48}
@@ -27,7 +53,7 @@ export function PageHeader({ title, children, onGoBack }: PageHeaderProps) {
       }}
     >
       <Flex gap={8} padding={!onGoBack ? '0 0 0 8px' : 0} align="center">
-        {onGoBack && (
+        {windowWidth > 992 && onGoBack ? (
           <IconButton variant="ghost" colorScheme="gray">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -42,6 +68,8 @@ export function PageHeader({ title, children, onGoBack }: PageHeaderProps) {
               />
             </svg>
           </IconButton>
+        ) : (
+          leftContent
         )}
 
         {!!title && (
