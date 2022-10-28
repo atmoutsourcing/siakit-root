@@ -1,4 +1,5 @@
 import { ComponentProps, ElementType } from 'react'
+
 import { GridContainer } from './styles'
 
 type FlexProps = {

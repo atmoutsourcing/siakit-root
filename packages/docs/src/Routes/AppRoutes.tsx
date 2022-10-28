@@ -13,6 +13,7 @@ import { PaginationPage } from '../pages/PaginationPage'
 import { TablePage } from '../pages/TablePage'
 import { TabsPage } from '../pages/TabsPage'
 import { TestPage } from '../pages/TestPage'
+import { TextPage } from '../pages/TextPage'
 import { TimelinePage } from '../pages/TimelinePage'
 import { ToastPage } from '../pages/ToastPage'
 import { Test } from '../Test'
@@ -38,6 +39,7 @@ export function AppRoutes() {
       <Route path="badge" element={<BadgePage />} />
       <Route path="tabs" element={<TabsPage />} />
       <Route path="dialog" element={<DialogPage />} />
+      <Route path="text" element={<TextPage />} />
     </Routes>
   )
 }

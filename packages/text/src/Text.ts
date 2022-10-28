@@ -50,6 +50,11 @@ export const Text = styled('p', {
         color: '$gray11',
       },
     },
+    inverted: {
+      true: {
+        color: '$gray1',
+      },
+    },
     align: {
       left: {
         textAlign: 'left',
@@ -62,6 +67,16 @@ export const Text = styled('p', {
       },
     },
   },
+
+  compoundVariants: [
+    {
+      lowContrast: true,
+      inverted: true,
+      css: {
+        color: '$gray3',
+      },
+    },
+  ],
 
   defaultVariants: {
     size: 'sm',

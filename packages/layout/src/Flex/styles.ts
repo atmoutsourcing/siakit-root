@@ -50,6 +50,9 @@ export const FlexContainer = styled('div', {
       center: {
         alignItems: 'center',
       },
+      baseline: {
+        alignItems: 'baseline',
+      },
       between: {
         alignItems: 'flex-between',
       },

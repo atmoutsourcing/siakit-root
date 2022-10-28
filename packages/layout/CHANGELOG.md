@@ -1,5 +1,11 @@
 # @siakit/layout
 
+## 0.0.5
+
+### Patch Changes
+
+- add inverted to text and heading
+
 ## 0.0.4
 
 ### Patch Changes

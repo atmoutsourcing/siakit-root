@@ -35,7 +35,22 @@ export const Heading = styled('h2', {
         color: '$gray11',
       },
     },
+    inverted: {
+      true: {
+        color: '$gray1',
+      },
+    },
   },
+
+  compoundVariants: [
+    {
+      lowContrast: true,
+      inverted: true,
+      css: {
+        color: '$gray3',
+      },
+    },
+  ],
 
   defaultVariants: {
     size: 'md',
