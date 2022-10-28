@@ -1,5 +1,11 @@
 # @siakit/modal
 
+## 0.0.7
+
+### Patch Changes
+
+- fix zindex
+
 ## 0.0.6
 
 ### Patch Changes

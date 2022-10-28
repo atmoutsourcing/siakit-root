@@ -3,7 +3,7 @@ import { styled } from '@siakit/core'
 export const SidebarContainer = styled('div', {
   display: 'flex',
   width: 240,
-  zIndex: 2,
+  zIndex: 0,
   overflow: 'auto',
 
   '@media (max-width: 992px)': {
