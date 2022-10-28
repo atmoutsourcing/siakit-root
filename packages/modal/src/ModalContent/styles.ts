@@ -60,13 +60,6 @@ export const Content = styled(Dialog.Content, {
     justifyContent: 'space-between',
   },
 
-  '& > div': {
-    flex: 1,
-    overflow: 'auto',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-
   variants: {
     size: {
       xs: {

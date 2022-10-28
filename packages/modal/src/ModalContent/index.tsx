@@ -31,7 +31,7 @@ export function ModalContent({
           </Flex>
         )}
 
-        <div>{children}</div>
+        {children}
 
         <Dialog.Close asChild>
           <CloseButton type="button" variant="ghost" colorScheme="gray">

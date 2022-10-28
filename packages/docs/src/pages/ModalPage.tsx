@@ -13,22 +13,23 @@ export function ModalPage() {
         </ModalTrigger>
 
         <ModalContent title="Modal title">
-          <Flex direction="column">
-            <Text>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius quo
-              cupiditate vitae ratione labore exercitationem similique,
-              voluptate architecto omnis praesentium ad libero impedit aperiam
-              nemo debitis magnam neque facilis nam.
-            </Text>
-
-            <Footer>
-              <Button type="button" variant="ghost" colorScheme="gray">
-                Cancel
-              </Button>
-
-              <Button type="button">Submit</Button>
-            </Footer>
+          <Flex flex overflow direction="column">
+            {new Array(20).fill('').map((item) => (
+              <Text key={item}>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius
+                quo cupiditate vitae ratione labore exercitationem similique,
+                voluptate architecto omnis praesentium ad libero impedit aperiam
+                nemo debitis magnam neque facilis nam.
+              </Text>
+            ))}
           </Flex>
+          <Footer>
+            <Button type="button" variant="ghost" colorScheme="gray">
+              Cancel
+            </Button>
+
+            <Button type="button">Submit</Button>
+          </Footer>
         </ModalContent>
       </Modal>
     </Flex>
