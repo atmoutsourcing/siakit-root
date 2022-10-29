@@ -1,7 +1,11 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 
 import { applyGlobalCss } from './global'
+import { createTheme } from './styles'
+import { dark } from './themes/dark'
+import { light } from './themes/light'
 
+const scale = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 export const colors = {
   orange: 'Laranja',
   tomato: 'Tomate',
@@ -41,323 +45,35 @@ const ThemeContext = createContext({} as ThemeContextData)
 
 applyGlobalCss()
 
-// const tomatoLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...tomato,
-//   },
-// })
-// const tomatoDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...tomato,
-//   },
-// })
+const availableThemes = Object.keys(colors).reduce((acc, name) => {
+  const primaryColors = {} as { [key: string]: string }
 
-// const redLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...red,
-//   },
-// })
-// const redDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...red,
-//   },
-// })
+  scale.forEach((scaleItem) => {
+    primaryColors[`primary${scaleItem}`] = `$${name}${scaleItem}`
+  })
 
-// const crimsonLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...crimson,
-//   },
-// })
-// const crimsonDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...crimson,
-//   },
-// })
+  const lightTheme = createTheme({
+    colors: {
+      ...light,
+      ...primaryColors,
+    },
+  })
 
-// const pinkLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...pink,
-//   },
-// })
-// const pinkDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...pink,
-//   },
-// })
+  const darkTheme = createTheme({
+    colors: {
+      ...dark,
+      ...primaryColors,
+    },
+  })
 
-// const plumLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...plum,
-//   },
-// })
-// const plumDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...plum,
-//   },
-// })
+  const themes = {
+    ...acc,
+    [`light-${name}`]: lightTheme.className,
+    [`dark-${name}`]: darkTheme.className,
+  }
 
-// const purpleLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...purple,
-//   },
-// })
-// const purpleDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...purple,
-//   },
-// })
-
-// const violetLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...violet,
-//   },
-// })
-// const violetDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...violet,
-//   },
-// })
-
-// const indigoLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...indigoLight,
-//   },
-// })
-// const indigoDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...indigoDark,
-//   },
-// })
-
-// const blueLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...blue,
-//   },
-// })
-// const blueDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...blue,
-//   },
-// })
-
-// const cyanLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...cyan,
-//   },
-// })
-// const cyanDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...cyan,
-//   },
-// })
-
-// const tealLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...teal,
-//   },
-// })
-// const tealDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...teal,
-//   },
-// })
-
-// const greenLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...green,
-//   },
-// })
-// const greenDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...green,
-//   },
-// })
-
-// const grassLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...grass,
-//   },
-// })
-// const grassDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...grass,
-//   },
-// })
-
-// const orangeLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...orange,
-//   },
-// })
-// const orangeDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...orange,
-//   },
-// })
-
-// const brownLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...brown,
-//   },
-// })
-// const brownDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...brown,
-//   },
-// })
-
-// const skyLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...sky,
-//   },
-// })
-// const skyDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...sky,
-//   },
-// })
-
-// const mintLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...mint,
-//   },
-// })
-// const mintDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...mint,
-//   },
-// })
-
-// const limeLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...lime,
-//   },
-// })
-// const limeDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...lime,
-//   },
-// })
-
-// const yellowLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...yellow,
-//   },
-// })
-// const yellowDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...yellow,
-//   },
-// })
-
-// const amberLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...amber,
-//   },
-// })
-// const amberDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...amber,
-//   },
-// })
-
-// const grayLightTheme = createTheme({
-//   colors: {
-//     ...baseLightTheme,
-//     ...gray,
-//   },
-// })
-// const grayDarkTheme = createTheme({
-//   colors: {
-//     ...baseDarkTheme,
-//     ...gray,
-//   },
-// })
-
-const availableThemes = {
-  // 'tomato-light': tomatoLightTheme.className,
-  // 'tomato-dark': tomatoDarkTheme.className,
-  // 'red-light': redLightTheme.className,
-  // 'red-dark': redDarkTheme.className,
-  // 'crimson-light': crimsonLightTheme.className,
-  // 'crimson-dark': crimsonDarkTheme.className,
-  // 'pink-light': pinkLightTheme.className,
-  // 'pink-dark': pinkDarkTheme.className,
-  // 'plum-light': plumLightTheme.className,
-  // 'plum-dark': plumDarkTheme.className,
-  // 'purple-light': purpleLightTheme.className,
-  // 'purple-dark': purpleDarkTheme.className,
-  // 'violet-light': violetLightTheme.className,
-  // 'violet-dark': violetDarkTheme.className,
-  // 'indigo-light': indigoLightTheme.className,
-  // 'indigo-dark': indigoDarkTheme.className,
-  // 'blue-light': blueLightTheme.className,
-  // 'blue-dark': blueDarkTheme.className,
-  // 'cyan-light': cyanLightTheme.className,
-  // 'cyan-dark': cyanDarkTheme.className,
-  // 'teal-light': tealLightTheme.className,
-  // 'teal-dark': tealDarkTheme.className,
-  // 'green-light': greenLightTheme.className,
-  // 'green-dark': greenDarkTheme.className,
-  // 'grass-light': grassLightTheme.className,
-  // 'grass-dark': grassDarkTheme.className,
-  // 'orange-light': orangeLightTheme.className,
-  // 'orange-dark': orangeDarkTheme.className,
-  // 'brown-light': brownLightTheme.className,
-  // 'brown-dark': brownDarkTheme.className,
-  // 'sky-light': skyLightTheme.className,
-  // 'sky-dark': skyDarkTheme.className,
-  // 'mint-light': mintLightTheme.className,
-  // 'mint-dark': mintDarkTheme.className,
-  // 'lime-light': limeLightTheme.className,
-  // 'lime-dark': limeDarkTheme.className,
-  // 'yellow-light': yellowLightTheme.className,
-  // 'yellow-dark': yellowDarkTheme.className,
-  // 'amber-light': amberLightTheme.className,
-  // 'amber-dark': amberDarkTheme.className,
-  // 'gray-light': grayLightTheme.className,
-  // 'gray-dark': grayDarkTheme.className,
-} as any
+  return themes
+}, {}) as { [key: string]: string }
 
 type ThemeProviderProps = {
   children: ReactNode
@@ -389,20 +105,25 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   const html = document.documentElement
 
-  // html.classList.add(availableThemes[`${color}-${theme}`])
+  html.classList.add(availableThemes[`${theme}-${color}`])
 
   function togggleTheme(value?: Theme) {
     const newTheme = value || (theme === 'light' ? 'dark' : 'light')
-    html.classList.remove(availableThemes[`${color}-${theme}`])
-    html.classList.add(availableThemes[`${color}-${newTheme}`])
+
+    html.classList.remove(availableThemes[`${theme}-${color}`])
+    html.classList.add(availableThemes[`${newTheme}-${color}`])
+
     localStorage.setItem('@siakit:theme', newTheme)
+
     setTheme(newTheme)
   }
 
   function changeColor(value: Color) {
-    html.classList.remove(availableThemes[`${color}-${theme}`])
-    html.classList.add(availableThemes[`${value}-${theme}`])
+    html.classList.remove(availableThemes[`${theme}-${color}`])
+    html.classList.add(availableThemes[`${theme}-${value}`])
+
     localStorage.setItem('@siakit:color', value)
+
     setColor(value)
   }
 

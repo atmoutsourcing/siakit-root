@@ -9,7 +9,7 @@ import {
 } from '@siakit/tokens'
 import { createStitches, defaultThemeMap } from '@stitches/react'
 
-import { baseTheme } from './themes/base'
+import { light } from './themes/light'
 
 export const {
   styled,
@@ -24,7 +24,7 @@ export const {
     width: 'space',
   },
   theme: {
-    colors: baseTheme,
+    colors: light,
     fonts,
     fontSizes,
     fontWeights,

@@ -1,6 +1,6 @@
 {
   "name": "@siakit/core",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -14,7 +14,6 @@
     "lint": "eslint src/**/*.ts* --fix"
   },
   "devDependencies": {
-    "@radix-ui/colors": "^0.1.8",
     "@siakit/eslint-config": "*",
     "@siakit/tokens": "*",
     "@siakit/ts-config": "*",
@@ -25,6 +24,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@radix-ui/colors": "^0.1.8",
     "@stitches/react": "^1.2.8"
   }
 }

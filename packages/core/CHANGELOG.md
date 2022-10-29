@@ -1,5 +1,17 @@
 # @siakit/core
 
+## 0.0.15
+
+### Patch Changes
+
+- fix core theme colors
+
+## 0.0.14
+
+### Patch Changes
+
+- fix
+
 ## 0.0.13
 
 ### Patch Changes
