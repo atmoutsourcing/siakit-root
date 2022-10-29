@@ -1,5 +1,11 @@
 # @siakit/core
 
+## 0.0.11
+
+### Patch Changes
+
+- fix theme
+
 ## 0.0.10
 
 ### Patch Changes
