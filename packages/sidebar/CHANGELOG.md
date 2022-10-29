@@ -1,5 +1,13 @@
 # @siakit/sidebar
 
+## 0.0.11
+
+### Patch Changes
+
+- .
+- Updated dependencies
+  - @siakit/core@0.0.17
+
 ## 0.0.10
 
 ### Patch Changes

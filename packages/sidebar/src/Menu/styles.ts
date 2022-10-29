@@ -23,7 +23,7 @@ export const MenuContainer = styled('div', {
         backgroundColor: '$gray2',
       },
       false: {
-        backgroundColor: '$primary11',
+        backgroundColor: '$indigo11',
       },
     },
   },
