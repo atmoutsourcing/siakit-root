@@ -1,5 +1,35 @@
 # @siakit/core
 
+## 0.0.10
+
+### Patch Changes
+
+- fix indigo theme
+
+## 0.0.9
+
+### Patch Changes
+
+- fix core
+
+## 0.0.8
+
+### Patch Changes
+
+- fix
+
+## 0.0.7
+
+### Patch Changes
+
+- fix
+
+## 0.0.6
+
+### Patch Changes
+
+- fix
+
 ## 0.0.5
 
 ### Patch Changes

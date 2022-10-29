@@ -1,4 +1,3 @@
-import { createStitches, defaultThemeMap } from '@stitches/react'
 import {
   fontSizes,
   fontWeights,
@@ -8,7 +7,9 @@ import {
   space,
   shadows,
 } from '@siakit/tokens'
-import { light } from './themes/light'
+import { createStitches, defaultThemeMap } from '@stitches/react'
+
+import { baseTheme } from './themes/base'
 
 export const {
   styled,
@@ -23,7 +24,7 @@ export const {
     width: 'space',
   },
   theme: {
-    colors: light,
+    colors: baseTheme,
     fonts,
     fontSizes,
     fontWeights,
