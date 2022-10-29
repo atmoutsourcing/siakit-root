@@ -1,5 +1,11 @@
 # @siakit/core
 
+## 0.0.5
+
+### Patch Changes
+
+- fix localstorage from core
+
 ## 0.0.4
 
 ### Patch Changes

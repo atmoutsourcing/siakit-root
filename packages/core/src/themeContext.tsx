@@ -87,6 +87,8 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       return persistedTheme as Theme
     }
 
+    localStorage.setItem('@siakit:theme', 'light')
+
     return 'light'
   })
   const [color, setColor] = useState<Color>(() => {
@@ -95,6 +97,8 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     if (persistedColor) {
       return persistedColor as Color
     }
+
+    localStorage.setItem('@siakit:color', 'indigo')
 
     return 'indigo'
   })
