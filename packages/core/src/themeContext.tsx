@@ -435,9 +435,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   const html = document.documentElement
 
-  console.log(availableThemes, theme, color)
-
-  html.classList.add(availableThemes[`${color}-${theme}`])
+  // html.classList.add(availableThemes[`${color}-${theme}`])
 
   function togggleTheme(value?: Theme) {
     const newTheme = value || (theme === 'light' ? 'dark' : 'light')
