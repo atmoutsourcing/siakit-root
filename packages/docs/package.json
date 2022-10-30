@@ -31,6 +31,7 @@
     "@siakit/badge": "*",
     "@siakit/tabs": "*",
     "@siakit/dialog": "*",
+    "@siakit/empty": "*",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

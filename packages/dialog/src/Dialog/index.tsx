@@ -47,53 +47,54 @@ export function Dialog({ dialog, removeDialog }: DialogProps) {
   return (
     <AlertDialog.Root defaultOpen>
       <AlertDialog.Portal>
-        <Overlay />
-        <Content>
-          <Flex width={56} height={56} margin="8px 0 0">
-            {dialog.type === 'info' && <InfoIcon />}
-            {dialog.type === 'success' && <SuccessIcon />}
-            {dialog.type === 'warning' && <WarningIcon />}
-            {dialog.type === 'danger' && <DangerIcon />}
-          </Flex>
+        <Overlay>
+          <Content>
+            <Flex width={56} height={56} margin="8px 0 0">
+              {dialog.type === 'info' && <InfoIcon />}
+              {dialog.type === 'success' && <SuccessIcon />}
+              {dialog.type === 'warning' && <WarningIcon />}
+              {dialog.type === 'danger' && <DangerIcon />}
+            </Flex>
 
-          <Flex direction="column" gap={8} align="center" padding="8px 0">
-            <AlertDialog.Title asChild>
-              <Heading>{dialog.title}</Heading>
-            </AlertDialog.Title>
-            <AlertDialog.Description asChild>
-              <Text lowContrast align="center" size="md">
-                {dialog.description}
-              </Text>
-            </AlertDialog.Description>
-          </Flex>
+            <Flex direction="column" gap={8} align="center" padding="8px 0">
+              <AlertDialog.Title asChild>
+                <Heading>{dialog.title}</Heading>
+              </AlertDialog.Title>
+              <AlertDialog.Description asChild>
+                <Text lowContrast align="center" size="md">
+                  {dialog.description}
+                </Text>
+              </AlertDialog.Description>
+            </Flex>
 
-          <Flex gap={8} justify="center">
-            {dialog.showCancel && (
-              <AlertDialog.Cancel asChild onClick={handleCancel}>
-                <Button type="button" variant="secondary" colorScheme="gray">
-                  {dialog.cancelText ?? 'Cancel'}
+            <Flex gap={8} justify="center">
+              {dialog.showCancel && (
+                <AlertDialog.Cancel asChild onClick={handleCancel}>
+                  <Button type="button" variant="secondary" colorScheme="gray">
+                    {dialog.cancelText ?? 'Cancel'}
+                  </Button>
+                </AlertDialog.Cancel>
+              )}
+              <AlertDialog.Action asChild>
+                <Button
+                  type="button"
+                  colorScheme={
+                    dialog.type === 'info'
+                      ? 'blue'
+                      : dialog.type === 'success'
+                      ? 'green'
+                      : dialog.type === 'warning'
+                      ? 'amber'
+                      : 'red'
+                  }
+                  onClick={handleAction}
+                >
+                  {dialog.actionText}
                 </Button>
-              </AlertDialog.Cancel>
-            )}
-            <AlertDialog.Action asChild>
-              <Button
-                type="button"
-                colorScheme={
-                  dialog.type === 'info'
-                    ? 'blue'
-                    : dialog.type === 'success'
-                    ? 'green'
-                    : dialog.type === 'warning'
-                    ? 'amber'
-                    : 'red'
-                }
-                onClick={handleAction}
-              >
-                {dialog.actionText}
-              </Button>
-            </AlertDialog.Action>
-          </Flex>
-        </Content>
+              </AlertDialog.Action>
+            </Flex>
+          </Content>
+        </Overlay>
       </AlertDialog.Portal>
     </AlertDialog.Root>
   )

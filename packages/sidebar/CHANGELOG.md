@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.12
+
+### Patch Changes
+
+- fix zindex
+
 ## 0.0.11
 
 ### Patch Changes

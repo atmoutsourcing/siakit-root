@@ -39,8 +39,6 @@ const Content = styled(AlertDialog.Content, {
 
   maxWidth: 272,
 
-  zIndex: 9055,
-
   '&:focus': {
     boxShadow: 'none',
   },

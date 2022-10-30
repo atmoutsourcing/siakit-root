@@ -8,7 +8,7 @@ export const MenuContainer = styled('div', {
 
   overflowY: 'auto',
 
-  zIndex: 2,
+  // zIndex: 2,
 
   width: 48,
 

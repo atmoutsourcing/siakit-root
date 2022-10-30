@@ -53,8 +53,6 @@ function SidebarComponent({
 
   return (
     <>
-      {open && <SidebarOverlay onClick={() => onOpenChange(false)} />}
-
       <SidebarContainer isOpen={open}>
         {childrenIsArray ? children[0] : children}
 
@@ -74,6 +72,8 @@ function SidebarComponent({
           </>
         )}
       </SidebarContainer>
+
+      {open && <SidebarOverlay onClick={() => onOpenChange(false)} />}
     </>
   )
 }

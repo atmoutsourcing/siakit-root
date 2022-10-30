@@ -5,6 +5,7 @@ import { BadgePage } from '../pages/BadgePage'
 import { CardPage } from '../pages/CardPage'
 import { DialogPage } from '../pages/DialogPage'
 import { DrawerPage } from '../pages/DrawerPage'
+import { EmptyPage } from '../pages/EmptyPage'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
 import { LoadingPage } from '../pages/LoadingPage'
@@ -40,6 +41,7 @@ export function AppRoutes() {
       <Route path="tabs" element={<TabsPage />} />
       <Route path="dialog" element={<DialogPage />} />
       <Route path="text" element={<TextPage />} />
+      <Route path="empty" element={<EmptyPage />} />
     </Routes>
   )
 }

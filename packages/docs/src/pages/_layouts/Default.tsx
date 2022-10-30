@@ -3,6 +3,7 @@ import { ReactNode, useState } from 'react'
 import { Moon, Sun } from 'phosphor-react'
 
 import { Avatar } from '@siakit/avatar'
+import { Button } from '@siakit/button'
 import { useTheme } from '@siakit/core'
 import {
   Dropdown,
@@ -21,7 +22,6 @@ import {
   SubMenu,
   SubMenuItem,
 } from '@siakit/sidebar'
-import { Text } from '@siakit/text'
 
 type DefaultLayoutProps = {
   children: ReactNode
@@ -78,7 +78,9 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         <PageHeader
           title="Title"
           onGoBack={() => console.log('on go back')}
-          leftContent={<Text>teste</Text>}
+          leftContent={
+            <Button onClick={() => setSidebarVisible(true)}>teste</Button>
+          }
         >
           <Flex gap={8}>
             <IconButton
