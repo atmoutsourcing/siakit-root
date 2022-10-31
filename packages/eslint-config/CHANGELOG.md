@@ -1,5 +1,23 @@
 # @siakit/eslint-config
 
+## 0.0.10
+
+### Patch Changes
+
+- add node config
+
+## 0.0.9
+
+### Patch Changes
+
+- add import-helpers
+
+## 0.0.8
+
+### Patch Changes
+
+- add react eslint config
+
 ## 0.0.7
 
 ### Patch Changes
