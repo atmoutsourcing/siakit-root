@@ -12,7 +12,6 @@ const Overlay = styled(AlertDialog.Overlay, {
   height: '100vh',
   inset: 0,
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  zIndex: 9050,
 
   '&[data-state=open]': {
     animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,

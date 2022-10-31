@@ -60,5 +60,4 @@ export const SubMenuContainer = styled('div', {
   overflow: 'auto',
 
   outline: '1px solid $gray4',
-  zIndex: 1,
 })
