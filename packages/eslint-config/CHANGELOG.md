@@ -1,5 +1,11 @@
 # @siakit/eslint-config
 
+## 0.0.11
+
+### Patch Changes
+
+- add libs
+
 ## 0.0.10
 
 ### Patch Changes
