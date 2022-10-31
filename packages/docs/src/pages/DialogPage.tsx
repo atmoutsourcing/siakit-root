@@ -13,7 +13,7 @@ export function DialogPage() {
         onClick={() =>
           addDialog({
             type: 'info',
-            title: 'Title',
+            title: 'Title Title Title Title Title',
             description: 'teste teste teste teste teste teste teste teste',
             onAction: () => console.log('action'),
             actionText: 'Ok',

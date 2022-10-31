@@ -1,5 +1,11 @@
 # @siakit/dialog
 
+## 0.0.6
+
+### Patch Changes
+
+- fix dialog heading align
+
 ## 0.0.5
 
 ### Patch Changes

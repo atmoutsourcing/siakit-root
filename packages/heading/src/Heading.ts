@@ -40,6 +40,17 @@ export const Heading = styled('h2', {
         color: '$gray1',
       },
     },
+    align: {
+      left: {
+        textAlign: 'left',
+      },
+      center: {
+        textAlign: 'center',
+      },
+      right: {
+        textAlign: 'right',
+      },
+    },
   },
 
   compoundVariants: [

@@ -58,7 +58,7 @@ export function Dialog({ dialog, removeDialog }: DialogProps) {
 
             <Flex direction="column" gap={8} align="center" padding="8px 0">
               <AlertDialog.Title asChild>
-                <Heading>{dialog.title}</Heading>
+                <Heading align="center">{dialog.title}</Heading>
               </AlertDialog.Title>
               <AlertDialog.Description asChild>
                 <Text lowContrast align="center" size="md">
