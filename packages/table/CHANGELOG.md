@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.3
+
+### Patch Changes
+
+- fix direction select
+
 ## 0.0.2
 
 ### Patch Changes
