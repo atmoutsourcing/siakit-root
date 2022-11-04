@@ -1,17 +1,22 @@
-import { Flex } from '@siakit/layout'
-import { Pagination } from '@siakit/pagination'
 import { ReactNode, useRef } from 'react'
+
 import dot from 'dot-object'
+
 import { Badge } from '@siakit/badge'
-import { LinkButton } from '@siakit/link-button'
+import { Color, useTheme } from '@siakit/core'
 import {
   Dropdown,
   DropdownTrigger,
   DropdownContent,
   DropdownItem,
+  DropdownSeparator,
 } from '@siakit/dropdown'
 import { IconButton } from '@siakit/icon-button'
+import { Flex } from '@siakit/layout'
+import { LinkButton } from '@siakit/link-button'
+import { Pagination } from '@siakit/pagination'
 
+import { HeaderCell } from './HeaderCell'
 import {
   BodyCell,
   Content,
@@ -19,8 +24,6 @@ import {
   ActionCell,
   FooterCell,
 } from './styles'
-import { HeaderCell } from './HeaderCell'
-import { Color, useTheme } from '@siakit/core'
 
 type ValueType = string | number | boolean
 type ObjectType = { [key: string]: ValueType }
@@ -339,15 +342,19 @@ export function Table({
                     </DropdownTrigger>
 
                     <DropdownContent align="end">
-                      {actions.map((action) => (
-                        <DropdownItem
-                          key={action.label}
-                          onClick={() => action.onClick(item)}
-                          type={action.type}
-                        >
-                          {action.label}
-                        </DropdownItem>
-                      ))}
+                      {actions.map((action) =>
+                        action.label === '-' ? (
+                          <DropdownSeparator />
+                        ) : (
+                          <DropdownItem
+                            key={action.label}
+                            onClick={() => action.onClick(item)}
+                            type={action.type}
+                          >
+                            {action.label}
+                          </DropdownItem>
+                        ),
+                      )}
                     </DropdownContent>
                   </Dropdown>
                 </ActionCell>
