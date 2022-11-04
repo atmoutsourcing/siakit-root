@@ -22,6 +22,22 @@ type FlexProps = {
   as?: ElementType
 } & ComponentProps<typeof GridContainer>
 
+function processSize(size: boolean | number | string | undefined) {
+  if (!size) {
+    return
+  }
+
+  if (typeof size === 'boolean' && size === true) {
+    return '16px'
+  }
+
+  if (typeof size === 'number') {
+    return `${size}px`
+  }
+
+  return size
+}
+
 export function Grid({
   columns,
   rows,
@@ -52,26 +68,11 @@ export function Grid({
 
         flex: typeof flex === 'boolean' ? 1 : flex,
 
-        margin:
-          typeof margin === 'boolean'
-            ? 16
-            : typeof margin === 'number'
-            ? `${margin}px`
-            : margin,
+        margin: processSize(margin),
 
-        padding:
-          typeof padding === 'boolean'
-            ? 16
-            : typeof padding === 'number'
-            ? `${padding}px`
-            : padding,
+        padding: processSize(padding),
 
-        gap:
-          typeof gap === 'boolean'
-            ? 16
-            : typeof gap === 'number'
-            ? `${gap}px`
-            : gap,
+        gap: processSize(gap),
 
         width,
         minWidth,

@@ -1,4 +1,5 @@
 import { ComponentProps, ElementType, forwardRef } from 'react'
+
 import { FlexContainer } from './styles'
 
 type FlexProps = {
@@ -16,6 +17,34 @@ type FlexProps = {
   maxHeight?: number | string
   as?: ElementType
 } & ComponentProps<typeof FlexContainer>
+
+function processFlex(flex: boolean | number | undefined) {
+  if (!flex) {
+    return
+  }
+
+  if (typeof flex === 'boolean' && flex === true) {
+    return 1
+  }
+
+  return flex
+}
+
+function processSize(size: boolean | number | string | undefined) {
+  if (!size) {
+    return
+  }
+
+  if (typeof size === 'boolean' && size === true) {
+    return '16px'
+  }
+
+  if (typeof size === 'number') {
+    return `${size}px`
+  }
+
+  return size
+}
 
 export const Flex = forwardRef<HTMLDivElement, FlexProps>(
   (
@@ -42,28 +71,13 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(
         css={{
           ...css,
 
-          flex: typeof flex === 'boolean' ? 1 : flex,
+          flex: processFlex(flex),
 
-          margin:
-            typeof margin === 'boolean'
-              ? 16
-              : typeof margin === 'number'
-              ? `${margin}px`
-              : margin,
+          margin: processSize(margin),
 
-          padding:
-            typeof padding === 'boolean'
-              ? 16
-              : typeof padding === 'number'
-              ? `${padding}px`
-              : padding,
+          padding: processSize(padding),
 
-          gap:
-            typeof gap === 'boolean'
-              ? 16
-              : typeof gap === 'number'
-              ? `${gap}px`
-              : gap,
+          gap: processSize(gap),
 
           width,
           minWidth,

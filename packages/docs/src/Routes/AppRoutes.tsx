@@ -5,6 +5,7 @@ import { BadgePage } from '../pages/BadgePage'
 import { CardPage } from '../pages/CardPage'
 import { DialogPage } from '../pages/DialogPage'
 import { DrawerPage } from '../pages/DrawerPage'
+import { DropdownPage } from '../pages/DropdownPage'
 import { EmptyPage } from '../pages/EmptyPage'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
@@ -42,6 +43,7 @@ export function AppRoutes() {
       <Route path="dialog" element={<DialogPage />} />
       <Route path="text" element={<TextPage />} />
       <Route path="empty" element={<EmptyPage />} />
+      <Route path="dropdown" element={<DropdownPage />} />
     </Routes>
   )
 }

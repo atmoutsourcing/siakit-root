@@ -1,5 +1,13 @@
 # @siakit/dropdown
 
+## 0.0.6
+
+### Patch Changes
+
+- fix
+- Updated dependencies
+  - @siakit/layout@0.0.8
+
 ## 0.0.5
 
 ### Patch Changes
