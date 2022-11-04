@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { InputHTMLAttributes, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -8,22 +8,22 @@ import {
 import { MaskType } from '@siakit/mask'
 import { useField } from '@unform/core'
 
-type MaskInputProps = {
+type MaskInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange'
+> & {
   name: string
   mask: MaskType
   label?: string
-  placeholder?: string
   onChange?: (value: string) => void
-  disabled?: boolean
 }
 
 export function MaskInput({
   name,
   mask,
   label,
-  placeholder,
   onChange,
-  disabled,
+  ...props
 }: MaskInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -60,8 +60,7 @@ export function MaskInput({
         mask={mask}
         value={fieldValue}
         onChange={handleChange}
-        placeholder={placeholder}
-        disabled={disabled}
+        {...props}
       />
     </FormControl>
   )
