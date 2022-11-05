@@ -6,7 +6,6 @@ const Container = styled('button', {
   padding: 12,
   position: 'sticky',
   top: 0,
-  zIndex: 3,
   display: 'flex',
   alignItems: 'center',
   gap: 4,
@@ -23,7 +22,6 @@ const Container = styled('button', {
     },
     isAction: {
       true: {
-        zIndex: 3,
         right: 0,
       },
     },

@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.6
+
+### Patch Changes
+
+- fix table header
+
 ## 0.0.5
 
 ### Patch Changes

@@ -29,7 +29,6 @@ export const ActionCell = styled('div', {
 
   position: 'sticky',
   right: 0,
-  zIndex: 2,
 
   display: 'flex',
   alignItems: 'center',
@@ -48,7 +47,6 @@ export const FooterCell = styled('div', {
 
   position: 'sticky',
   bottom: '0',
-  zIndex: 3,
 
   backgroundColor: '$gray3',
   borderTop: '1px solid $gray6',
