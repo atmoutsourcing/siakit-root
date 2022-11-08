@@ -1,6 +1,6 @@
 {
-  "name": "@siakit/sidebar",
-  "version": "0.0.16",
+  "name": "@siakit/sidebar-old",
+  "version": "0.0.13",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -18,14 +18,15 @@
     "@siakit/ts-config": "*",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "polished": "^4.2.2",
     "react": "^18.2.0",
     "tsup": "^6.2.3",
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@radix-ui/react-scroll-area": "^1.0.1",
     "@siakit/core": "*",
-    "@siakit/layout": "^0.0.8",
-    "@siakit/separator": "^0.0.3",
-    "@siakit/text": "^0.0.3"
+    "@siakit/separator": "*",
+    "@siakit/tooltip": "*"
   }
 }

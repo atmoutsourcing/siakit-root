@@ -53,6 +53,7 @@ export function MenuItem({
         isDarkTheme={theme === 'dark'}
       >
         {!isSelected && !!icon && <>{icon}</>}
+        
         {isSelected && !!activeIcon ? (
           <>{activeIcon}</>
         ) : (

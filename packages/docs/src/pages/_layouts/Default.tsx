@@ -1,6 +1,6 @@
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 
-import { Moon, Sun } from 'phosphor-react'
+import { House, Timer, Cube, Moon, Sun } from 'phosphor-react'
 
 import { Avatar } from '@siakit/avatar'
 import { Button } from '@siakit/button'
@@ -14,13 +14,23 @@ import {
 import { IconButton } from '@siakit/icon-button'
 import { Flex } from '@siakit/layout'
 import { PageHeader } from '@siakit/page-header'
+// import {
+//   Menu,
+//   MenuTitle,
+//   Sidebar,
+//   MenuItem,
+//   SubMenu,
+//   SubMenuItem,
+// } from '@siakit/sidebar'
 import {
-  Menu,
-  MenuTitle,
   Sidebar,
+  Menu,
+  MenuHeader,
   MenuItem,
   SubMenu,
   SubMenuItem,
+  SubMenuTitle,
+  SubMenuSeparator,
 } from '@siakit/sidebar'
 
 type DefaultLayoutProps = {
@@ -30,11 +40,62 @@ type DefaultLayoutProps = {
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const { theme, togggleTheme } = useTheme()
 
-  const [sidebarVisible, setSidebarVisible] = useState(false)
-
   return (
     <Flex flex overflow>
-      <Sidebar
+      <Sidebar>
+        <Menu>
+          <MenuHeader>
+            <p>A</p>
+
+            <p>B</p>
+          </MenuHeader>
+
+          <MenuItem value="option1" icon={<House weight="bold" />}>
+            item 1
+          </MenuItem>
+          <MenuItem value="option2" icon={<Timer weight="bold" />}>
+            item 2
+          </MenuItem>
+          <MenuItem value="option3" icon={<Cube weight="bold" />}>
+            item 3
+          </MenuItem>
+        </Menu>
+
+        <SubMenu value="option1">
+          <SubMenuTitle>Menu title</SubMenuTitle>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 1
+          </SubMenuItem>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 2
+          </SubMenuItem>
+          <SubMenuSeparator />
+          <SubMenuTitle>Menu title</SubMenuTitle>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 1
+          </SubMenuItem>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 2
+          </SubMenuItem>
+        </SubMenu>
+
+        <SubMenu value="option2">
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 3
+          </SubMenuItem>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 4
+          </SubMenuItem>
+        </SubMenu>
+
+        <SubMenu value="option3">
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 5
+          </SubMenuItem>
+          {/* <SubMenuItem onClick={() => console.log('item 1')}>item 6</SubMenuItem> */}
+        </SubMenu>
+      </Sidebar>
+      {/* <Sidebar
         open={sidebarVisible}
         onOpenChange={(value) => setSidebarVisible(value)}
       >
@@ -72,14 +133,14 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
             item 1
           </SubMenuItem>
         </SubMenu>
-      </Sidebar>
+      </Sidebar> */}
 
       <Flex flex direction="column" overflow>
         <PageHeader
           title="Title"
           onGoBack={() => console.log('on go back')}
           leftContent={
-            <Button onClick={() => setSidebarVisible(true)}>teste</Button>
+            <Button onClick={() => console.log('console')}>teste</Button>
           }
         >
           <Flex gap={8}>
