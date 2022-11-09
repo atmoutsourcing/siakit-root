@@ -1,7 +1,9 @@
+import { ReactNode } from 'react'
+
 import { styled } from '@siakit/core'
 
 type SubMenuTitleProps = {
-  children: string
+  children: ReactNode
 }
 
 const Container = styled('div', {

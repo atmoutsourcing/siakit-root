@@ -29,6 +29,7 @@ import {
   MenuItem,
   SubMenu,
   SubMenuItem,
+  SubMenuTitle,
 } from '@siakit/sidebar'
 
 type DefaultLayoutProps = {
@@ -68,6 +69,7 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
         </Menu>
 
         <SubMenu value="option2">
+          <SubMenuTitle>v. {1 + 1}</SubMenuTitle>
           <SubMenuItem onClick={() => console.log('item 1')}>
             item 3
           </SubMenuItem>
