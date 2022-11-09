@@ -9,6 +9,8 @@ type MenuItemProps = {
   children: string
   value: string | number
   icon?: ReactElement
+  onClick?: () => void
+  type?: 'action'
 }
 
 const Container = styled('button', {
@@ -75,20 +77,32 @@ const Container = styled('button', {
   },
 })
 
-export function MenuItem({ children, value, icon }: MenuItemProps) {
+export function MenuItem({
+  children,
+  value,
+  icon,
+  onClick,
+  type,
+}: MenuItemProps) {
   const { theme } = useTheme()
-  const { selected, selectMenu } = useContext(SidebarContext)
+  const { minimized, selected, selectMenu } = useContext(SidebarContext)
 
   return (
     <Container
-      onClick={() => selectMenu(value)}
+      onClick={() => {
+        if (onClick) {
+          onClick()
+        }
+
+        selectMenu({ value, minimize: type !== 'action' })
+      }}
       isSelected={selected === value}
-      isExpanded={!selected}
+      isExpanded={!minimized}
       isDarkTheme={theme === 'dark'}
     >
       {icon}
 
-      {!selected && <Text>{children}</Text>}
+      {!minimized && <Text>{children}</Text>}
     </Container>
   )
 }

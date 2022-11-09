@@ -50,7 +50,11 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
             <p>B</p>
           </MenuHeader>
 
-          <MenuItem value="option1" icon={<House weight="bold" />}>
+          <MenuItem
+            value="option1"
+            icon={<House weight="bold" />}
+            type="action"
+          >
             item 1
           </MenuItem>
           <MenuItem value="option2" icon={<Timer weight="bold" />}>
@@ -60,24 +64,6 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
             item 3
           </MenuItem>
         </Menu>
-
-        <SubMenu value="option1">
-          <SubMenuTitle>Menu title</SubMenuTitle>
-          <SubMenuItem onClick={() => console.log('item 1')}>
-            item 1
-          </SubMenuItem>
-          <SubMenuItem onClick={() => console.log('item 1')}>
-            item 2
-          </SubMenuItem>
-          <SubMenuSeparator />
-          <SubMenuTitle>Menu title</SubMenuTitle>
-          <SubMenuItem onClick={() => console.log('item 1')}>
-            item 1
-          </SubMenuItem>
-          <SubMenuItem onClick={() => console.log('item 1')}>
-            item 2
-          </SubMenuItem>
-        </SubMenu>
 
         <SubMenu value="option2">
           <SubMenuItem onClick={() => console.log('item 1')}>

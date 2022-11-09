@@ -4,9 +4,15 @@ type SidebarProps = {
   children: ReactNode[]
 }
 
+type SelectMenuData = {
+  value: string | number | null
+  minimize: boolean
+}
+
 type SidebarContextData = {
+  minimized: boolean
   selected: string | number | null
-  selectMenu: (menu: string | number | null) => void
+  selectMenu: (data: SelectMenuData) => void
   subMenuSelected: number | null
   selectSubMenu: (index: number | null) => void
 }
@@ -18,10 +24,12 @@ export const SidebarContext = createContext<SidebarContextData>(
 export function Sidebar({ children }: SidebarProps) {
   const [selected, setSelected] = useState<string | number | null>(null)
   const [subMenuSelected, setSubMenuSelected] = useState<number | null>(null)
+  const [minimized, setMinimized] = useState(false)
 
-  function selectMenu(menu: string | number | null) {
-    setSelected(menu)
+  function selectMenu({ value, minimize }: SelectMenuData) {
+    setSelected(value)
     setSubMenuSelected(null)
+    setMinimized(minimize)
   }
 
   function selectSubMenu(index: number | null) {
@@ -30,7 +38,13 @@ export function Sidebar({ children }: SidebarProps) {
 
   return (
     <SidebarContext.Provider
-      value={{ selected, selectMenu, subMenuSelected, selectSubMenu }}
+      value={{
+        minimized,
+        selected,
+        selectMenu,
+        subMenuSelected,
+        selectSubMenu,
+      }}
     >
       {children}
     </SidebarContext.Provider>

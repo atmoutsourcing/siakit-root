@@ -13,7 +13,7 @@ export function MenuHeader({ children, onClick }: MenuHeaderProps) {
   const { selected, selectMenu, selectSubMenu } = useContext(SidebarContext)
 
   function handleClick() {
-    selectMenu(null)
+    selectMenu({ value: null, minimize: false })
     selectSubMenu(null)
 
     if (onClick) {

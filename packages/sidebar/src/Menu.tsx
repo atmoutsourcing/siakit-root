@@ -28,10 +28,10 @@ const Container = styled(Flex, {
 })
 
 export function Menu({ children }: MenuProps) {
-  const { selected } = useContext(SidebarContext)
+  const { minimized } = useContext(SidebarContext)
 
   return (
-    <Container small={!!selected} direction="column">
+    <Container small={minimized} direction="column">
       {children}
     </Container>
   )

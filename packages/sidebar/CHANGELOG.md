@@ -1,5 +1,17 @@
 # @siakit/sidebar
 
+## 0.0.18
+
+### Patch Changes
+
+- add type prop to menu-item
+
+## 0.0.17
+
+### Patch Changes
+
+- add onClick on MenuItem
+
 ## 0.0.16
 
 ### Patch Changes
