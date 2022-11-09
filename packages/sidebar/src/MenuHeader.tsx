@@ -10,7 +10,7 @@ type MenuHeaderProps = {
 }
 
 export function MenuHeader({ children, onClick }: MenuHeaderProps) {
-  const { selected, selectMenu, selectSubMenu } = useContext(SidebarContext)
+  const { minimized, selectMenu, selectSubMenu } = useContext(SidebarContext)
 
   function handleClick() {
     selectMenu({ value: null, minimize: false })
@@ -29,8 +29,8 @@ export function MenuHeader({ children, onClick }: MenuHeaderProps) {
       onClick={handleClick}
       css={{ cursor: onClick ? 'pointer' : 'default' }}
     >
-      {!selected && children[0]}
-      {!!selected && children[1]}
+      {!minimized && children[0]}
+      {!!minimized && children[1]}
     </Flex>
   )
 }
