@@ -27,17 +27,23 @@ export function Select({
   onChange,
   disabled,
 }: SelectProps) {
+  const [data, setData] = useState(options)
+
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
+  useEffect(() => {
+    setData(options)
+  }, [options])
+
   const processValue = useCallback(
-    (value: string | number | OptionType | null) => {
+    (value: string | number | null) => {
       if (typeof value === 'string' || typeof value === 'number') {
         const findOption = options.find((option) => option.value === value)
 
         return findOption ?? null
-      } else {
-        return value
       }
+
+      return null
     },
     [options],
   )
@@ -45,6 +51,14 @@ export function Select({
   const [fieldValue, setFieldValue] = useState<OptionType | null>(
     processValue(defaultValue) ?? null,
   )
+
+  function handleChange(value: OptionType | null) {
+    setFieldValue(value)
+
+    if (onChange) {
+      onChange(value)
+    }
+  }
 
   useEffect(() => {
     registerField({
@@ -57,7 +71,14 @@ export function Select({
         return fieldValue?.value ?? null
       },
       setValue: (_, value: string | number | OptionType | null) => {
-        setFieldValue(processValue(value))
+        console.log(value)
+
+        if (typeof value === 'object') {
+          setData((prevState: any) => [...prevState, value])
+          handleChange(value)
+        } else {
+          setFieldValue(processValue(value))
+        }
       },
       clearValue: () => {
         setFieldValue(null)
@@ -65,20 +86,12 @@ export function Select({
     })
   }, [fieldName, registerField, fieldValue, returnType, options, processValue])
 
-  function handleChange(value: OptionType | null) {
-    setFieldValue(value)
-
-    if (onChange) {
-      onChange(value)
-    }
-  }
-
   return (
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
       <SelectComponent
-        options={options}
+        options={data}
         value={fieldValue}
         onChange={handleChange}
         placeholder={placeholder}

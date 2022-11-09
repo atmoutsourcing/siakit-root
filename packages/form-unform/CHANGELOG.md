@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.15
+
+### Patch Changes
+
+- fix sidebar and select
+
 ## 0.0.14
 
 ### Patch Changes

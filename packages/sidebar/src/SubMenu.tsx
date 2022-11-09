@@ -15,6 +15,7 @@ const Container = styled('div', {
   borderRight: '1px solid $gray4',
   display: 'flex',
   flexDirection: 'column',
+  overflow: 'auto',
 
   '@media(max-width: 992px)': {
     display: 'none',

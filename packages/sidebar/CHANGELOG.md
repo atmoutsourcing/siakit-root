@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.22
+
+### Patch Changes
+
+- fix sidebar and select
+
 ## 0.0.21
 
 ### Patch Changes

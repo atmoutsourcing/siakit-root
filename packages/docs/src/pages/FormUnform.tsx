@@ -123,7 +123,6 @@ export function FormUnform() {
                 options={[{ value: 1, label: 'apple' }]}
                 label="Fruit"
                 placeholder="Select a fruit"
-                disabled
               />
               <SelectMulti
                 name="select-multi"
@@ -239,6 +238,17 @@ export function FormUnform() {
           </Flex>
 
           <Footer>
+            <Button
+              type="button"
+              onClick={() =>
+                formRef.current?.setFieldValue('select', {
+                  value: 123,
+                  label: 'Teste',
+                })
+              }
+            >
+              set value
+            </Button>
             <Button type="submit">send</Button>
           </Footer>
         </Form>

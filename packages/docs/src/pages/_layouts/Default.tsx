@@ -70,12 +70,11 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
 
         <SubMenu value="option2">
           <SubMenuTitle>v. {1 + 1}</SubMenuTitle>
-          <SubMenuItem onClick={() => console.log('item 1')}>
-            item 3
-          </SubMenuItem>
-          <SubMenuItem onClick={() => console.log('item 1')}>
-            item 4
-          </SubMenuItem>
+          {/* {new Array(30).fill().map((item, index) => (
+            <SubMenuItem key={index} onClick={() => console.log('item 1')}>
+              item {index}
+            </SubMenuItem>
+          ))} */}
         </SubMenu>
 
         <SubMenu value="option3">
