@@ -2,16 +2,9 @@ import { ReactElement, useContext } from 'react'
 
 import { styled, useTheme } from '@siakit/core'
 import { Text } from '@siakit/text'
+import { Tooltip } from '@siakit/tooltip'
 
 import { SidebarContext } from './Sidebar'
-
-type MenuItemProps = {
-  children: string
-  value: string | number
-  icon?: ReactElement
-  onClick?: () => void
-  type?: 'action'
-}
 
 const Container = styled('button', {
   position: 'relative',
@@ -77,9 +70,19 @@ const Container = styled('button', {
   },
 })
 
+type MenuItemProps = {
+  children: string
+  value: string | number
+  tooltip?: string
+  icon?: ReactElement
+  onClick?: () => void
+  type?: 'action'
+}
+
 export function MenuItem({
   children,
   value,
+  tooltip,
   icon,
   onClick,
   type,
@@ -88,21 +91,23 @@ export function MenuItem({
   const { minimized, selected, selectMenu } = useContext(SidebarContext)
 
   return (
-    <Container
-      onClick={() => {
-        if (onClick) {
-          onClick()
-        }
+    <Tooltip content={minimized ? tooltip : undefined} side="right">
+      <Container
+        onClick={() => {
+          if (onClick) {
+            onClick()
+          }
 
-        selectMenu({ value, minimize: type !== 'action' })
-      }}
-      isSelected={selected === value}
-      isExpanded={!minimized}
-      isDarkTheme={theme === 'dark'}
-    >
-      {icon}
+          selectMenu({ value, minimize: type !== 'action' })
+        }}
+        isSelected={selected === value}
+        isExpanded={!minimized}
+        isDarkTheme={theme === 'dark'}
+      >
+        {icon}
 
-      {!minimized && <Text>{children}</Text>}
-    </Container>
+        {!minimized && <Text>{children}</Text>}
+      </Container>
+    </Tooltip>
   )
 }

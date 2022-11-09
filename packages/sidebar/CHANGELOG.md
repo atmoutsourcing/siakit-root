@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.19
+
+### Patch Changes
+
+- add tooltip to menu-item
+
 ## 0.0.18
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@siakit/sidebar",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -26,6 +26,7 @@
     "@siakit/core": "*",
     "@siakit/layout": "^0.0.8",
     "@siakit/separator": "^0.0.3",
-    "@siakit/text": "^0.0.3"
+    "@siakit/text": "^0.0.3",
+    "@siakit/tooltip": "^0.0.3"
   }
 }

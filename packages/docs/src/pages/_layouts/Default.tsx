@@ -29,8 +29,6 @@ import {
   MenuItem,
   SubMenu,
   SubMenuItem,
-  SubMenuTitle,
-  SubMenuSeparator,
 } from '@siakit/sidebar'
 
 type DefaultLayoutProps = {
@@ -57,7 +55,11 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
           >
             item 1
           </MenuItem>
-          <MenuItem value="option2" icon={<Timer weight="bold" />}>
+          <MenuItem
+            value="option2"
+            icon={<Timer weight="bold" />}
+            tooltip="Option 2"
+          >
             item 2
           </MenuItem>
           <MenuItem value="option3" icon={<Cube weight="bold" />}>
