@@ -1,5 +1,11 @@
 # @siakit/dialog
 
+## 0.0.7
+
+### Patch Changes
+
+- fix dialog
+
 ## 0.0.6
 
 ### Patch Changes

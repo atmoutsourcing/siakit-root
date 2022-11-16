@@ -62,7 +62,9 @@ function DialogProvider({ children }: DialogProviderProps) {
       actionText,
     }
 
-    setDialogs((prevState) => [...prevState, dialog])
+    setTimeout(() => {
+      setDialogs((prevState) => [...prevState, dialog])
+    }, 5)
   }
 
   function removeDialog(id: number) {

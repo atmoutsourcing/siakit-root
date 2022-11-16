@@ -1,5 +1,17 @@
 # @siakit/modal
 
+## 0.0.12
+
+### Patch Changes
+
+- add settimeout to modal
+
+## 0.0.11
+
+### Patch Changes
+
+- update radix version
+
 ## 0.0.10
 
 ### Patch Changes
