@@ -78,11 +78,13 @@ export function Empty({
         />
       )}
 
-      <Flex direction="column" gap={8} align="center">
-        <Heading size="sm">{title}</Heading>
+      <Flex direction="column" gap={8} align="center" maxWidth={320}>
+        <Heading size="xs" weight="medium" align="center">
+          {title}
+        </Heading>
 
         {!!description && (
-          <Text size="sm" lowContrast>
+          <Text size="sm" lowContrast align="center">
             {description}
           </Text>
         )}

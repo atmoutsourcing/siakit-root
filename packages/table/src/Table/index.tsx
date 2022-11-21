@@ -11,6 +11,7 @@ import {
   DropdownItem,
   DropdownSeparator,
 } from '@siakit/dropdown'
+import { Empty } from '@siakit/empty'
 import { IconButton } from '@siakit/icon-button'
 import { Flex } from '@siakit/layout'
 import { LinkButton } from '@siakit/link-button'
@@ -418,6 +419,13 @@ export function Table({
             )}
           </>
         </Flex>
+      )}
+
+      {!data.length && (
+        <Empty
+          title="Nenhum dado encontrado"
+          description="Adicione um filtro ou adicione uma informação para listar"
+        />
       )}
     </Flex>
   )
