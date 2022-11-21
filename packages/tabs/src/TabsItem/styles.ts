@@ -5,24 +5,26 @@ export const TabsItemContainer = styled(RadixTabs.Trigger, {
   all: 'unset',
   color: '$gray9',
   cursor: 'pointer',
-  height: 32,
+  height: 40,
   display: 'flex',
   alignItems: 'center',
   gap: 6,
   padding: '0 16px',
   fontSize: '$sm',
-  borderBottom: '2px solid $gray6',
+  whiteSpace: 'nowrap',
+
   transition: 'all 0.150s',
-  zIndex: 10,
 
   '&:hover:not([disabled])': {
-    color: '$gray10',
+    color: '$gray12',
     backgroundColor: '$gray3',
   },
 
   '&[data-state="active"]': {
+    $$currentColor: '$colors$primary9',
+
     color: '$gray12',
-    borderColor: '$primary9',
+    boxShadow: 'inset 0 -1px 0 0 $$currentColor, 0 1px 0 0 $$currentColor',
   },
 
   '&:disabled': {

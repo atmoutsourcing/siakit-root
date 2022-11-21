@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import { House, Timer, Cube, Moon, Sun } from 'phosphor-react'
 
@@ -38,6 +39,7 @@ type DefaultLayoutProps = {
 
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   const { theme, togggleTheme } = useTheme()
+  const location = useLocation()
 
   return (
     <Flex flex overflow>
@@ -84,50 +86,15 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
           {/* <SubMenuItem onClick={() => console.log('item 1')}>item 6</SubMenuItem> */}
         </SubMenu>
       </Sidebar>
-      {/* <Sidebar
-        open={sidebarVisible}
-        onOpenChange={(value) => setSidebarVisible(value)}
-      >
-        <Menu>
-          <MenuTitle>Connections</MenuTitle>
-
-          {new Array(20).fill('').map((item, index) => (
-            <MenuItem value={`option${index + 1}`} key={item}>
-              Option 1
-            </MenuItem>
-          ))}
-        </Menu>
-
-        <SubMenu value="option1">
-          {new Array(50).fill('').map((item, index) => (
-            <SubMenuItem
-              key={item}
-              onClick={() => {
-                console.log('navigate')
-                setSidebarVisible(false)
-              }}
-            >
-              Item item
-            </SubMenuItem>
-          ))}
-        </SubMenu>
-
-        <SubMenu value="option2">
-          <SubMenuItem
-            onClick={() => {
-              console.log('navigate')
-              setSidebarVisible(false)
-            }}
-          >
-            item 1
-          </SubMenuItem>
-        </SubMenu>
-      </Sidebar> */}
 
       <Flex flex direction="column" overflow>
         <PageHeader
           title="Title"
-          onGoBack={() => console.log('on go back')}
+          onGoBack={
+            location.pathname.split('/').filter((item) => Boolean(item)).length
+              ? () => console.log('teste')
+              : undefined
+          }
           leftContent={
             <Button onClick={() => console.log('console')}>teste</Button>
           }

@@ -1,5 +1,11 @@
 # @siakit/page-header
 
+## 0.0.8
+
+### Patch Changes
+
+- fix tabs and page header
+
 ## 0.0.7
 
 ### Patch Changes

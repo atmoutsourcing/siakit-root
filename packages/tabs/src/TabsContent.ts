@@ -1,11 +1,7 @@
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { styled } from '@siakit/core'
 
-export const Tabs = styled(RadixTabs.Root, {
-  flex: 1,
-
-  display: 'flex',
-  flexDirection: 'column',
-
+export const TabsContent = styled(RadixTabs.Content, {
+  flexGrow: 1,
   overflow: 'auto',
 })

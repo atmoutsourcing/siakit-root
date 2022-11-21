@@ -53,7 +53,7 @@ export function PageHeader({
       }}
     >
       <Flex gap={8} padding={!onGoBack ? '0 0 0 8px' : 0} align="center">
-        {windowWidth > 992 && onGoBack ? (
+        {windowWidth > 992 && onGoBack && (
           <IconButton variant="ghost" colorScheme="gray" onClick={onGoBack}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,9 +68,9 @@ export function PageHeader({
               />
             </svg>
           </IconButton>
-        ) : (
-          leftContent
         )}
+
+        {windowWidth < 993 && leftContent && leftContent}
 
         {!!title && (
           <Heading size="xs" weight="medium">

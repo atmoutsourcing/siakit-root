@@ -14,11 +14,11 @@ export function App() {
       <ToastProvider>
         <LoadingProvider>
           <DialogProvider>
-            <DefaultLayout>
-              <BrowserRouter>
+            <BrowserRouter>
+              <DefaultLayout>
                 <AppRoutes />
-              </BrowserRouter>
-            </DefaultLayout>
+              </DefaultLayout>
+            </BrowserRouter>
           </DialogProvider>
         </LoadingProvider>
       </ToastProvider>
