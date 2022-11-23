@@ -42,6 +42,7 @@ export const StyledToast = styled(RadixToast.Root, {
 
   display: 'flex',
   flexDirection: 'column',
+  zIndex: 9600,
 
   '@media (prefers-reduced-motion: no-preference)': {
     '&[data-state="open"]': {

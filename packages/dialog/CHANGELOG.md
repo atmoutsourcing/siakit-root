@@ -1,5 +1,11 @@
 # @siakit/dialog
 
+## 0.0.8
+
+### Patch Changes
+
+- fix zindex
+
 ## 0.0.7
 
 ### Patch Changes
