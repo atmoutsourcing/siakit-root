@@ -17,12 +17,12 @@ export function TabsPage() {
             item 2
           </TabsItem>
           <TabsItem value="item3" badge={32}>
-            item 3
+            item item item
           </TabsItem>
         </TabsList>
 
         <TabsContent value="item1">
-          <Flex overflow>
+          <Flex flex overflow>
             <Table
               headers={[
                 {

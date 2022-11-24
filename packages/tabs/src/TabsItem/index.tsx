@@ -3,7 +3,7 @@ import { ComponentProps } from 'react'
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Badge } from '@siakit/badge'
 
-import { TabsItemContainer } from './styles'
+import { Content, Placeholder, TabsItemContainer } from './styles'
 
 type TabsItemProps = { badge?: number } & ComponentProps<
   typeof RadixTabs.Trigger
@@ -12,8 +12,14 @@ type TabsItemProps = { badge?: number } & ComponentProps<
 export function TabsItem({ children, badge, ...props }: TabsItemProps) {
   return (
     <TabsItemContainer {...props}>
-      {children}
-      {badge && <Badge color="gray">{badge}</Badge>}
+      <Placeholder />
+
+      <Content>
+        {children}
+        {badge && <Badge color="gray">{badge}</Badge>}
+      </Content>
+
+      <Placeholder />
     </TabsItemContainer>
   )
 }
