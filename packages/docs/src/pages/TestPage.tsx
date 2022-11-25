@@ -1,35 +1,25 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 
 import { Button } from '@siakit/button'
-import { Flex } from '@siakit/layout'
-import { Modal, ModalContent } from '@siakit/modal'
-import { Text } from '@siakit/text'
+import { Footer } from '@siakit/footer'
+import { FormHandles, Form, NumberInput } from '@siakit/form-unform'
 
 export function TestPage() {
-  const [visible, setVisible] = useState(false)
-  const [visible2, setVisible2] = useState(false)
+  const formRef = useRef<FormHandles>(null)
 
   return (
-    <>
-      <Modal open={visible2} onOpenChange={setVisible2}>
-        <ModalContent title="title 2">
-          <Button onClick={() => setVisible2(true)}>open dialog</Button>
-        </ModalContent>
-      </Modal>
+    <Form ref={formRef} onSubmit={(data: any) => console.log(data)}>
+      <NumberInput name="value" label="value" placeholder="value" />
 
-      <Modal open={visible} onOpenChange={setVisible}>
-        <ModalContent title="title 1">
-          <Button onClick={() => setVisible2(true)}>open dialog</Button>
-        </ModalContent>
-      </Modal>
-
-      <Flex flex>
-        <Button onClick={() => setVisible(true)}>open modal</Button>
-
-        <Flex css={{ position: 'sticky', top: 0, backgroundColor: '$red9' }}>
-          <Text>teste</Text>
-        </Flex>
-      </Flex>
-    </>
+      <Footer>
+        <Button
+          type="button"
+          onClick={() => formRef.current?.setFieldValue('value', '100.10')}
+        >
+          set value
+        </Button>
+        <Button type="submit">send</Button>
+      </Footer>
+    </Form>
   )
 }

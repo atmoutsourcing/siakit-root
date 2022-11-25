@@ -30,10 +30,18 @@ export function NumberInput({
     registerField({
       name: fieldName,
       getValue: () => {
-        return fieldValue
+        if (fieldValue) {
+          return Number(fieldValue)
+        }
+
+        return undefined
       },
       setValue: (_, value) => {
-        setFieldValue(value)
+        if (typeof value === 'number') {
+          setFieldValue(String(value))
+        } else {
+          setFieldValue(value)
+        }
       },
       clearValue: () => {
         setFieldValue('')
