@@ -1,14 +1,17 @@
 import { RectangleContainer } from './styles'
 
 interface RectangleProps {
-  width: number | string
-  height: number | string
+  flex?: boolean
+  width?: number | string
+  height?: number | string
 }
 
-export function Rectangle({ width, height, ...props }: RectangleProps) {
+export function Rectangle({ flex, width, height, ...props }: RectangleProps) {
   return (
     <RectangleContainer
       css={{
+        flex: flex ? 1 : 0,
+        
         width: typeof width === 'number' ? `${width}px` : width,
         minWidth: typeof width === 'number' ? `${width}px` : width,
         maxWidth: typeof width === 'number' ? `${width}px` : width,
