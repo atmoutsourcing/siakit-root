@@ -17,6 +17,11 @@ export const ButtonContainer = styled('button', {
 
   transition: 'background-color 0.150s, color 0.150s',
 
+  '&:disabled': {
+    opacity: 0.6,
+    cursor: 'not-allowed'
+  },
+
   svg: {
     width: 16,
     height: 16,

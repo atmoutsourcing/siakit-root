@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import { AvatarPage } from '../pages/AvatarPage'
 import { BadgePage } from '../pages/BadgePage'
+import { ButtonPage } from '../pages/ButtonPage'
 import { CardPage } from '../pages/CardPage'
 import { DialogPage } from '../pages/DialogPage'
 import { DrawerPage } from '../pages/DrawerPage'
@@ -44,6 +45,7 @@ export function AppRoutes() {
       <Route path="text" element={<TextPage />} />
       <Route path="empty" element={<EmptyPage />} />
       <Route path="dropdown" element={<DropdownPage />} />
+      <Route path="button" element={<ButtonPage />} />
     </Routes>
   )
 }
