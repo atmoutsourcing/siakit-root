@@ -9,6 +9,7 @@ export function Sidebar() {
       <Text>sidebar</Text>
       <Link to="/">home</Link>
       <Link to="/button">button</Link>
+      <Link to="/test">test</Link>
     </Flex>
   )
 }

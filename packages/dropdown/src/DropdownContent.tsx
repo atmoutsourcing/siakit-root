@@ -16,7 +16,7 @@ export function DropdownContent({ children, ...props }: DropdownContentProps) {
           padding="8px 0"
           minWidth={192}
           maxWidth={320}
-          css={{ zIndex: 5 }}
+          css={{ zIndex: 10000 }}
         >
           {children}
         </Card>

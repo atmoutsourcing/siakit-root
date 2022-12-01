@@ -1,5 +1,11 @@
 # @siakit/hover-card
 
+## 0.0.3
+
+### Patch Changes
+
+- fix card zindex
+
 ## 0.0.2
 
 ### Patch Changes

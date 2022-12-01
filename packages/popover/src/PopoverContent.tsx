@@ -16,8 +16,8 @@ export function PopoverContent({
 }: PopoverContentProps) {
   return (
     <RadixPopover.Portal>
-      <RadixPopover.Content sideOffset={4} side={side} align={align} {...props}>
-        <Card maxWidth={320}>{children}</Card>
+      <RadixPopover.Content sideOffset={4} side={side} align={align} asChild {...props}>
+        <Card maxWidth={320} css={{ zIndex: 10000 }}>{children}</Card>
       </RadixPopover.Content>
     </RadixPopover.Portal>
   )

@@ -1,5 +1,11 @@
 # @siakit/dropdown
 
+## 0.0.8
+
+### Patch Changes
+
+- fix card zindex
+
 ## 0.0.7
 
 ### Patch Changes

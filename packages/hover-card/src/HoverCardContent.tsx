@@ -9,8 +9,8 @@ type HoverCardContentProps = {
 function HoverCardContent({ children, ...props }: HoverCardContentProps) {
   return (
     <RadixHoverCard.Portal>
-      <RadixHoverCard.Content sideOffset={4} {...props}>
-        <Card maxWidth={320}>{children}</Card>
+      <RadixHoverCard.Content sideOffset={4} asChild {...props}>
+        <Card maxWidth={320} css={{ zIndex: 10000 }}>{children}</Card>
       </RadixHoverCard.Content>
     </RadixHoverCard.Portal>
   )
