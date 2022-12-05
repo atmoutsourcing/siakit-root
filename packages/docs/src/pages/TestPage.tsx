@@ -10,6 +10,8 @@ import {
 import { Form, TimePicker, DatePicker, FormHandles } from '@siakit/form-unform'
 import { Flex } from '@siakit/layout'
 import { Modal, ModalContent } from '@siakit/modal'
+import { Popover, PopoverTrigger, PopoverContent } from '@siakit/popover'
+import { Text } from '@siakit/text'
 
 export function TestPage() {
   const formRef = useRef<FormHandles>(null)
@@ -21,34 +23,23 @@ export function TestPage() {
   }
 
   return (
-    <>
-      <Modal open={modalVisible} onOpenChange={setModalVisible}>
-        <ModalContent title="title">
-          <Form ref={formRef} onSubmit={handleSubmit}>
-            <Flex direction="column" padding gap={8}>
-              <TimePicker name="time" label="Time" placeholder="Time" />
-              <DatePicker name="date" label="Date" placeholder="Date" />
-              <Dropdown>
-                <DropdownTrigger>
-                  <Button type="button">dropdown</Button>
-                </DropdownTrigger>
-                <DropdownContent>
-                  <DropdownItem>item 1</DropdownItem>
-                  <DropdownItem>item 2</DropdownItem>
-                  <DropdownItem>item 3</DropdownItem>
-                  <DropdownItem>item 4</DropdownItem>
-                </DropdownContent>
-              </Dropdown>
-            </Flex>
-          </Form>
-        </ModalContent>
-      </Modal>
+    <Flex>
+      <Popover>
+        <PopoverTrigger>
+          <Button type="button" onClick={() => setModalVisible(true)}>
+            open modal
+          </Button>
+        </PopoverTrigger>
 
-      <Flex>
-        <Button type="button" onClick={() => setModalVisible(true)}>
-          open modal
-        </Button>
-      </Flex>
-    </>
+        <PopoverContent>
+          <Text>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem
+            excepturi velit, totam adipisci officiis recusandae quibusdam esse
+            dolor impedit incidunt vitae, veniam sint perspiciatis illo pariatur
+            beatae ipsum in nobis?
+          </Text>
+        </PopoverContent>
+      </Popover>
+    </Flex>
   )
 }

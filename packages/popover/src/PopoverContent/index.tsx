@@ -1,6 +1,8 @@
-import * as RadixPopover from '@radix-ui/react-popover'
-import { Card } from '@siakit/card'
 import { ReactNode } from 'react'
+
+import * as RadixPopover from '@radix-ui/react-popover'
+
+import { Content } from './styles'
 
 interface PopoverContentProps {
   children: ReactNode
@@ -15,10 +17,10 @@ export function PopoverContent({
   ...props
 }: PopoverContentProps) {
   return (
-    <RadixPopover.Portal>
-      <RadixPopover.Content sideOffset={4} side={side} align={align} asChild {...props}>
-        <Card maxWidth={320} css={{ zIndex: 10000 }}>{children}</Card>
-      </RadixPopover.Content>
+    <RadixPopover.Portal container={document.getElementById('siakit-popover')}>
+      <Content sideOffset={4} side={side} align={align} {...props}>
+        {children}
+      </Content>
     </RadixPopover.Portal>
   )
 }

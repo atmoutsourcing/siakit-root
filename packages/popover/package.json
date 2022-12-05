@@ -1,6 +1,6 @@
 {
   "name": "@siakit/popover",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.0.0",
-    "@siakit/core": "*",
-    "@siakit/card": "*"
+    "@siakit/core": "*"
   }
 }

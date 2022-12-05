@@ -7,6 +7,10 @@ export const applyGlobalCss = globalCss({
     boxSizing: 'border-box',
   },
 
+  '#siakit-popover': {
+    zIndex: 10000,
+  },
+
   '::-webkit-scrollbar': {
     marginBottom: 10,
     width: 14,
