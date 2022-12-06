@@ -1,7 +1,9 @@
 import { ComponentProps } from 'react'
+
 import { toMoney, toPattern } from 'vanilla-masker'
 
 import { Text } from '@siakit/text'
+
 import { MaskType, masks } from './masks'
 
 type CustomMaskType = MaskType | 'money' | 'phone'
@@ -29,6 +31,24 @@ export function toMask({ value, mask }: ToMaskData) {
     }
 
     return toPattern(newValue, '(99) 9999-9999')
+  }
+
+  if (mask === 'time') {
+    const newValue = value.replace(/\D/g, '')
+
+    if (newValue.length === 3) {
+      return toPattern(newValue, '9:99')
+    }
+
+    if (newValue.length === 4) {
+      return toPattern(newValue, '99:99')
+    }
+
+    if (newValue.length >= 5) {
+      return toPattern(newValue, '999:99')
+    }
+
+    return toPattern(newValue, '99')
   }
 
   return toPattern(value, masks[mask])

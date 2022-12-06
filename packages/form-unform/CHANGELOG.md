@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.22
+
+### Patch Changes
+
+- add time mask
+
 ## 0.0.21
 
 ### Patch Changes

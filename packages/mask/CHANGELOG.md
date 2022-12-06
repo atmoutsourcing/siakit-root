@@ -1,5 +1,11 @@
 # @siakit/mask
 
+## 0.0.4
+
+### Patch Changes
+
+- add time mask
+
 ## 0.0.3
 
 ### Patch Changes

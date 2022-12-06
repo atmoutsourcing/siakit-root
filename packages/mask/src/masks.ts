@@ -9,6 +9,7 @@ export const masks = {
   phone: '(99) 99999-9999',
   hour: '99:99',
   minutes: '999:99',
+  time: '999:99',
   month: '99',
   year: '9999',
   trackNumber: 'AA999999999AA',
