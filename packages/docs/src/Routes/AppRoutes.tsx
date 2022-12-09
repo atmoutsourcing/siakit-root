@@ -13,6 +13,7 @@ import { FormUnform } from '../pages/FormUnform'
 import { LoadingPage } from '../pages/LoadingPage'
 import { ModalPage } from '../pages/ModalPage'
 import { PaginationPage } from '../pages/PaginationPage'
+import { SidebarPage } from '../pages/SidebarPage'
 import { TablePage } from '../pages/TablePage'
 import { TabsPage } from '../pages/TabsPage'
 import { TestPage } from '../pages/TestPage'
@@ -46,6 +47,7 @@ export function AppRoutes() {
       <Route path="empty" element={<EmptyPage />} />
       <Route path="dropdown" element={<DropdownPage />} />
       <Route path="button" element={<ButtonPage />} />
+      <Route path="sidebar" element={<SidebarPage />} />
     </Routes>
   )
 }

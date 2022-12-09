@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.23
+
+### Patch Changes
+
+- fix sidebar color
+
 ## 0.0.22
 
 ### Patch Changes

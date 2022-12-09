@@ -8,7 +8,7 @@ import { SidebarContext } from './Sidebar'
 
 const Container = styled('button', {
   position: 'relative',
-  backgroundColor: '$primary11',
+  backgroundColor: 'transparent',
   paddingLeft: '$4',
   cursor: 'pointer',
   gap: '$3',
@@ -90,6 +90,8 @@ export function MenuItem({
   const { theme } = useTheme()
   const { minimized, selected, selectMenu } = useContext(SidebarContext)
 
+  const shortName = children[0].toUpperCase()
+
   return (
     <Tooltip content={minimized ? tooltip : undefined} side="right">
       <Container
@@ -104,7 +106,8 @@ export function MenuItem({
         isExpanded={!minimized}
         isDarkTheme={theme === 'dark'}
       >
-        {icon}
+        {minimized && icon && icon}
+        {minimized && !icon && <Text>{shortName}</Text>}
 
         {!minimized && <Text>{children}</Text>}
       </Container>

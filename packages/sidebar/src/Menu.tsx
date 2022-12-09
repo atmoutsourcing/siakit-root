@@ -1,6 +1,6 @@
 import { ReactNode, useContext } from 'react'
 
-import { styled } from '@siakit/core'
+import { styled, useTheme } from '@siakit/core'
 import { Flex } from '@siakit/layout'
 
 import { SidebarContext } from './Sidebar'
@@ -24,14 +24,24 @@ const Container = styled(Flex, {
         width: 48,
       },
     },
+    isDarkTheme: {
+      true: {
+        backgroundColor: '$gray2',
+      },
+    },
   },
 })
 
 export function Menu({ children }: MenuProps) {
   const { minimized } = useContext(SidebarContext)
+  const { theme } = useTheme()
 
   return (
-    <Container small={minimized} direction="column">
+    <Container
+      small={minimized}
+      direction="column"
+      isDarkTheme={theme === 'dark'}
+    >
       {children}
     </Container>
   )
