@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.25
+
+### Patch Changes
+
+- fix
+
 ## 0.0.24
 
 ### Patch Changes

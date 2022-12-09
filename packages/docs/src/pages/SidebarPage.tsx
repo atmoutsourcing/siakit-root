@@ -23,6 +23,7 @@ export function SidebarPage() {
           <MenuItem value="item-1" icon={<House />}>
             item 1
           </MenuItem>
+          <MenuItem value="item-2">item 2</MenuItem>
         </Menu>
 
         <SubMenu value="item-1">

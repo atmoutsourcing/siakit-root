@@ -106,7 +106,7 @@ export function MenuItem({
         isExpanded={!minimized}
         isDarkTheme={theme === 'dark'}
       >
-        {minimized && icon && icon}
+        {icon}
         {minimized && !icon && <Text>{shortName}</Text>}
 
         {!minimized && <Text>{children}</Text>}
