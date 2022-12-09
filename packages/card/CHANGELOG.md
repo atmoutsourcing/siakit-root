@@ -1,5 +1,15 @@
 # @siakit/card
 
+## 0.0.6
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+  - @siakit/heading@0.0.8
+  - @siakit/layout@0.0.9
+
 ## 0.0.5
 
 ### Patch Changes

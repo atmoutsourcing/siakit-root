@@ -1,5 +1,17 @@
 # @siakit/page-header
 
+## 0.0.9
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/card@0.0.6
+  - @siakit/core@0.0.19
+  - @siakit/heading@0.0.8
+  - @siakit/icon-button@0.0.5
+  - @siakit/layout@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes

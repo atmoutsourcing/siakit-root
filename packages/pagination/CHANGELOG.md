@@ -1,5 +1,17 @@
 # @siakit/pagination
 
+## 0.0.3
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/button@0.0.8
+  - @siakit/form-components@0.0.10
+  - @siakit/icon-button@0.0.5
+  - @siakit/layout@0.0.9
+  - @siakit/text@0.0.4
+
 ## 0.0.2
 
 ### Patch Changes

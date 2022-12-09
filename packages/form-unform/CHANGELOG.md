@@ -1,5 +1,15 @@
 # @siakit/form-unform
 
+## 0.0.24
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+  - @siakit/form-components@0.0.10
+  - @siakit/icon-button@0.0.5
+
 ## 0.0.23
 
 ### Patch Changes

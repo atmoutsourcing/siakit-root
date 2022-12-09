@@ -1,5 +1,13 @@
 # @siakit/button
 
+## 0.0.8
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+
 ## 0.0.7
 
 ### Patch Changes

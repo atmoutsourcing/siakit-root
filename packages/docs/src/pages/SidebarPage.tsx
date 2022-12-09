@@ -1,3 +1,5 @@
+import { House } from 'phosphor-react'
+
 import { Flex } from '@siakit/layout'
 import {
   Sidebar,
@@ -18,7 +20,9 @@ export function SidebarPage() {
             <Text>title</Text>
             <Text>title 2</Text>
           </MenuHeader>
-          <MenuItem value="item-1">item 1</MenuItem>
+          <MenuItem value="item-1" icon={<House />}>
+            item 1
+          </MenuItem>
         </Menu>
 
         <SubMenu value="item-1">

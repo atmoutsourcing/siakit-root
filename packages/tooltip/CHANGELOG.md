@@ -1,5 +1,13 @@
 # @siakit/tooltip
 
+## 0.0.4
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+
 ## 0.0.3
 
 ### Patch Changes

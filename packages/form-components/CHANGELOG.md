@@ -1,5 +1,19 @@
 # @siakit/form-components
 
+## 0.0.10
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+  - @siakit/icon-button@0.0.5
+  - @siakit/layout@0.0.9
+  - @siakit/mask@0.0.6
+  - @siakit/popover@0.0.6
+  - @siakit/text@0.0.4
+  - @siakit/tooltip@0.0.4
+
 ## 0.0.9
 
 ### Patch Changes

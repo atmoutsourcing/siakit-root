@@ -1,5 +1,14 @@
 # @siakit/avatar-group
 
+## 0.0.3
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+  - @siakit/hover-card@0.0.4
+
 ## 0.0.2
 
 ### Patch Changes

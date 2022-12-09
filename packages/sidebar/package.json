@@ -1,6 +1,6 @@
 {
   "name": "@siakit/sidebar",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -11,7 +11,8 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --external react",
     "dev": "tsup src/index.ts --format esm,cjs --dts --external react --watch",
-    "lint": "eslint src/**/*.ts* --fix"
+    "lint": "eslint src/**/*.ts* --fix",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@siakit/eslint-config": "*",
@@ -24,9 +25,9 @@
   },
   "dependencies": {
     "@siakit/core": "*",
-    "@siakit/layout": "^0.0.8",
-    "@siakit/separator": "^0.0.3",
-    "@siakit/text": "^0.0.3",
-    "@siakit/tooltip": "^0.0.3"
+    "@siakit/layout": "*",
+    "@siakit/separator": "*",
+    "@siakit/text": "*",
+    "@siakit/tooltip": "*"
   }
 }

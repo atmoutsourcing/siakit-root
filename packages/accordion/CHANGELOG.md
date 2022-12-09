@@ -1,5 +1,14 @@
 # @siakit/accordion
 
+## 0.0.3
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/badge@0.0.4
+  - @siakit/core@0.0.19
+
 ## 0.0.2
 
 ### Patch Changes

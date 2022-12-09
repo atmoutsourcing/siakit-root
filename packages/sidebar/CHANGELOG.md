@@ -1,5 +1,17 @@
 # @siakit/sidebar
 
+## 0.0.24
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+  - @siakit/layout@0.0.9
+  - @siakit/separator@0.0.4
+  - @siakit/text@0.0.4
+  - @siakit/tooltip@0.0.4
+
 ## 0.0.23
 
 ### Patch Changes

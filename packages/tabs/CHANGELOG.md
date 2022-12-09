@@ -1,5 +1,14 @@
 # @siakit/tabs
 
+## 0.0.6
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/badge@0.0.4
+  - @siakit/core@0.0.19
+
 ## 0.0.5
 
 ### Patch Changes

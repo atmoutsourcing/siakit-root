@@ -1,5 +1,14 @@
 # @siakit/mask
 
+## 0.0.6
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/core@0.0.19
+  - @siakit/text@0.0.4
+
 ## 0.0.5
 
 ### Patch Changes

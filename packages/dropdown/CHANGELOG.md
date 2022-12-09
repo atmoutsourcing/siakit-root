@@ -1,5 +1,16 @@
 # @siakit/dropdown
 
+## 0.0.9
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/card@0.0.6
+  - @siakit/core@0.0.19
+  - @siakit/layout@0.0.9
+  - @siakit/text@0.0.4
+
 ## 0.0.8
 
 ### Patch Changes

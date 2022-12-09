@@ -1,4 +1,0 @@
-{
-  "extends": "@siakit/ts-config/react.json",
-  "include": ["src"]
-}

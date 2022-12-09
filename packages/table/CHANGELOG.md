@@ -1,5 +1,19 @@
 # @siakit/table
 
+## 0.0.9
+
+### Patch Changes
+
+- fix deps
+- Updated dependencies
+  - @siakit/badge@0.0.4
+  - @siakit/dropdown@0.0.9
+  - @siakit/empty@0.0.4
+  - @siakit/icon-button@0.0.5
+  - @siakit/layout@0.0.9
+  - @siakit/link-button@0.0.5
+  - @siakit/pagination@0.0.3
+
 ## 0.0.8
 
 ### Patch Changes
