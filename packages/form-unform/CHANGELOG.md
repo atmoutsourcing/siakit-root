@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.25
+
+### Patch Changes
+
+- fix prosemirror deps
+- Updated dependencies
+  - @siakit/form-components@0.0.11
+
 ## 0.0.24
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.11
+
+### Patch Changes
+
+- fix prosemirror deps
+
 ## 0.0.10
 
 ### Patch Changes
