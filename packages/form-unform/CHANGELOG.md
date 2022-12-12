@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.27
+
+### Patch Changes
+
+- fix select set data
+
 ## 0.0.26
 
 ### Patch Changes

@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
+import uniqBy from 'lodash.uniqby'
+
 import {
   FormControl,
   FormLabel,
@@ -71,10 +73,8 @@ export function Select({
         return fieldValue?.value ?? null
       },
       setValue: (_, value: string | number | OptionType | null) => {
-        console.log(value)
-
         if (typeof value === 'object') {
-          setData((prevState: any) => [...prevState, value])
+          setData((prevState: any) => uniqBy([...prevState, value], 'value'))
           handleChange(value)
         } else {
           setFieldValue(processValue(value))

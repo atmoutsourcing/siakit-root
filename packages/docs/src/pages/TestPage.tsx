@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 
-import { Form, MaskInput, FormHandles } from '@siakit/form-unform'
+import { Button } from '@siakit/button'
+import { Form, Select, FormHandles } from '@siakit/form-unform'
 
 export function TestPage() {
   const formRef = useRef<FormHandles>(null)
@@ -11,7 +12,24 @@ export function TestPage() {
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <MaskInput name="test" label="Test" placeholder="Test" mask="time" />
+      <Select
+        name="test"
+        label="Test"
+        placeholder="Test"
+        options={[
+          { value: 1, label: 'teste 1' },
+          { value: 2, label: 'teste 2' },
+          { value: 3, label: 'teste 3' },
+          { value: 4, label: 'teste 4' },
+        ]}
+      />
+
+      <Button
+        type="button"
+        onClick={() => formRef.current?.setFieldValue('test', 2)}
+      >
+        set value
+      </Button>
     </Form>
   )
 }

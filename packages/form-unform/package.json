@@ -1,6 +1,6 @@
 {
   "name": "@siakit/form-unform",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@siakit/eslint-config": "*",
     "@siakit/ts-config": "*",
+    "@types/lodash.uniqby": "^4.7.7",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@types/uuid": "^8.3.4",
@@ -31,6 +32,7 @@
     "@unform/core": "*",
     "@unform/web": "*",
     "crypto": "^1.0.1",
+    "lodash.uniqby": "^4.7.0",
     "uuid": "^9.0.0",
     "yup": "^0.32.11"
   }
