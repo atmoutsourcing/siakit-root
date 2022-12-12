@@ -24,7 +24,17 @@ export function NumberInput({
 }: NumberInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const [fieldValue, setFieldValue] = useState(() => {
+    if (typeof defaultValue === 'number') {
+      return String(defaultValue)
+    }
+
+    if (typeof defaultValue === 'string') {
+      return defaultValue
+    }
+
+    return ''
+  })
 
   useEffect(() => {
     registerField({
@@ -39,7 +49,8 @@ export function NumberInput({
       setValue: (_, value) => {
         if (typeof value === 'number') {
           setFieldValue(String(value))
-        } else {
+        }
+        if (typeof value === 'string') {
           setFieldValue(value)
         }
       },

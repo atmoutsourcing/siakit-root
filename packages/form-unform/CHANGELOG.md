@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.26
+
+### Patch Changes
+
+- fix number input
+
 ## 0.0.25
 
 ### Patch Changes
