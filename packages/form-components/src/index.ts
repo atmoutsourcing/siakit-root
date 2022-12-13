@@ -22,6 +22,8 @@ export * from './LanguagePicker'
 export * from './ColorPicker'
 export * from './Slider'
 export * from './DatePicker'
+export * from './DateRangePicker'
 export * from './TimePicker'
 
 export type { OptionType } from './Select'
+export type { DateRange } from 'react-day-picker'

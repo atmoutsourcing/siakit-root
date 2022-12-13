@@ -1,7 +1,8 @@
 import { useRef } from 'react'
 
 import { Button } from '@siakit/button'
-import { Form, Select, FormHandles } from '@siakit/form-unform'
+import { Form, FormHandles, DateRangePicker } from '@siakit/form-unform'
+import { Flex } from '@siakit/layout'
 
 export function TestPage() {
   const formRef = useRef<FormHandles>(null)
@@ -12,24 +13,22 @@ export function TestPage() {
 
   return (
     <Form ref={formRef} onSubmit={handleSubmit}>
-      <Select
-        name="test"
-        label="Test"
-        placeholder="Test"
-        options={[
-          { value: 1, label: 'teste 1' },
-          { value: 2, label: 'teste 2' },
-          { value: 3, label: 'teste 3' },
-          { value: 4, label: 'teste 4' },
-        ]}
-      />
+      <DateRangePicker name="teste" label="teste" placeholder="teste" />
 
-      <Button
-        type="button"
-        onClick={() => formRef.current?.setFieldValue('test', 2)}
-      >
-        set value
-      </Button>
+      <Flex>
+        <Button
+          type="button"
+          onClick={() =>
+            formRef.current?.setFieldValue('teste', {
+              from: new Date(1997, 5, 21),
+              to: new Date(1997, 5, 27),
+            })
+          }
+        >
+          set value
+        </Button>
+        <Button type="submit">submit</Button>
+      </Flex>
     </Form>
   )
 }

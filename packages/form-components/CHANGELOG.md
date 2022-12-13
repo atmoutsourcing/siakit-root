@@ -1,5 +1,13 @@
 # @siakit/form-components
 
+## 0.0.13
+
+### Patch Changes
+
+- add date range picker
+- Updated dependencies
+  - @siakit/mask@0.0.7
+
 ## 0.0.12
 
 ### Patch Changes
