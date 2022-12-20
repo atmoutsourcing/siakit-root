@@ -1,5 +1,27 @@
 # @siakit/sidebar
 
+## 0.0.28
+
+### Patch Changes
+
+- fix
+- Updated dependencies
+  - @siakit/tooltip@0.0.7
+
+## 0.0.27
+
+### Patch Changes
+
+- fix default tooltip color
+- Updated dependencies
+  - @siakit/tooltip@0.0.6
+
+## 0.0.26
+
+### Patch Changes
+
+- add debug
+
 ## 0.0.25
 
 ### Patch Changes

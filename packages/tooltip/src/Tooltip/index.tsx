@@ -1,6 +1,7 @@
+import { ReactNode } from 'react'
+
 import * as RadixTooltip from '@radix-ui/react-tooltip'
 import { useTheme } from '@siakit/core'
-import { ReactNode } from 'react'
 
 import { Arrow, Container } from './styles'
 
@@ -22,16 +23,16 @@ export function Tooltip({ children, content, side, align }: TooltipProps) {
         {!!content && (
           <RadixTooltip.Portal>
             <RadixTooltip.Content side={side} align={align}>
-              <Arrow css={{ fill: theme === 'light' ? '$gray12' : '$white' }} />
+              <Arrow css={{ fill: theme === 'dark' ? '$white' : '$gray12' }} />
 
               <Container
                 css={
-                  theme === 'light'
+                  theme === 'dark'
                     ? {
-                        backgroundColor: '$gray12',
+                        backgroundColor: '$white',
                       }
                     : {
-                        backgroundColor: '$white',
+                        backgroundColor: '$gray12',
                       }
                 }
               >

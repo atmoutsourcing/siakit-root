@@ -4,7 +4,6 @@ import { styled } from '@siakit/core'
 export const Arrow = styled(RadixTooltip.Arrow, {})
 
 export const Container = styled('div', {
-  backgroundColor: 'tomato',
   borderRadius: 4,
   padding: '4px 8px',
   maxWidth: 320,

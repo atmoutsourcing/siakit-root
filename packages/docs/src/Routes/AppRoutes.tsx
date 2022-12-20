@@ -20,6 +20,7 @@ import { TestPage } from '../pages/TestPage'
 import { TextPage } from '../pages/TextPage'
 import { TimelinePage } from '../pages/TimelinePage'
 import { ToastPage } from '../pages/ToastPage'
+import { TooltipPage } from '../pages/TooltipPage'
 import { Test } from '../Test'
 
 export function AppRoutes() {
@@ -48,6 +49,7 @@ export function AppRoutes() {
       <Route path="dropdown" element={<DropdownPage />} />
       <Route path="button" element={<ButtonPage />} />
       <Route path="sidebar" element={<SidebarPage />} />
+      <Route path="tooltip" element={<TooltipPage />} />
     </Routes>
   )
 }

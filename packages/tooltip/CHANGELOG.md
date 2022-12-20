@@ -1,5 +1,23 @@
 # @siakit/tooltip
 
+## 0.0.7
+
+### Patch Changes
+
+- fix
+
+## 0.0.6
+
+### Patch Changes
+
+- fix default tooltip color
+
+## 0.0.5
+
+### Patch Changes
+
+- add debug
+
 ## 0.0.4
 
 ### Patch Changes
