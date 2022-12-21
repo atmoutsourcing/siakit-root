@@ -33,7 +33,7 @@ import { Flex } from '@siakit/layout'
 
 const formSchema = yup.object({
   'text-input': yup.string().required(),
-  select: yup.string().required(),
+  fruit: yup.string().required(),
   'select-multi': yup.string().required(),
   'mask-input': yup.string().required(),
   'password-input': yup.string().required(),
@@ -119,7 +119,7 @@ export function FormUnform() {
                 disabled
               />
               <Select
-                name="select"
+                name="fruit"
                 options={[{ value: 1, label: 'apple' }]}
                 label="Fruit"
                 placeholder="Select a fruit"

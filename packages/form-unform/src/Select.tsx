@@ -70,7 +70,7 @@ export function Select({
           return fieldValue
         }
 
-        return fieldValue?.value ?? null
+        return fieldValue?.value ?? ''
       },
       setValue: (_, value: string | number | OptionType | null) => {
         if (typeof value === 'object') {
