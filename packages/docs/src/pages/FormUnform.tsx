@@ -60,13 +60,9 @@ export function FormUnform() {
     try {
       formRef.current?.setErrors({})
 
-      console.log(data)
-
       await formSchema.validate(data, {
         abortEarly: false,
       })
-
-      console.log(data)
     } catch (err) {
       if (err instanceof yup.ValidationError) {
         const errors = getValidationErrors(err)

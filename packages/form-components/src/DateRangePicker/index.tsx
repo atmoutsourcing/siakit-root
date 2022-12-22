@@ -105,8 +105,6 @@ export function DateRangePicker({
   }
 
   function handleChange(date: DateRange | undefined) {
-    console.log('teste')
-
     if (date?.from && date?.to) {
       const fromValue = format(date.from, 'dd/MM/yyyy')
       const toValue = format(date.to, 'dd/MM/yyyy')

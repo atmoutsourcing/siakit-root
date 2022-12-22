@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 
 import { Button } from '@siakit/button'
-import { Form, DateRangePicker, useForm } from '@siakit/form-unform'
+import { Form, DatePicker, useForm } from '@siakit/form-unform'
 import { Flex } from '@siakit/layout'
 
 const testFormSchema = yup.object({
@@ -23,16 +23,13 @@ export function TestPage() {
 
   return (
     <Form ref={formRef} onSubmit={() => handleSubmit(handleSubmitData)}>
-      <DateRangePicker name="teste" label="teste" placeholder="teste" />
+      <DatePicker name="teste" label="teste" placeholder="teste" />
 
       <Flex>
         <Button
           type="button"
           onClick={() =>
-            formRef.current?.setFieldValue('teste', {
-              from: new Date(1997, 5, 21),
-              to: new Date(1997, 5, 27),
-            })
+            formRef.current?.setFieldValue('teste', new Date(1997, 5, 21))
           }
         >
           set value

@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.31
+
+### Patch Changes
+
+- fix date picker
+- Updated dependencies
+  - @siakit/form-components@0.0.15
+
 ## 0.0.30
 
 ### Patch Changes

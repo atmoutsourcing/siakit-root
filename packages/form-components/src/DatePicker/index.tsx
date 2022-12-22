@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
 
 import { format, isValid } from 'date-fns'
@@ -47,6 +47,15 @@ export function DatePicker({
   })
   const [selected, setSelected] = useState<Date | null>(value)
   const [monthSelected, setMonthSelect] = useState<Date | null>(value)
+
+  useEffect(() => {
+    if (value) {
+      setSelected(value)
+      setMonthSelect(value)
+
+      setInputValue(format(value, 'dd/MM/yyyy'))
+    }
+  }, [value])
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const targetValue = event.target.value

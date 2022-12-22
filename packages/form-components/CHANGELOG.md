@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.15
+
+### Patch Changes
+
+- fix date picker
+
 ## 0.0.14
 
 ### Patch Changes
