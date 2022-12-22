@@ -2,6 +2,7 @@ import { ComponentProps } from 'react'
 
 import * as RadixTabs from '@radix-ui/react-tabs'
 import { Badge } from '@siakit/badge'
+import { useTheme } from '@siakit/core'
 
 import { Content, Placeholder, TabsItemContainer } from './styles'
 
@@ -10,13 +11,15 @@ type TabsItemProps = { badge?: number } & ComponentProps<
 >
 
 export function TabsItem({ children, badge, ...props }: TabsItemProps) {
+  const { color } = useTheme()
+
   return (
     <TabsItemContainer {...props}>
       <Placeholder />
 
       <Content>
         {children}
-        {badge && <Badge color="gray">{badge}</Badge>}
+        {typeof badge === 'number' && <Badge color={color}>{badge}</Badge>}
       </Content>
 
       <Placeholder />
