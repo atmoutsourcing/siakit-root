@@ -1,6 +1,8 @@
 export type { FormHandles } from '@unform/core'
 export { Scope } from '@unform/core'
 
+export * from './useForm'
+
 export * from './getValidationErrors'
 
 export * from './Form'
