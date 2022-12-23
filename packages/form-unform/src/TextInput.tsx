@@ -35,7 +35,7 @@ export function TextInput({
         return fieldValue
       },
       setValue: (_, value) => {
-        setFieldValue(value)
+        setFieldValue(value ?? '')
       },
       clearValue: () => {
         setFieldValue('')

@@ -49,9 +49,10 @@ export function NumberInput({
       setValue: (_, value) => {
         if (typeof value === 'number') {
           setFieldValue(String(value))
-        }
-        if (typeof value === 'string') {
+        } else if (typeof value === 'string') {
           setFieldValue(value)
+        } else {
+          setFieldValue(value ?? '')
         }
       },
       clearValue: () => {

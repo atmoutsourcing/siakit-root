@@ -2,11 +2,11 @@ import * as yup from 'yup'
 
 import { Button } from '@siakit/button'
 import { Footer } from '@siakit/footer'
-import { Form, Select, useForm } from '@siakit/form-unform'
+import { Form, TextInput, useForm } from '@siakit/form-unform'
 import { Flex } from '@siakit/layout'
 
 const testFormSchema = yup.object({
-  state: yup.string(),
+  name: yup.string(),
 })
 
 export function TestPage() {
@@ -21,20 +21,12 @@ export function TestPage() {
   return (
     <Flex direction="column" gap padding>
       <Form ref={formRef} onSubmit={() => handleSubmit(submit)}>
-        <Select
-          name="state"
-          label="select"
-          placeholder="select"
-          options={[
-            { value: 1, label: 'value 1' },
-            { value: 2, label: 'value 2' },
-          ]}
-        />
+        <TextInput name="name" label="name" placeholder="name" />
 
         <Footer>
           <Button
             type="button"
-            onClick={() => formRef.current?.setData({ state: 1 })}
+            onClick={() => formRef.current?.setData({ name: null })}
           >
             set value
           </Button>

@@ -33,7 +33,7 @@ export function RichTextInput({
         return fieldValue
       },
       setValue: (_, value) => {
-        setFieldValue(value)
+        setFieldValue(value ?? '')
       },
       clearValue: () => {
         setFieldValue('')
