@@ -38,7 +38,7 @@ export function Select({
   }, [options])
 
   const processValue = useCallback(
-    (value: string | number | null) => {
+    (value: string | number | undefined) => {
       if (typeof value === 'string' || typeof value === 'number') {
         const findOption = options.find((option) => option.value === value)
 
@@ -70,11 +70,12 @@ export function Select({
           return fieldValue
         }
 
-        return fieldValue?.value ?? ''
+        return fieldValue?.value ?? undefined
       },
-      setValue: (_, value: string | number | OptionType | null) => {
+      setValue: (_, value: string | number | OptionType | null | undefined) => {
         if (typeof value === 'object') {
           setData((prevState: any) => uniqBy([...prevState, value], 'value'))
+
           handleChange(value)
         } else {
           setFieldValue(processValue(value))
