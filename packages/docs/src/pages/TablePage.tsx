@@ -12,13 +12,26 @@ export function TablePage() {
   const [currentPage, setCurrentPage] = useState(1)
   const [perPage, setPerPage] = useState(20)
 
-  const [users, setUsers] = useState<any>([])
+  const [users, setUsers] = useState<any>([
+    {
+      id: 'asdasdasd',
+      name: 'Name',
+      email: {
+        type: 'IMEI',
+        value: '354444075216178',
+      },
+      body: {
+        type: 'ICCID',
+        value: '89551018439005859869',
+      },
+    },
+  ])
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/comments')
-      .then((result) => result.json())
-      .then((result) => setUsers(result))
-  }, [])
+  // useEffect(() => {
+  //   fetch('https://jsonplaceholder.typicode.com/comments')
+  //     .then((result) => result.json())
+  //     .then((result) => setUsers(result))
+  // }, [])
 
   return (
     <Flex flex direction="column" overflow padding gap>
@@ -54,8 +67,6 @@ export function TablePage() {
         perPageChange={setPerPage}
         actions={[{ label: 'test', onClick: (item) => console.log(item) }]}
       />
-
-      <Text>footer</Text>
     </Flex>
   )
 }

@@ -1,5 +1,17 @@
 # @siakit/table
 
+## 0.0.11
+
+### Patch Changes
+
+- fix table empty
+
+## 0.0.10
+
+### Patch Changes
+
+- fix table imei and simcard type
+
 ## 0.0.9
 
 ### Patch Changes

@@ -11,11 +11,12 @@ import {
   DropdownItem,
   DropdownSeparator,
 } from '@siakit/dropdown'
-import { Empty } from '@siakit/empty'
+import { Heading } from '@siakit/heading'
 import { IconButton } from '@siakit/icon-button'
 import { Flex } from '@siakit/layout'
 import { LinkButton } from '@siakit/link-button'
 import { Pagination } from '@siakit/pagination'
+import { Text } from '@siakit/text'
 
 import { HeaderCell } from './HeaderCell'
 import {
@@ -244,17 +245,10 @@ export function Table({
                             : {}
                         }
                       >
-                        <p>
-                          {value.slice(0, 10)}
-                          <span
-                            style={{
-                              fontWeight: 'bold',
-                              color: 'var(--color-green)',
-                            }}
-                          >
-                            {value.slice(10)}
-                          </span>
-                        </p>
+                        <Text>{value.slice(0, 10)}</Text>
+                        <Text css={{ color: '$green9', fontWeight: 'bold' }}>
+                          {value.slice(10)}
+                        </Text>
                       </BodyCell>
                     )
                   }
@@ -269,17 +263,10 @@ export function Table({
                             : {}
                         }
                       >
-                        <p>
-                          {value.slice(0, 9)}
-                          <span
-                            style={{
-                              fontWeight: 'bold',
-                              color: 'var(--color-red)',
-                            }}
-                          >
-                            {value.slice(9)}
-                          </span>
-                        </p>
+                        <Text>{value.slice(0, 9)}</Text>
+                        <Text css={{ color: '$red9', fontWeight: 'bold' }}>
+                          {value.slice(9)}
+                        </Text>
                       </BodyCell>
                     )
                   }
@@ -345,7 +332,7 @@ export function Table({
                     <DropdownContent align="end">
                       {actions.map((action) =>
                         action.label === '-' ? (
-                          <DropdownSeparator />
+                          <DropdownSeparator key={action.label} />
                         ) : (
                           <DropdownItem
                             key={action.label}
@@ -422,10 +409,17 @@ export function Table({
       )}
 
       {!data.length && (
-        <Empty
-          title="Nenhum dado encontrado"
-          description="Adicione um filtro ou adicione uma informação para listar"
-        />
+        <Flex flex align="center" justify="center">
+          <Flex direction="column" gap={8} maxWidth={320}>
+            <Heading size="xs" weight="medium" align="center">
+              Nenhum dado encontrado
+            </Heading>
+
+            <Text size="sm" lowContrast align="center">
+              Adicione um filtro ou adicione uma informação para listar
+            </Text>
+          </Flex>
+        </Flex>
       )}
     </Flex>
   )
