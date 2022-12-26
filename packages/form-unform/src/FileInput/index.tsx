@@ -55,13 +55,13 @@ export function FileInput({
     registerField({
       name: fieldName,
       ref: inputRef.current,
-      getValue: (ref) => {
-        if (ref.files.length) {
-          return ref.files
+      getValue: () => {
+        if (files.length) {
+          return files.map((item) => item.file)
         }
       },
     })
-  }, [fieldName, registerField, multiple])
+  }, [fieldName, registerField, multiple, files])
 
   function handleDrag(event: DragEvent<HTMLFormElement>) {
     event.preventDefault()

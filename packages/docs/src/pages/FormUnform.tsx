@@ -58,6 +58,8 @@ export function FormUnform() {
 
   async function handleSubmit(data: { fruit: string }) {
     try {
+      console.log(data)
+
       formRef.current?.setErrors({})
 
       await formSchema.validate(data, {
@@ -220,7 +222,7 @@ export function FormUnform() {
               />
             </Flex>
             <Flex>
-              <FileInput name="file-input" multiple disabled />
+              <FileInput name="file-input" multiple />
             </Flex>
 
             <Flex gap={8}>
