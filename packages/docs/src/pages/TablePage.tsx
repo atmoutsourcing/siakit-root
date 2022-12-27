@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { Button } from '@siakit/button'
 import { Flex } from '@siakit/layout'
@@ -58,8 +58,14 @@ export function TablePage() {
           { label: 'Nome', dataIndex: 'name' },
           { label: 'Email', dataIndex: 'email' },
           { label: 'Comentario', dataIndex: 'body' },
+          { label: 'Date', dataIndex: 'date', type: 'date' },
         ]}
-        data={users}
+        data={[
+          { date: '2022-12-25T00:00:00.000Z' },
+          {
+            date: '2022-12-25T13:22:00.000Z',
+          },
+        ]}
         totalCount={totalCount}
         currentPage={currentPage}
         onPageChange={setCurrentPage}

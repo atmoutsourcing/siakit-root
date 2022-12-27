@@ -1,5 +1,6 @@
 import { ReactNode, useRef } from 'react'
 
+import { format, addHours } from 'date-fns'
 import dot from 'dot-object'
 
 import { Badge } from '@siakit/badge'
@@ -42,6 +43,7 @@ type HeaderType = {
   visible?: boolean
   render?: (data: RenderType) => ReactNode
   align?: 'left' | 'right'
+  type?: 'date'
 }
 
 type ActionType = {
@@ -160,6 +162,38 @@ export function Table({
                         value: dot.pick(field.dataIndex, item),
                         item,
                       })}
+                    </BodyCell>
+                  )
+                }
+
+                if (field.type === 'date') {
+                  const value = dot.pick(field.dataIndex, item)
+
+                  if (value.includes('T00:00:00.000Z')) {
+                    return (
+                      <BodyCell
+                        key={field.dataIndex}
+                        css={
+                          field.align === 'right'
+                            ? { justifyContent: 'flex-end' }
+                            : {}
+                        }
+                      >
+                        {format(addHours(new Date(value), 3), 'dd/MM/yyyy')}
+                      </BodyCell>
+                    )
+                  }
+
+                  return (
+                    <BodyCell
+                      key={field.dataIndex}
+                      css={
+                        field.align === 'right'
+                          ? { justifyContent: 'flex-end' }
+                          : {}
+                      }
+                    >
+                      {format(new Date(value), 'dd/MM/yyyy HH:mm')}
                     </BodyCell>
                   )
                 }
