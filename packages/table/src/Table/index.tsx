@@ -169,6 +169,10 @@ export function Table({
                 if (field.type === 'date') {
                   const value = dot.pick(field.dataIndex, item)
 
+                  if (!value) {
+                    return <BodyCell key={field.dataIndex} />
+                  }
+
                   if (value.includes('T00:00:00.000Z')) {
                     return (
                       <BodyCell

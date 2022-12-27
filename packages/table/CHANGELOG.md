@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.13
+
+### Patch Changes
+
+- fix type date
+
 ## 0.0.12
 
 ### Patch Changes
