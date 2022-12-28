@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { InputHTMLAttributes, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -7,20 +7,21 @@ import {
 } from '@siakit/form-components'
 import { useField } from '@unform/core'
 
-type NumberInputProps = {
+type NumberInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange' | 'value'
+> & {
   name: string
   label?: string
-  placeholder?: string
   onChange?: (value: string) => void
-  disabled?: boolean
 }
 
 export function NumberInput({
   name,
   label,
-  placeholder,
   onChange,
-  disabled,
+
+  ...props
 }: NumberInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -76,8 +77,7 @@ export function NumberInput({
       <NumberInputComponent
         value={fieldValue}
         onChange={handleChange}
-        placeholder={placeholder}
-        disabled={disabled}
+        {...props}
       />
     </FormControl>
   )

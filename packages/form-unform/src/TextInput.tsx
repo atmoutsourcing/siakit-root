@@ -14,16 +14,9 @@ type TextInputProps = Omit<
   name: string
   label?: string
   onChange?: (value: string) => void
-  disabled?: boolean
 }
 
-export function TextInput({
-  name,
-  label,
-  placeholder,
-  onChange,
-  disabled,
-}: TextInputProps) {
+export function TextInput({ name, label, onChange, ...props }: TextInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -58,8 +51,7 @@ export function TextInput({
       <TextInputComponent
         value={fieldValue}
         onChange={handleChange}
-        placeholder={placeholder}
-        disabled={disabled}
+        {...props}
       />
     </FormControl>
   )

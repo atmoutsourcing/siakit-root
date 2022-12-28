@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.36
+
+### Patch Changes
+
+- fix number e text input props
+
 ## 0.0.35
 
 ### Patch Changes
