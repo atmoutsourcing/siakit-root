@@ -1,1 +1,2 @@
-export * from './Toast'
+export * from './toast'
+export * from './Toast/index'

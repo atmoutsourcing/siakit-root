@@ -1,6 +1,6 @@
 {
   "name": "@siakit/toast",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -25,12 +25,13 @@
   },
   "dependencies": {
     "@radix-ui/react-toast": "^1.1.1",
-    "@siakit/core": "*",
-    "@siakit/layout": "*",
-    "@siakit/heading": "*",
-    "@siakit/text": "*",
     "@siakit/badge": "*",
     "@siakit/button": "*",
-    "@siakit/icon-button": "*"
+    "@siakit/core": "*",
+    "@siakit/heading": "*",
+    "@siakit/icon-button": "*",
+    "@siakit/layout": "*",
+    "@siakit/text": "*",
+    "react-toastify": "^9.1.1"
   }
 }

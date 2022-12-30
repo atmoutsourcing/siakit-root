@@ -1,12 +1,25 @@
 import { Button } from '@siakit/button'
 import { Flex } from '@siakit/layout'
-import { useToast } from '@siakit/toast'
+import { toast, useToast } from '@siakit/toast'
 
 export function ToastPage() {
   const { addToast } = useToast()
 
   return (
     <Flex flex align="center" justify="center" gap={8}>
+      <button
+        type="button"
+        onClick={() =>
+          toast({
+            type: 'error',
+            title: 'teste',
+            description:
+              'toast toast toast toast toast toast toast toast toast toast toast',
+          })
+        }
+      >
+        test
+      </button>
       <Button
         type="button"
         colorScheme="blue"
@@ -60,7 +73,7 @@ export function ToastPage() {
         colorScheme="red"
         onClick={() =>
           addToast({
-            type: 'danger',
+            type: 'error',
             title: 'teste',
             description:
               'toast toast toast toast toast toast toast toast toast toast toast',
