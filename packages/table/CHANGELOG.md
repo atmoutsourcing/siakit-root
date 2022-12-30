@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.14
+
+### Patch Changes
+
+- add type maps
+
 ## 0.0.13
 
 ### Patch Changes

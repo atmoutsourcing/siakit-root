@@ -43,7 +43,7 @@ type HeaderType = {
   visible?: boolean
   render?: (data: RenderType) => ReactNode
   align?: 'left' | 'right'
-  type?: 'date'
+  type?: 'date' | 'maps'
 }
 
 type ActionType = {
@@ -198,6 +198,36 @@ export function Table({
                       }
                     >
                       {format(new Date(value), 'dd/MM/yyyy HH:mm')}
+                    </BodyCell>
+                  )
+                }
+
+                if (field.type === 'maps') {
+                  const latitude = dot.pick('latitude', item)
+                  const longitude = dot.pick('longitude', item)
+
+                  if (!latitude || !longitude) {
+                    return <BodyCell key={field.dataIndex} />
+                  }
+
+                  return (
+                    <BodyCell
+                      key={field.dataIndex}
+                      css={
+                        field.align === 'right'
+                          ? { justifyContent: 'flex-end' }
+                          : {}
+                      }
+                    >
+                      <LinkButton
+                        onClick={() =>
+                          window.open(
+                            `https://google.com/maps/place/${latitude},${longitude}`,
+                          )
+                        }
+                      >
+                        Ver no mapa
+                      </LinkButton>
                     </BodyCell>
                   )
                 }
