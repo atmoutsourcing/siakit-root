@@ -11,6 +11,7 @@ import { EmptyPage } from '../pages/EmptyPage'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
 import { LoadingPage } from '../pages/LoadingPage'
+import { MapsPage } from '../pages/MapsPage'
 import { ModalPage } from '../pages/ModalPage'
 import { PaginationPage } from '../pages/PaginationPage'
 import { SidebarPage } from '../pages/SidebarPage'
@@ -50,6 +51,7 @@ export function AppRoutes() {
       <Route path="button" element={<ButtonPage />} />
       <Route path="sidebar" element={<SidebarPage />} />
       <Route path="tooltip" element={<TooltipPage />} />
+      <Route path="maps" element={<MapsPage />} />
     </Routes>
   )
 }

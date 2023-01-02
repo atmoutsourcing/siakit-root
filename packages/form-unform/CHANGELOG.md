@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.37
+
+### Patch Changes
+
+- add maps input
+- Updated dependencies
+  - @siakit/form-components@0.0.18
+
 ## 0.0.36
 
 ### Patch Changes

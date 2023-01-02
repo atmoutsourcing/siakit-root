@@ -15,6 +15,7 @@ export * from './RichTextInput'
 export * from './Switch'
 export * from './Checkbox'
 export * from './Radio'
+export * from './Maps'
 
 export * from './Select'
 export * from './SelectMulti'
@@ -25,5 +26,8 @@ export * from './DatePicker'
 export * from './DateRangePicker'
 export * from './TimePicker'
 
+export { geocoding } from './Maps/geocoding'
+
 export type { OptionType } from './Select'
+export type { Coordinates } from './Maps'
 export type { DateRange } from 'react-day-picker'

@@ -2,11 +2,14 @@ import * as yup from 'yup'
 
 import { Button } from '@siakit/button'
 import { Footer } from '@siakit/footer'
-import { Form, TextInput, useForm } from '@siakit/form-unform'
+import { Form, Maps, useForm } from '@siakit/form-unform'
 import { Flex } from '@siakit/layout'
 
 const testFormSchema = yup.object({
-  name: yup.string(),
+  coord: yup.object({
+    lat: yup.number(),
+    lng: yup.number(),
+  }),
 })
 
 export function TestPage() {
@@ -20,13 +23,39 @@ export function TestPage() {
 
   return (
     <Flex direction="column" gap padding>
-      <Form ref={formRef} onSubmit={() => handleSubmit(submit)}>
-        <TextInput name="name" label="name" placeholder="name" />
+      <Form
+        ref={formRef}
+        onSubmit={() => handleSubmit(submit)}
+        initialData={{
+          coord: {
+            lat: -20.786954,
+            lng: -49.395184,
+          },
+        }}
+      >
+        <Flex height={400}>
+          <Maps
+            name="coord"
+            label="Coordenadas"
+            apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+            defaultCenter={{
+              lat: -22.928002,
+              lng: -47.079223,
+            }}
+          />
+        </Flex>
 
         <Footer>
+          <Button type="button" onClick={() => formRef.current?.reset()}>
+            clear
+          </Button>
           <Button
             type="button"
-            onClick={() => formRef.current?.setData({ name: null })}
+            onClick={() =>
+              formRef.current?.setData({
+                coord: { lat: -23.444648, lng: -46.415758 },
+              })
+            }
           >
             set value
           </Button>
