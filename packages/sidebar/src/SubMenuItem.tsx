@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 
-import { styled } from '@siakit/core'
+import { Badge } from '@siakit/badge'
+import { styled, useTheme } from '@siakit/core'
 
 import { SidebarContext } from './Sidebar'
 
@@ -13,6 +14,7 @@ const Container = styled('a', {
 
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
 
   fontSize: 14,
 
@@ -45,9 +47,11 @@ const Container = styled('a', {
 type SubMenuItemProps = {
   children: string
   onClick: () => void
+  count?: number
 }
 
-export function SubMenuItem({ children, onClick }: SubMenuItemProps) {
+export function SubMenuItem({ children, onClick, count }: SubMenuItemProps) {
+  const { color } = useTheme()
   const { subMenuSelected, selectSubMenu } = useContext(SidebarContext)
 
   function handleSelectSubMenu() {
@@ -61,6 +65,8 @@ export function SubMenuItem({ children, onClick }: SubMenuItemProps) {
       onClick={handleSelectSubMenu}
     >
       {children}
+
+      {typeof count === 'number' && <Badge color={color}>{count}</Badge>}
     </Container>
   )
 }

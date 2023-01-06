@@ -42,10 +42,10 @@ export function SidebarPage() {
         </Menu>
 
         <SubMenu value="item-1">
-          <SubMenuItem onClick={() => console.log('item 1')}>
+          <SubMenuItem onClick={() => console.log('item 1')} count={12}>
             item 1
           </SubMenuItem>
-          <SubMenuItem onClick={() => console.log('item 1')}>
+          <SubMenuItem onClick={() => console.log('item 1')} count={0}>
             item 2
           </SubMenuItem>
           <SubMenuItem onClick={() => console.log('item 1')}>

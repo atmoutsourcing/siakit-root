@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.30
+
+### Patch Changes
+
+- add count in sidebar sub menu item
+
 ## 0.0.29
 
 ### Patch Changes
