@@ -29,37 +29,19 @@ export function SubMenu({ children, value }: SubMenuProps) {
     return <></>
   }
 
-  if (Array.isArray(children)) {
-    return (
-      <Container>
-        {Children.map(children, (child, index) => {
-          return cloneElement(
-            child,
-            { ...child.props, index },
-            child.props.children,
-          )
-        })}
-      </Container>
-    )
-  }
-
   return (
     <Container>
       {Array.isArray(children) ? (
         <>
-          {Children.map(children, (child, index) => {
-            return cloneElement(
-              child,
-              { ...child.props, index },
-              child.props.children,
-            )
+          {Children.map(children, (child) => {
+            return cloneElement(child, { ...child.props }, child.props.children)
           })}
         </>
       ) : (
         <>
           {cloneElement(
             children,
-            { ...children.props, index: 0 },
+            { ...children.props },
             children.props.children,
           )}
         </>

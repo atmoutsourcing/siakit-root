@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.29
+
+### Patch Changes
+
+- fix sidebar sub menu item select
+
 ## 0.0.28
 
 ### Patch Changes

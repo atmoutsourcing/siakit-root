@@ -11,6 +11,16 @@ import {
 } from '@siakit/sidebar'
 import { Text } from '@siakit/text'
 
+const items = [1, 2, 3]
+
+function Item({ item }: { item: number }) {
+  return (
+    <SubMenuItem onClick={() => console.log(`item ${item}`)}>
+      {String(item)}
+    </SubMenuItem>
+  )
+}
+
 export function SidebarPage() {
   return (
     <Flex flex>
@@ -23,12 +33,33 @@ export function SidebarPage() {
           <MenuItem value="item-1" icon={<House />} tooltip="item-1">
             item 1
           </MenuItem>
-          <MenuItem value="item-2" tooltip="item-2">
+          <MenuItem value="item-2" icon={<House />} tooltip="item-2">
             item 2
+          </MenuItem>
+          <MenuItem value="item-3" icon={<House />} tooltip="item-3">
+            item 3
           </MenuItem>
         </Menu>
 
         <SubMenu value="item-1">
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 1
+          </SubMenuItem>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 2
+          </SubMenuItem>
+          <SubMenuItem onClick={() => console.log('item 1')}>
+            item 3
+          </SubMenuItem>
+        </SubMenu>
+
+        <SubMenu value="item-2">
+          {items.map((item) => (
+            <Item key={item} item={item} />
+          ))}
+        </SubMenu>
+
+        <SubMenu value="item-3">
           <SubMenuItem onClick={() => console.log('item 1')}>
             item 1
           </SubMenuItem>

@@ -1,13 +1,8 @@
-import { ReactNode, useContext } from 'react'
+import { useContext } from 'react'
 
 import { styled } from '@siakit/core'
 
 import { SidebarContext } from './Sidebar'
-
-type SubMenuItemProps = {
-  children: ReactNode
-  onClick: () => void
-}
 
 const Container = styled('a', {
   position: 'relative',
@@ -47,23 +42,22 @@ const Container = styled('a', {
   },
 })
 
-type RestProps = {
-  index: number
+type SubMenuItemProps = {
+  children: string
+  onClick: () => void
 }
 
-export function SubMenuItem({ children, onClick, ...rest }: SubMenuItemProps) {
-  const { index } = rest as RestProps
-
+export function SubMenuItem({ children, onClick }: SubMenuItemProps) {
   const { subMenuSelected, selectSubMenu } = useContext(SidebarContext)
 
   function handleSelectSubMenu() {
-    selectSubMenu(index)
+    selectSubMenu(children)
     onClick()
   }
 
   return (
     <Container
-      isSelected={index === subMenuSelected}
+      isSelected={children === subMenuSelected}
       onClick={handleSelectSubMenu}
     >
       {children}
