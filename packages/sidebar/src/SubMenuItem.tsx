@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 
 import { Badge } from '@siakit/badge'
-import { styled, useTheme } from '@siakit/core'
+import { Color, styled } from '@siakit/core'
 
 import { SidebarContext } from './Sidebar'
 
@@ -51,7 +51,8 @@ type SubMenuItemProps = {
 }
 
 export function SubMenuItem({ children, onClick, count }: SubMenuItemProps) {
-  const { color } = useTheme()
+  const color = (localStorage.getItem('@siakit:color') ?? '') as Color
+
   const { subMenuSelected, selectSubMenu } = useContext(SidebarContext)
 
   function handleSelectSubMenu() {

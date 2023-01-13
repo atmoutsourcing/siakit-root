@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.31
+
+### Patch Changes
+
+- fix badge color
+
 ## 0.0.30
 
 ### Patch Changes
