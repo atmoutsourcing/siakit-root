@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.19
+
+### Patch Changes
+
+- fix rich text input
+
 ## 0.0.18
 
 ### Patch Changes

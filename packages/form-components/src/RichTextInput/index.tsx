@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useRef } from 'react'
+import { InputHTMLAttributes, useEffect, useRef } from 'react'
 
 import difference from 'lodash.difference'
 
@@ -81,6 +81,12 @@ export function RichTextInput({
       onChange(item.editor.getHTML())
     },
   })
+
+  useEffect(() => {
+    if (editor) {
+      editor.commands.setContent(value)
+    }
+  }, [value, editor])
 
   return (
     <RichTextInputContainer isErrored={isErrored} disabled={disabled}>
