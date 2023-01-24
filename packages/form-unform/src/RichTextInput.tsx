@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import {
+  EditorHandles,
   FormControl,
   FormLabel,
   RichTextInput as RichTextInputComponent,
@@ -11,7 +12,6 @@ type RichTextInputProps = {
   name: string
   label?: string
   placeholder?: string
-  onChange?: (value: string) => void
   disabled?: boolean
 }
 
@@ -19,45 +19,37 @@ export function RichTextInput({
   name,
   label,
   placeholder,
-  onChange,
   disabled,
 }: RichTextInputProps) {
-  const { fieldName, defaultValue, registerField, error } = useField(name)
+  const editorRef = useRef<EditorHandles>(null)
 
-  const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
+  const { fieldName, defaultValue, registerField, error } = useField(name)
 
   useEffect(() => {
     registerField({
       name: fieldName,
-      getValue: () => {
-        return fieldValue
+      ref: editorRef,
+      getValue: (ref) => {
+        return ref.current.getContent()
       },
-      setValue: (_, value) => {
-        setFieldValue(value ?? '')
+      setValue: (ref, value) => {
+        ref.current.setContent(value)
       },
-      clearValue: () => {
-        setFieldValue('')
+      clearValue: (ref) => {
+        ref.current.setContent('')
       },
     })
-  }, [fieldName, registerField, fieldValue])
-
-  function handleChange(value: string) {
-    setFieldValue(value)
-
-    if (onChange) {
-      onChange(value)
-    }
-  }
+  }, [fieldName, registerField])
 
   return (
     <FormControl error={error}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
       <RichTextInputComponent
-        value={fieldValue}
-        onChange={handleChange}
+        ref={editorRef}
         placeholder={placeholder}
         disabled={disabled}
+        defaultValue={defaultValue}
       />
     </FormControl>
   )

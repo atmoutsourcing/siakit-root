@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.21
+
+### Patch Changes
+
+- add ref to rich text editor
+
 ## 0.0.20
 
 ### Patch Changes
