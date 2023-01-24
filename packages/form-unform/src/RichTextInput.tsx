@@ -30,13 +30,13 @@ export function RichTextInput({
       name: fieldName,
       ref: editorRef,
       getValue: (ref) => {
-        return ref.current.getContent()
+        return ref.current?.getContent()
       },
       setValue: (ref, value) => {
-        ref.current.setContent(value)
+        ref.current?.setContent(value)
       },
       clearValue: (ref) => {
-        ref.current.setContent('')
+        ref.current?.setContent('')
       },
     })
   }, [fieldName, registerField])

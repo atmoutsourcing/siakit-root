@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.40
+
+### Patch Changes
+
+- fix rich text editor ref
+
 ## 0.0.39
 
 ### Patch Changes
