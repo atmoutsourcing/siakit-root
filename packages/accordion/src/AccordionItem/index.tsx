@@ -1,7 +1,9 @@
+import { ReactNode } from 'react'
+
 import * as RadixAccordion from '@radix-ui/react-accordion'
 import { Badge } from '@siakit/badge'
 import { Color } from '@siakit/core'
-import { ReactNode } from 'react'
+import { Flex } from '@siakit/layout'
 
 import {
   AccordionItemContainer,
@@ -11,7 +13,7 @@ import {
 
 interface AccordionItemProps {
   value: string
-  title: string
+  title: ReactNode
   badge?: {
     label: number | string
     color: Color
@@ -30,6 +32,14 @@ function AccordionItem({
     <AccordionItemContainer value={value} {...props}>
       <RadixAccordion.Header asChild>
         <AccordionItemTrigger>
+          <Flex flex gap={8}>
+            {typeof title === 'string' ? <strong>{title}</strong> : title}
+
+            {badge?.label && (
+              <Badge color={badge.color}>{String(badge.label)}</Badge>
+            )}
+          </Flex>
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#000000"
@@ -45,10 +55,6 @@ function AccordionItem({
               strokeWidth="24"
             />
           </svg>
-          <strong>{title}</strong>
-          {badge?.label && (
-            <Badge color={badge.color}>{String(badge.label)}</Badge>
-          )}
         </AccordionItemTrigger>
       </RadixAccordion.Header>
 

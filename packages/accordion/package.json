@@ -1,6 +1,6 @@
 {
   "name": "@siakit/accordion",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -26,6 +26,7 @@
   "dependencies": {
     "@radix-ui/react-accordion": "^1.0.0",
     "@siakit/badge": "*",
+    "@siakit/layout": "*",
     "@siakit/core": "*"
   }
 }

@@ -1,5 +1,11 @@
 # @siakit/accordion
 
+## 0.0.4
+
+### Patch Changes
+
+- add element title to item
+
 ## 0.0.3
 
 ### Patch Changes

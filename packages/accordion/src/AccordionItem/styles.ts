@@ -1,5 +1,5 @@
-import { styled } from '@siakit/core'
 import * as RadixAccordion from '@radix-ui/react-accordion'
+import { styled } from '@siakit/core'
 
 export const AccordionItemContainer = styled(RadixAccordion.Item, {
   backgroundColor: '$gray4',
@@ -18,7 +18,7 @@ export const AccordionItemTrigger = styled(RadixAccordion.Trigger, {
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
-  px: 16,
+  padding: '0 16px',
   borderRadius: 8,
   gap: 12,
   height: 48,

@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 
+import { Accordion } from '../pages/Accordion'
 import { AvatarPage } from '../pages/AvatarPage'
 import { BadgePage } from '../pages/BadgePage'
 import { ButtonPage } from '../pages/ButtonPage'
@@ -52,6 +53,7 @@ export function AppRoutes() {
       <Route path="sidebar" element={<SidebarPage />} />
       <Route path="tooltip" element={<TooltipPage />} />
       <Route path="maps" element={<MapsPage />} />
+      <Route path="accordion" element={<Accordion />} />
     </Routes>
   )
 }
