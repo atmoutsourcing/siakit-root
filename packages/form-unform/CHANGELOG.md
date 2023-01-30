@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.41
+
+### Patch Changes
+
+- fix rich-text-input
+
 ## 0.0.40
 
 ### Patch Changes

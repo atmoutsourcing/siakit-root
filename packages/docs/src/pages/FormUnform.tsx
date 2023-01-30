@@ -230,7 +230,7 @@ export function FormUnform() {
                 name="rich-text-input"
                 label="Rich text input"
                 placeholder="Rich text input"
-                disabled
+                removeOptions={['image']}
               />
             </Flex>
           </Flex>
