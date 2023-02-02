@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.22
+
+### Patch Changes
+
+- fix select multi wrap text
+
 ## 0.0.21
 
 ### Patch Changes

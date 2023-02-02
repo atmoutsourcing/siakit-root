@@ -39,6 +39,7 @@ type SelectMultiProps = {
   placeholder?: string
   disabled?: boolean
   menuPlacement?: 'auto' | 'bottom' | 'top'
+  closeMenuOnSelect?: boolean
 }
 
 type RestProps = {

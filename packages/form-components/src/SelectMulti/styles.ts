@@ -1,5 +1,6 @@
-import { styled } from '@siakit/core'
 import ReactSelect from 'react-select'
+
+import { styled } from '@siakit/core'
 
 export const SelectMultiContainer = styled(ReactSelect, {
   '.react-select__control': {
@@ -58,6 +59,7 @@ export const SelectMultiContainer = styled(ReactSelect, {
     '.react-select__multi-value__label': {
       color: '$gray12',
       fontSize: '12px',
+      whiteSpace: 'normal',
     },
 
     '.react-select__multi-value__remove': {

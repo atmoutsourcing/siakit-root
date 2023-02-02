@@ -16,6 +16,7 @@ type SelectMultiProps = {
   placeholder?: string
   onChange?: (option: OptionType[]) => void
   disabled?: boolean
+  closeMenuOnSelect?: boolean
 }
 
 export function SelectMulti({
@@ -26,6 +27,7 @@ export function SelectMulti({
   placeholder,
   onChange,
   disabled,
+  closeMenuOnSelect = true,
 }: SelectMultiProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -95,6 +97,7 @@ export function SelectMulti({
         onChange={handleChange}
         placeholder={placeholder}
         disabled={disabled}
+        closeMenuOnSelect={closeMenuOnSelect}
       />
     </FormControl>
   )
