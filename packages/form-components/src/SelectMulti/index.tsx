@@ -40,6 +40,7 @@ type SelectMultiProps = {
   disabled?: boolean
   menuPlacement?: 'auto' | 'bottom' | 'top'
   closeMenuOnSelect?: boolean
+  maxHeight?: number
 }
 
 type RestProps = {
@@ -53,6 +54,7 @@ export function SelectMulti({
   placeholder = '',
   disabled,
   menuPlacement,
+  maxHeight,
   ...props
 }: SelectMultiProps) {
   const { isErrored } = props as RestProps
@@ -115,6 +117,15 @@ export function SelectMulti({
             : `var(${themeKeys.colors.shape.variable})`,
         }),
       }}
+      css={
+        maxHeight
+          ? {
+              '.react-select__value-container': {
+                maxHeight,
+              },
+            }
+          : {}
+      }
       {...props}
     />
   )

@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.43
+
+### Patch Changes
+
+- add maxHeight prop to select multi
+- Updated dependencies
+  - @siakit/form-components@0.0.23
+
 ## 0.0.42
 
 ### Patch Changes

@@ -24,11 +24,12 @@ export function TestPage() {
   return (
     <Flex direction="column" gap padding>
       <Form ref={formRef} onSubmit={() => handleSubmit(submit)}>
-        <Flex height={400}>
+        <Flex>
           <SelectMulti
             name="description"
             label="Description"
             placeholder="Description"
+            menuPlacement="top"
             options={[
               {
                 value: 1,
@@ -37,6 +38,46 @@ export function TestPage() {
               },
               {
                 value: 2,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 3,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 4,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 5,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 6,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 7,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 8,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 9,
+                label:
+                  'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
+              },
+              {
+                value: 10,
                 label:
                   'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nesciunt',
               },

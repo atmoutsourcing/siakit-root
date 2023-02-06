@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.23
+
+### Patch Changes
+
+- add maxHeight prop to select multi
+
 ## 0.0.22
 
 ### Patch Changes

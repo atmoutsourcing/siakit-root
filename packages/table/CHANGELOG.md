@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.15
+
+### Patch Changes
+
+- change type to renderType
+
 ## 0.0.14
 
 ### Patch Changes

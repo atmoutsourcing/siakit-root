@@ -23,6 +23,8 @@ export const SelectMultiContainer = styled(ReactSelect, {
 
   '.react-select__value-container': {
     padding: '0 10px',
+
+    overflow: 'auto',
   },
 
   '.react-select__placeholder': {

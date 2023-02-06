@@ -17,6 +17,8 @@ type SelectMultiProps = {
   onChange?: (option: OptionType[]) => void
   disabled?: boolean
   closeMenuOnSelect?: boolean
+  menuPlacement?: 'auto' | 'bottom' | 'top'
+  maxHeight?: number
 }
 
 export function SelectMulti({
@@ -28,6 +30,8 @@ export function SelectMulti({
   onChange,
   disabled,
   closeMenuOnSelect = true,
+  menuPlacement,
+  maxHeight,
 }: SelectMultiProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -98,6 +102,8 @@ export function SelectMulti({
         placeholder={placeholder}
         disabled={disabled}
         closeMenuOnSelect={closeMenuOnSelect}
+        menuPlacement={menuPlacement}
+        maxHeight={maxHeight}
       />
     </FormControl>
   )

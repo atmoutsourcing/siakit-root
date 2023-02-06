@@ -43,7 +43,7 @@ type HeaderType = {
   visible?: boolean
   render?: (data: RenderType) => ReactNode
   align?: 'left' | 'right'
-  type?: 'date' | 'maps'
+  renderType?: 'date' | 'maps'
 }
 
 type ActionType = {
@@ -166,7 +166,7 @@ export function Table({
                   )
                 }
 
-                if (field.type === 'date') {
+                if (field.renderType === 'date') {
                   const value = dot.pick(field.dataIndex, item)
 
                   if (!value) {
@@ -202,7 +202,7 @@ export function Table({
                   )
                 }
 
-                if (field.type === 'maps') {
+                if (field.renderType === 'maps') {
                   const latitude = dot.pick('latitude', item)
                   const longitude = dot.pick('longitude', item)
 

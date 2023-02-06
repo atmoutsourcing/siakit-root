@@ -58,7 +58,7 @@ export function TablePage() {
           { label: 'Nome', dataIndex: 'name' },
           { label: 'Email', dataIndex: 'email' },
           { label: 'Comentario', dataIndex: 'body' },
-          { label: 'Date', dataIndex: 'date', type: 'date' },
+          { label: 'Date', dataIndex: 'date', renderType: 'date' },
         ]}
         data={[
           { date: '2022-12-25T00:00:00.000Z' },
