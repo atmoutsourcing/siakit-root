@@ -1,7 +1,7 @@
 import { styled } from '@siakit/core'
 
 export const FormControlContainer = styled('div', {
-  width: '$full',
+  flex: 1,
 
   display: 'flex',
 

@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.24
+
+### Patch Changes
+
+- fix field width
+
 ## 0.0.23
 
 ### Patch Changes

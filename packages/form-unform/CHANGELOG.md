@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.44
+
+### Patch Changes
+
+- fix field width
+- Updated dependencies
+  - @siakit/form-components@0.0.24
+
 ## 0.0.43
 
 ### Patch Changes
