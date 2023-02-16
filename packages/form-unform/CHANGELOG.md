@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.45
+
+### Patch Changes
+
+- add onChange to rich text input
+- Updated dependencies
+  - @siakit/form-components@0.0.25
+
 ## 0.0.44
 
 ### Patch Changes

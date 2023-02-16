@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.25
+
+### Patch Changes
+
+- add onChange to rich text input
+
 ## 0.0.24
 
 ### Patch Changes

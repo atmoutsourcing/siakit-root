@@ -25,6 +25,7 @@ type RichTextInputProps = Omit<
 > & {
   removeOptions?: string[]
   defaultValue?: string
+  onChange?: (value: string) => void
 }
 
 type RestProps = {
@@ -54,7 +55,14 @@ export type EditorHandles = {
 
 export const RichTextInput = forwardRef<EditorHandles, RichTextInputProps>(
   (
-    { defaultValue, removeOptions = [], placeholder, disabled, ...props },
+    {
+      defaultValue,
+      removeOptions = [],
+      placeholder,
+      disabled,
+      onChange,
+      ...props
+    },
     ref,
   ) => {
     const editorRef = useRef(null)
@@ -82,6 +90,11 @@ export const RichTextInput = forwardRef<EditorHandles, RichTextInputProps>(
           placeholder,
         }),
       ],
+      onUpdate: ({ editor }) => {
+        if (onChange) {
+          onChange(editor.getHTML())
+        }
+      },
       content: defaultValue,
     })
 

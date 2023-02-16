@@ -14,6 +14,7 @@ type RichTextInputProps = {
   placeholder?: string
   disabled?: boolean
   removeOptions?: string[]
+  onChange?: (text: string) => void
 }
 
 export function RichTextInput({
@@ -22,6 +23,7 @@ export function RichTextInput({
   placeholder,
   disabled,
   removeOptions,
+  onChange,
 }: RichTextInputProps) {
   const editorRef = useRef<EditorHandles>(null)
 
@@ -53,6 +55,7 @@ export function RichTextInput({
         disabled={disabled}
         defaultValue={defaultValue}
         removeOptions={removeOptions}
+        onChange={onChange}
       />
     </FormControl>
   )
