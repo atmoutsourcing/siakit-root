@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.46
+
+### Patch Changes
+
+- add menuPlacement to select
+
 ## 0.0.45
 
 ### Patch Changes

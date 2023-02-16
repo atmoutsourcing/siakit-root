@@ -18,6 +18,7 @@ type SelectProps = {
   placeholder?: string
   onChange?: (option: OptionType | null) => void
   disabled?: boolean
+  menuPlacement?: 'auto' | 'bottom' | 'top'
 }
 
 export function Select({
@@ -28,6 +29,7 @@ export function Select({
   placeholder,
   onChange,
   disabled,
+  menuPlacement = 'auto',
 }: SelectProps) {
   const [data, setData] = useState(options)
 
@@ -97,6 +99,7 @@ export function Select({
         onChange={handleChange}
         placeholder={placeholder}
         disabled={disabled}
+        menuPlacement={menuPlacement}
       />
     </FormControl>
   )
