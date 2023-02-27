@@ -11,7 +11,7 @@ export const RichTextInputContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
 
-  '&:has(input:focus)': {
+  '&:has(*:focus)': {
     borderColor: '$primary9',
   },
 
@@ -22,7 +22,7 @@ export const RichTextInputContainer = styled('div', {
 
     padding: 16,
 
-    fontSize: 16,
+    fontSize: 14,
 
     outline: 0,
 
@@ -44,6 +44,11 @@ export const RichTextInputContainer = styled('div', {
       li: {
         display: 'flex',
         gap: 8,
+
+        '&[data-checked="true"]': {
+          textDecoration: 'line-through',
+          color: '$gray11',
+        },
       },
     },
 

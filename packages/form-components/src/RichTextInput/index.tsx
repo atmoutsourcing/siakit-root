@@ -26,6 +26,7 @@ type RichTextInputProps = Omit<
   removeOptions?: string[]
   defaultValue?: string
   onChange?: (value: string) => void
+  flex?: boolean
 }
 
 type RestProps = {
@@ -48,6 +49,16 @@ const defaultOptions = [
   'image',
 ]
 
+function processContent(content: string) {
+  if (content.includes('\n')) {
+    return content.split('\n').reduce((acc, cur) => {
+      return `${acc}<p>${cur}</p>`
+    }, '')
+  }
+
+  return content
+}
+
 export type EditorHandles = {
   setContent: (content: string) => void
   getContent: () => string
@@ -61,6 +72,7 @@ export const RichTextInput = forwardRef<EditorHandles, RichTextInputProps>(
       placeholder,
       disabled,
       onChange,
+      flex,
       ...props
     },
     ref,
@@ -95,11 +107,11 @@ export const RichTextInput = forwardRef<EditorHandles, RichTextInputProps>(
           onChange(editor.getHTML())
         }
       },
-      content: defaultValue,
+      content: defaultValue ? processContent(defaultValue) : undefined,
     })
 
     function setContent(content: string): void {
-      editor?.commands.setContent(content)
+      editor?.commands.setContent(processContent(content))
     }
 
     function getContent(): string {
@@ -114,7 +126,11 @@ export const RichTextInput = forwardRef<EditorHandles, RichTextInputProps>(
     })
 
     return (
-      <RichTextInputContainer isErrored={isErrored} disabled={disabled}>
+      <RichTextInputContainer
+        isErrored={isErrored}
+        disabled={disabled}
+        css={flex ? { flex: 1, overflow: 'auto' } : {}}
+      >
         <MenuBar
           editor={editor}
           options={difference(defaultOptions, removeOptions)}

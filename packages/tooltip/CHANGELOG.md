@@ -1,5 +1,11 @@
 # @siakit/tooltip
 
+## 0.0.8
+
+### Patch Changes
+
+- fix many features
+
 ## 0.0.7
 
 ### Patch Changes

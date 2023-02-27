@@ -1,5 +1,17 @@
 # @siakit/timeline
 
+## 0.0.6
+
+### Patch Changes
+
+- fix many features
+
+## 0.0.5
+
+### Patch Changes
+
+- fix timeline props
+
 ## 0.0.4
 
 ### Patch Changes

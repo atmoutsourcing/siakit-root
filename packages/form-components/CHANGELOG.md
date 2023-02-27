@@ -1,5 +1,13 @@
 # @siakit/form-components
 
+## 0.0.26
+
+### Patch Changes
+
+- fix many features
+- Updated dependencies
+  - @siakit/tooltip@0.0.8
+
 ## 0.0.25
 
 ### Patch Changes

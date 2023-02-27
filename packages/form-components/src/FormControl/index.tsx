@@ -7,13 +7,22 @@ type FormControlProps = {
   children: ReactElement | ReactElement[]
   error?: string
   direction?: 'row' | 'column'
+  flex?: boolean
 }
 
-export function FormControl({ children, error, direction }: FormControlProps) {
+export function FormControl({
+  children,
+  error,
+  direction,
+  flex,
+}: FormControlProps) {
   const isErrored = !!error
 
   return (
-    <FormControlContainer direction={direction}>
+    <FormControlContainer
+      direction={direction}
+      css={flex ? { overflow: 'auto' } : {}}
+    >
       {Children.map(children, (child) => {
         return cloneElement(child, { isErrored })
       })}

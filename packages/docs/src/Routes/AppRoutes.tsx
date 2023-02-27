@@ -9,6 +9,7 @@ import { DialogPage } from '../pages/DialogPage'
 import { DrawerPage } from '../pages/DrawerPage'
 import { DropdownPage } from '../pages/DropdownPage'
 import { EmptyPage } from '../pages/EmptyPage'
+import { FormRich } from '../pages/Form/Rich'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
 import { LoadingPage } from '../pages/LoadingPage'
@@ -32,6 +33,7 @@ export function AppRoutes() {
       <Route path="/form">
         <Route path="" element={<FormPage />} />
         <Route path="unform" element={<FormUnform />} />
+        <Route path="rich" element={<FormRich />} />
       </Route>
       <Route path="table" element={<TablePage />} />
       <Route path="pagination" element={<PaginationPage />} />

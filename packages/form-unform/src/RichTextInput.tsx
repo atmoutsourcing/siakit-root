@@ -15,6 +15,7 @@ type RichTextInputProps = {
   disabled?: boolean
   removeOptions?: string[]
   onChange?: (text: string) => void
+  flex?: boolean
 }
 
 export function RichTextInput({
@@ -24,6 +25,7 @@ export function RichTextInput({
   disabled,
   removeOptions,
   onChange,
+  flex,
 }: RichTextInputProps) {
   const editorRef = useRef<EditorHandles>(null)
 
@@ -46,7 +48,7 @@ export function RichTextInput({
   }, [fieldName, registerField])
 
   return (
-    <FormControl error={error}>
+    <FormControl error={error} flex={flex}>
       <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
       <RichTextInputComponent
@@ -56,6 +58,7 @@ export function RichTextInput({
         defaultValue={defaultValue}
         removeOptions={removeOptions}
         onChange={onChange}
+        flex={flex}
       />
     </FormControl>
   )
