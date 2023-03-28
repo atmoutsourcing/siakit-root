@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.27
+
+### Patch Changes
+
+- fix rich text editor
+
 ## 0.0.26
 
 ### Patch Changes

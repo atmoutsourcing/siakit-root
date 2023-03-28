@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.48
+
+### Patch Changes
+
+- fix rich text editor
+- Updated dependencies
+  - @siakit/form-components@0.0.27
+
 ## 0.0.47
 
 ### Patch Changes
