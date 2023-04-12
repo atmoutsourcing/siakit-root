@@ -9,6 +9,7 @@ import { DialogPage } from '../pages/DialogPage'
 import { DrawerPage } from '../pages/DrawerPage'
 import { DropdownPage } from '../pages/DropdownPage'
 import { EmptyPage } from '../pages/EmptyPage'
+import { ReactHookForm } from '../pages/Form/ReactHookForm'
 import { FormRich } from '../pages/Form/Rich'
 import { FormPage } from '../pages/FormPage'
 import { FormUnform } from '../pages/FormUnform'
@@ -34,6 +35,7 @@ export function AppRoutes() {
         <Route path="" element={<FormPage />} />
         <Route path="unform" element={<FormUnform />} />
         <Route path="rich" element={<FormRich />} />
+        <Route path="react-hook-form" element={<ReactHookForm />} />
       </Route>
       <Route path="table" element={<TablePage />} />
       <Route path="pagination" element={<PaginationPage />} />

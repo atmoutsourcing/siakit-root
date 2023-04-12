@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { Flex } from '@siakit/layout'
 import { Text } from '@siakit/text'
 
-import { Sidebar } from '../../components/Sidebar'
+// import { Sidebar } from '../../components/Sidebar'
 
 type DefaultLayoutProps = {
   children: ReactNode
@@ -12,7 +12,7 @@ type DefaultLayoutProps = {
 export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <Flex flex overflow>
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       <Flex flex justify="center">
         <Flex direction="column" width={'100%'} maxWidth={736}>
