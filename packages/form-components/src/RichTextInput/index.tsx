@@ -49,16 +49,6 @@ const defaultOptions = [
   'image',
 ]
 
-function processContent(content: string) {
-  if (content.includes('\n')) {
-    return content.split('\n').reduce((acc, cur) => {
-      return `${acc}<p>${cur}</p>`
-    }, '')
-  }
-
-  return content
-}
-
 export type EditorHandles = {
   setContent: (content: string) => void
   getContent: () => string
@@ -107,11 +97,11 @@ export const RichTextInput = forwardRef<EditorHandles, RichTextInputProps>(
           onChange(editor.getHTML())
         }
       },
-      content: defaultValue ? processContent(defaultValue) : undefined,
+      content: defaultValue,
     })
 
     function setContent(content: string): void {
-      editor?.commands.setContent(processContent(content))
+      editor?.commands.setContent(content)
     }
 
     function getContent(): string {

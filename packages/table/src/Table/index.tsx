@@ -435,7 +435,7 @@ export function Table({
                 ),
             )}
 
-          {footer && actions.length && (
+          {footer && actions.length > 0 && (
             <FooterCell
               isAction
               css={{ backgroundColor: theme === 'light' ? '$gray3' : '$gray4' }}

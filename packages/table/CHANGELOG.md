@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.16
+
+### Patch Changes
+
+- fix footer actions length
+
 ## 0.0.15
 
 ### Patch Changes
