@@ -46,32 +46,32 @@ export function Select({
   } = useFormContext()
 
   const fieldError = get(errors, name)
+  const error = fieldError?.message?.toString()
 
   return (
-    <FormControl error={fieldError?.message?.toString()}>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => (
-          <>
-            {!!label && <FormLabel>{label}</FormLabel>}
-            <SelectComponent
-              value={findOption(field.value, options)}
-              onChange={(option) => {
-                const newValue = option?.value
-                field.onChange(newValue)
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <FormControl error={error}>
+          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-                if (onChange) {
-                  onChange(newValue)
-                }
-              }}
-              placeholder={placeholder}
-              options={options}
-              disabled={disabled}
-            />
-          </>
-        )}
-      />
-    </FormControl>
+          <SelectComponent
+            value={findOption(field.value, options)}
+            onChange={(option) => {
+              const newValue = option?.value
+              field.onChange(newValue)
+
+              if (onChange) {
+                onChange(newValue)
+              }
+            }}
+            placeholder={placeholder}
+            options={options}
+            disabled={disabled}
+          />
+        </FormControl>
+      )}
+    />
   )
 }

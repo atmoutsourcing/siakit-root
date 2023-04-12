@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.3
+
+### Patch Changes
+
+- fix error message
+
 ## 0.0.2
 
 ### Patch Changes

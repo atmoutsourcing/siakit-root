@@ -37,40 +37,39 @@ export function MoneyInput({
   } = useFormContext()
 
   const fieldError = get(errors, name)
+  const error = fieldError?.message?.toString()
 
   return (
-    <FormControl error={fieldError?.message?.toString()}>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => {
-          return (
-            <>
-              {!!label && <FormLabel>{label}</FormLabel>}
-              <MoneyInputComponent
-                value={
-                  field.value
-                    ? field.value.toLocaleString('PT-BR', {
-                        minimumFractionDigits: 2,
-                        currency: 'BRL',
-                      })
-                    : ''
-                }
-                onChange={(value) => {
-                  const newValue = convertToNumber(value)
-                  field.onChange(newValue)
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => {
+        return (
+          <FormControl error={error}>
+            <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+            <MoneyInputComponent
+              value={
+                field.value
+                  ? field.value.toLocaleString('PT-BR', {
+                      minimumFractionDigits: 2,
+                      currency: 'BRL',
+                    })
+                  : ''
+              }
+              onChange={(value) => {
+                const newValue = convertToNumber(value)
+                field.onChange(newValue)
 
-                  if (onChange) {
-                    onChange(newValue)
-                  }
-                }}
-                placeholder={placeholder}
-                disabled={disabled}
-              />
-            </>
-          )
-        }}
-      />
-    </FormControl>
+                if (onChange) {
+                  onChange(newValue)
+                }
+              }}
+              placeholder={placeholder}
+              disabled={disabled}
+            />
+          </FormControl>
+        )
+      }}
+    />
   )
 }

@@ -29,41 +29,40 @@ export function NumberInput({
   } = useFormContext()
 
   const fieldError = get(errors, name)
+  const error = fieldError?.message?.toString()
 
   return (
-    <FormControl error={fieldError?.message?.toString()}>
-      <Controller
-        name={name}
-        control={control}
-        render={({ field }) => (
-          <>
-            {!!label && <FormLabel>{label}</FormLabel>}
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <FormControl error={error}>
+          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-            <NumberInputComponent
-              value={field.value ? String(field.value) : ''}
-              onChange={(value) => {
-                if (value) {
-                  const newValue = Number(value)
+          <NumberInputComponent
+            value={field.value ? String(field.value) : ''}
+            onChange={(value) => {
+              if (value) {
+                const newValue = Number(value)
 
-                  field.onChange(newValue)
-                  if (onChange) {
-                    onChange(newValue)
-                  }
-                } else {
-                  const newValue = undefined
-
-                  field.onChange(newValue)
-                  if (onChange) {
-                    onChange(newValue)
-                  }
+                field.onChange(newValue)
+                if (onChange) {
+                  onChange(newValue)
                 }
-              }}
-              placeholder={placeholder}
-              disabled={disabled}
-            />
-          </>
-        )}
-      />
-    </FormControl>
+              } else {
+                const newValue = undefined
+
+                field.onChange(newValue)
+                if (onChange) {
+                  onChange(newValue)
+                }
+              }
+            }}
+            placeholder={placeholder}
+            disabled={disabled}
+          />
+        </FormControl>
+      )}
+    />
   )
 }
