@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.5
+
+### Patch Changes
+
+- add phone and switch
+
 ## 0.0.4
 
 ### Patch Changes

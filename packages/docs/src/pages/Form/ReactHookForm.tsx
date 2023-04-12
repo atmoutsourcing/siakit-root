@@ -13,6 +13,8 @@ import {
   PercentageInput,
   Select,
   DatePicker,
+  PhoneInput,
+  Switch,
 } from '@siakit/react-hook-form'
 
 const formTestSchema = z.object({
@@ -23,6 +25,8 @@ const formTestSchema = z.object({
   percent: z.number(),
   car: z.string().nonempty(),
   date: z.date(),
+  phone: z.string(),
+  isPublic: z.coerce.boolean(),
 })
 
 type FormTestData = z.infer<typeof formTestSchema>
@@ -91,6 +95,14 @@ export function ReactHookForm() {
             label="Date label"
             placeholder="Date placeholder"
           />
+
+          <PhoneInput
+            name="phone"
+            label="Phone label"
+            placeholder="Phone placeholder"
+          />
+
+          <Switch name="isPublic" label="Is public label" />
 
           <Button>submit</Button>
         </Flex>
