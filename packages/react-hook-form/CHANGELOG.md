@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.4
+
+### Patch Changes
+
+- fix datepicker error message
+
 ## 0.0.3
 
 ### Patch Changes

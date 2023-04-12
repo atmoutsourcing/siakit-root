@@ -37,7 +37,7 @@ export function DatePicker({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={error}>{label}</FormLabel>}</>
+          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
           <DatePickerComponent
             value={field.value}
