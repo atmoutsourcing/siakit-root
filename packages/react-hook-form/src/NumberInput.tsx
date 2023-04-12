@@ -13,6 +13,7 @@ interface NumberInputProps {
   label?: string
   placeholder?: string
   onChange?: (value: number | undefined) => void
+  disabled?: boolean
 }
 
 export function NumberInput({
@@ -20,6 +21,7 @@ export function NumberInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: NumberInputProps) {
   const {
     formState: { errors },
@@ -57,6 +59,7 @@ export function NumberInput({
                 }
               }}
               placeholder={placeholder}
+              disabled={disabled}
             />
           </>
         )}

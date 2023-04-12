@@ -29,6 +29,7 @@ interface SelectProps {
   placeholder?: string
   options: OptionType[]
   onChange?: (value: any) => void
+  disabled?: boolean
 }
 
 export function Select({
@@ -37,6 +38,7 @@ export function Select({
   placeholder,
   options = [],
   onChange,
+  disabled,
 }: SelectProps) {
   const {
     formState: { errors },
@@ -65,6 +67,7 @@ export function Select({
               }}
               placeholder={placeholder}
               options={options}
+              disabled={disabled}
             />
           </>
         )}

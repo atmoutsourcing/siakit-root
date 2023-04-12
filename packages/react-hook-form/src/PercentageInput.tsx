@@ -13,6 +13,7 @@ interface PercentageInputProps {
   label?: string
   placeholder?: string
   onChange?: (value: number | undefined) => void
+  disabled?: boolean
 }
 
 export function PercentageInput({
@@ -20,6 +21,7 @@ export function PercentageInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: PercentageInputProps) {
   const {
     formState: { errors },
@@ -56,6 +58,7 @@ export function PercentageInput({
                 }
               }}
               placeholder={placeholder}
+              disabled={disabled}
             />
           </>
         )}

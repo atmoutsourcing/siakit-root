@@ -21,6 +21,7 @@ interface MoneyInputProps {
   label?: string
   placeholder?: string
   onChange?: (value: number) => void
+  disabled?: boolean
 }
 
 export function MoneyInput({
@@ -28,6 +29,7 @@ export function MoneyInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: MoneyInputProps) {
   const {
     formState: { errors },
@@ -63,6 +65,7 @@ export function MoneyInput({
                   }
                 }}
                 placeholder={placeholder}
+                disabled={disabled}
               />
             </>
           )

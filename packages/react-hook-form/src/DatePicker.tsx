@@ -3,26 +3,26 @@ import { Controller, useFormContext } from 'react-hook-form'
 import {
   FormControl,
   FormLabel,
-  TextAreaInput as TextAreaInputComponent,
+  DatePicker as DatePickerComponent,
 } from '@siakit/form-components'
 
 import { get } from './get'
 
-interface TextAreaInputProps {
+interface DatePickerProps {
   name: string
   label?: string
   placeholder?: string
-  onChange?: (value: string) => void
+  onChange?: (value: Date | null) => void
   disabled?: boolean
 }
 
-export function TextAreaInput({
+export function DatePicker({
   name,
   label,
   placeholder,
   onChange,
   disabled,
-}: TextAreaInputProps) {
+}: DatePickerProps) {
   const {
     formState: { errors },
     control,
@@ -38,7 +38,7 @@ export function TextAreaInput({
         render={({ field }) => (
           <>
             {!!label && <FormLabel>{label}</FormLabel>}
-            <TextAreaInputComponent
+            <DatePickerComponent
               value={field.value}
               onChange={(value) => {
                 field.onChange(value)

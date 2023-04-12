@@ -13,6 +13,7 @@ interface TextInputProps {
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
+  disabled?: boolean
 }
 
 export function TextInput({
@@ -20,6 +21,7 @@ export function TextInput({
   label,
   placeholder,
   onChange,
+  disabled,
 }: TextInputProps) {
   const {
     formState: { errors },
@@ -46,6 +48,7 @@ export function TextInput({
                 }
               }}
               placeholder={placeholder}
+              disabled={disabled}
             />
           </>
         )}

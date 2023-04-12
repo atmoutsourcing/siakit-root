@@ -12,6 +12,7 @@ import {
   MoneyInput,
   PercentageInput,
   Select,
+  DatePicker,
 } from '@siakit/react-hook-form'
 
 const formTestSchema = z.object({
@@ -21,6 +22,7 @@ const formTestSchema = z.object({
   value: z.number(),
   percent: z.number(),
   car: z.string().nonempty(),
+  date: z.date(),
 })
 
 type FormTestData = z.infer<typeof formTestSchema>
@@ -30,61 +32,76 @@ export function ReactHookForm() {
     resolver: zodResolver(formTestSchema),
   })
 
-  const { handleSubmit } = formTest
+  const { handleSubmit, reset } = formTest
 
   function submitFormTest(data: FormTestData) {
     console.log(data)
   }
 
   return (
-    <FormProvider {...formTest}>
-      <Flex
-        as="form"
-        onSubmit={handleSubmit(submitFormTest)}
-        direction="column"
+    <Flex padding direction="column">
+      <FormProvider {...formTest}>
+        <Flex
+          as="form"
+          onSubmit={handleSubmit(submitFormTest)}
+          direction="column"
+        >
+          <TextInput
+            name="name"
+            label="Name label"
+            placeholder="Name placeholder"
+          />
+
+          <NumberInput
+            name="age"
+            label="Age label"
+            placeholder="Age placeholder"
+          />
+
+          <PercentageInput
+            name="percent"
+            label="Percent label"
+            placeholder="Percent placeholder"
+          />
+
+          <TextAreaInput
+            name="bio"
+            label="Bio label"
+            placeholder="Bio placeholder"
+          />
+
+          <MoneyInput
+            name="value"
+            label="Value label"
+            placeholder="Value placeholder"
+          />
+
+          <Select
+            name="car"
+            label="Car label"
+            placeholder="Car placeholder"
+            options={[
+              { value: 'gol', label: 'Gol' },
+              { value: 'voyage', label: 'Voyage' },
+            ]}
+          />
+
+          <DatePicker
+            name="date"
+            label="Date label"
+            placeholder="Date placeholder"
+          />
+
+          <Button>submit</Button>
+        </Flex>
+      </FormProvider>
+
+      <Button
+        type="button"
+        onClick={() => reset({ date: new Date('2023-04-15T03:00:00.000Z') })}
       >
-        <TextInput
-          name="name"
-          label="Name label"
-          placeholder="Name placeholder"
-        />
-
-        <NumberInput
-          name="age"
-          label="Age label"
-          placeholder="Age placeholder"
-        />
-
-        <PercentageInput
-          name="percent"
-          label="Percent label"
-          placeholder="Percent placeholder"
-        />
-
-        <TextAreaInput
-          name="bio"
-          label="Bio label"
-          placeholder="Bio placeholder"
-        />
-
-        <MoneyInput
-          name="value"
-          label="Value label"
-          placeholder="Value placeholder"
-        />
-
-        <Select
-          name="car"
-          label="Car label"
-          placeholder="Car placeholder"
-          options={[
-            { value: 'gol', label: 'Gol' },
-            { value: 'voyage', label: 'Voyage' },
-          ]}
-        />
-
-        <Button>submit</Button>
-      </Flex>
-    </FormProvider>
+        reset form
+      </Button>
+    </Flex>
   )
 }
