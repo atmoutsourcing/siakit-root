@@ -1,4 +1,5 @@
-import { useForm, FormProvider } from 'react-hook-form'
+import { useState } from 'react'
+import { useForm, FormProvider, useFieldArray } from 'react-hook-form'
 
 import { z } from 'zod'
 
@@ -27,6 +28,11 @@ const formTestSchema = z.object({
   date: z.date(),
   phone: z.string(),
   isPublic: z.coerce.boolean(),
+  products: z.array(
+    z.object({
+      amount: z.number(),
+    }),
+  ),
 })
 
 type FormTestData = z.infer<typeof formTestSchema>
@@ -36,10 +42,27 @@ export function ReactHookForm() {
     resolver: zodResolver(formTestSchema),
   })
 
-  const { handleSubmit, reset } = formTest
+  const { handleSubmit, reset, control } = formTest
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'products',
+  })
+
+  const [products, setProducts] = useState<any[]>([])
 
   function submitFormTest(data: FormTestData) {
     console.log(data)
+  }
+
+  console.log(products)
+
+  function handleChange({ index, value }: any) {
+    setProducts((prevState) =>
+      prevState.map((product, productIndex) =>
+        productIndex === index ? { amount: value } : product,
+      ),
+    )
   }
 
   return (
@@ -55,6 +78,30 @@ export function ReactHookForm() {
             label="Name label"
             placeholder="Name placeholder"
           />
+
+          <Flex padding>
+            <Flex>
+              <Button
+                type="button"
+                onClick={() => {
+                  append({ amount: 0 })
+
+                  setProducts((prevState) => [...prevState, { amount: 0 }])
+                }}
+              >
+                append
+              </Button>
+            </Flex>
+            {fields.map((field, index) => (
+              <NumberInput
+                key={field.id}
+                name={`products.${index}.amount`}
+                label="Age label"
+                placeholder="Age placeholder"
+                onChange={(value) => handleChange({ value, index })}
+              />
+            ))}
+          </Flex>
 
           <NumberInput
             name="age"

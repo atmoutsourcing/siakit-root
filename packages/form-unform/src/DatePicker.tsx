@@ -35,7 +35,7 @@ export function DatePicker({
         return fieldValue
       },
       setValue: (_, value) => {
-        setFieldValue(null)
+        setFieldValue(value)
       },
       clearValue: () => {
         setFieldValue(null)
