@@ -1,6 +1,6 @@
 {
   "name": "@siakit/table",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -25,6 +25,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@siakit/avatar": "^0.0.5",
     "@siakit/badge": "*",
     "@siakit/dropdown": "*",
     "@siakit/heading": "*",

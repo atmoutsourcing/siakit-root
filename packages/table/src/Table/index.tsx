@@ -3,6 +3,7 @@ import { ReactNode, useRef } from 'react'
 import { format, addHours } from 'date-fns'
 import dot from 'dot-object'
 
+import { Avatar } from '@siakit/avatar'
 import { Badge } from '@siakit/badge'
 import { Color, useTheme } from '@siakit/core'
 import {
@@ -256,6 +257,51 @@ export function Table({
                 if (typeof dot.pick(field.dataIndex, item) === 'object') {
                   const { type, value } = dot.pick(field.dataIndex, item) as {
                     [key: string]: string
+                  }
+
+                  if (type === 'AVATAR') {
+                    const { url } = dot.pick(field.dataIndex, item) as {
+                      [key: string]: string
+                    }
+
+                    return (
+                      <BodyCell
+                        key={field.dataIndex}
+                        css={
+                          field.align === 'right'
+                            ? { justifyContent: 'flex-end' }
+                            : {}
+                        }
+                      >
+                        <Avatar size="sm" src={url} />
+                      </BodyCell>
+                    )
+                  }
+
+                  if (type === 'IMAGE') {
+                    const { url } = dot.pick(field.dataIndex, item) as {
+                      [key: string]: string
+                    }
+
+                    return (
+                      <BodyCell
+                        key={field.dataIndex}
+                        css={
+                          field.align === 'right'
+                            ? { justifyContent: 'flex-end' }
+                            : {}
+                        }
+                      >
+                        <div
+                          style={{
+                            width: 40,
+                            height: 40,
+                            background: `url("${url}") no-repeat center`,
+                            backgroundSize: 'cover',
+                          }}
+                        />
+                      </BodyCell>
+                    )
                   }
 
                   if (type === 'BADGE') {

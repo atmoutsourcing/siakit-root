@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.17
+
+### Patch Changes
+
+- add type avatar and image
+
 ## 0.0.16
 
 ### Patch Changes
