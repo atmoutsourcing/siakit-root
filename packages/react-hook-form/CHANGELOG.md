@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.6
+
+### Patch Changes
+
+- add password input
+
 ## 0.0.5
 
 ### Patch Changes

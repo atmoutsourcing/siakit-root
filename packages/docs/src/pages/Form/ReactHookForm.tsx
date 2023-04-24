@@ -16,6 +16,7 @@ import {
   DatePicker,
   PhoneInput,
   Switch,
+  PasswordInput,
 } from '@siakit/react-hook-form'
 
 const formTestSchema = z.object({
@@ -33,6 +34,7 @@ const formTestSchema = z.object({
       amount: z.number(),
     }),
   ),
+  password: z.string().nonempty(),
 })
 
 type FormTestData = z.infer<typeof formTestSchema>
@@ -151,14 +153,17 @@ export function ReactHookForm() {
 
           <Switch name="isPublic" label="Is public label" />
 
+          <PasswordInput
+            name="password"
+            label="Password label"
+            placeholder="Password placeholder"
+          />
+
           <Button>submit</Button>
         </Flex>
       </FormProvider>
 
-      <Button
-        type="button"
-        onClick={() => reset({ date: new Date('2023-04-15T03:00:00.000Z') })}
-      >
+      <Button type="button" onClick={() => reset()}>
         reset form
       </Button>
     </Flex>
