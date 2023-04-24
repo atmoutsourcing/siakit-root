@@ -36,15 +36,12 @@ export function PasswordInput({
       name={name}
       control={control}
       render={({ field }) => {
-        console.log('Password field', field.value)
-
         return (
           <FormControl error={error}>
             <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
             <PasswordInputComponent
               value={field.value}
               onChange={(value) => {
-                console.log(value)
                 field.onChange(value)
 
                 if (onChange) {
