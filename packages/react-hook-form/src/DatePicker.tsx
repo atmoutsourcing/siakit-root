@@ -35,24 +35,26 @@ export function DatePicker({
     <Controller
       name={name}
       control={control}
-      render={({ field }) => (
-        <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      render={({ field }) => {
+        return (
+          <FormControl error={error}>
+            <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
-          <DatePickerComponent
-            value={field.value}
-            onChange={(value) => {
-              field.onChange(value)
+            <DatePickerComponent
+              value={field?.value}
+              onChange={(value) => {
+                field.onChange(value)
 
-              if (onChange) {
-                onChange(value)
-              }
-            }}
-            placeholder={placeholder}
-            disabled={disabled}
-          />
-        </FormControl>
-      )}
+                if (onChange) {
+                  onChange(value)
+                }
+              }}
+              placeholder={placeholder}
+              disabled={disabled}
+            />
+          </FormControl>
+        )
+      }}
     />
   )
 }

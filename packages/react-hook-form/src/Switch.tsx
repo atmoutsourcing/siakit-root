@@ -32,7 +32,7 @@ export function Switch({ name, label, onChange, disabled }: SwitchProps) {
         <FormControl error={error}>
           <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
           <SwitchComponent
-            value={field.value}
+            value={!!field.value}
             onChange={(value) => {
               field.onChange(value)
 

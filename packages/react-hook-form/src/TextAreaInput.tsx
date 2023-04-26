@@ -40,7 +40,7 @@ export function TextAreaInput({
           <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
 
           <TextAreaInputComponent
-            value={field.value}
+            value={field.value ?? ''}
             onChange={(value) => {
               field.onChange(value)
 

@@ -13,6 +13,9 @@ export function DefaultLayout({ children }: DefaultLayoutProps) {
   return (
     <Flex flex overflow>
       {/* <Sidebar /> */}
+      <Flex width={240}>
+        <Text>sidebar</Text>
+      </Flex>
 
       <Flex flex justify="center">
         <Flex direction="column" width={'100%'} maxWidth={736}>

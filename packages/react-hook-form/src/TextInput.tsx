@@ -39,7 +39,7 @@ export function TextInput({
         <FormControl error={error}>
           <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
           <TextInputComponent
-            value={field.value}
+            value={field.value ?? ''}
             onChange={(value) => {
               field.onChange(value)
 

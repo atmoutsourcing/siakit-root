@@ -1,171 +1,133 @@
-import { useState } from 'react'
-import { useForm, FormProvider, useFieldArray } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 
 import { z } from 'zod'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@siakit/button'
+import { Card } from '@siakit/card'
+import { Footer, FooterLeft } from '@siakit/footer'
 import { Flex } from '@siakit/layout'
 import {
-  NumberInput,
   TextInput,
-  TextAreaInput,
-  MoneyInput,
-  PercentageInput,
   Select,
   DatePicker,
+  MoneyInput,
+  NumberInput,
+  PasswordInput,
+  PercentageInput,
   PhoneInput,
   Switch,
-  PasswordInput,
+  TextAreaInput,
 } from '@siakit/react-hook-form'
 
-const formTestSchema = z.object({
+const testFormSchema = z.object({
   name: z.string().nonempty(),
+  state: z.string().nonempty(),
+  birthday: z.date(),
+  money: z.number(),
   age: z.number(),
-  bio: z.string().nonempty(),
-  value: z.number(),
-  percent: z.number(),
-  car: z.string().nonempty(),
-  date: z.date(),
-  phone: z.string(),
-  isPublic: z.coerce.boolean(),
-  products: z.array(
-    z.object({
-      amount: z.number(),
-    }),
-  ),
   password: z.string().nonempty(),
+  percentage: z.number(),
+  phone: z.string().nonempty(),
+  giant: z
+    .boolean()
+    .optional()
+    .transform((val) => !!val),
+  bio: z.string().nonempty(),
 })
 
-type FormTestData = z.infer<typeof formTestSchema>
+type TestFormData = z.infer<typeof testFormSchema>
 
 export function ReactHookForm() {
-  const formTest = useForm<FormTestData>({
-    resolver: zodResolver(formTestSchema),
+  const testForm = useForm<TestFormData>({
+    resolver: zodResolver(testFormSchema),
   })
+  const { handleSubmit, reset } = testForm
 
-  const { handleSubmit, reset, control } = formTest
-
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'products',
-  })
-
-  const [products, setProducts] = useState<any[]>([])
-
-  function submitFormTest(data: FormTestData) {
+  function submitForm(data: any) {
     console.log(data)
   }
 
-  console.log(products)
+  function handleReset() {
+    reset({
+      name: undefined,
+    })
+  }
 
-  function handleChange({ index, value }: any) {
-    setProducts((prevState) =>
-      prevState.map((product, productIndex) =>
-        productIndex === index ? { amount: value } : product,
-      ),
-    )
+  function handleSetValues() {
+    reset({
+      name: 'John Doe',
+      state: 'SP',
+      birthday: new Date(1980, 2, 4),
+      money: 59.9,
+      age: 25,
+      password: 'abcd1234',
+      percentage: 67,
+      phone: '(19) 99999-9999',
+      giant: true,
+      bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nihil recusandae excepturi doloremque commodi non earum ipsa facere eos. Cum aut asperiores ab ipsa nam magni accusantium quis soluta. Nesciunt.',
+    })
   }
 
   return (
-    <Flex padding direction="column">
-      <FormProvider {...formTest}>
-        <Flex
-          as="form"
-          onSubmit={handleSubmit(submitFormTest)}
-          direction="column"
-        >
-          <TextInput
-            name="name"
-            label="Name label"
-            placeholder="Name placeholder"
-          />
-
-          <Flex padding>
-            <Flex>
-              <Button
-                type="button"
-                onClick={() => {
-                  append({ amount: 0 })
-
-                  setProducts((prevState) => [...prevState, { amount: 0 }])
-                }}
-              >
-                append
-              </Button>
-            </Flex>
-            {fields.map((field, index) => (
-              <NumberInput
-                key={field.id}
-                name={`products.${index}.amount`}
-                label="Age label"
-                placeholder="Age placeholder"
-                onChange={(value) => handleChange({ value, index })}
-              />
-            ))}
+    <Flex flex align="center" justify="center">
+      <FormProvider {...testForm}>
+        <Card as="form" onSubmit={handleSubmit(submitForm)} gap>
+          <Flex direction="column" padding width={512} gap={8}>
+            <TextInput name="name" label="Name" placeholder="Name" />
+            <Select
+              name="state"
+              label="State"
+              placeholder="State"
+              options={[
+                { value: 'SP', label: 'São Paulo' },
+                { value: 'RJ', label: 'Rio de Janeiro' },
+              ]}
+            />
+            <DatePicker
+              name="birthday"
+              label="Birthday"
+              placeholder="Birthday"
+            />
+            <MoneyInput name="money" label="Money" placeholder="Money" />
+            <NumberInput name="age" label="Age" placeholder="Age" />
+            <PasswordInput
+              name="password"
+              label="Password"
+              placeholder="Password"
+            />
+            <PercentageInput
+              name="percentage"
+              label="Percentage"
+              placeholder="Percentage"
+            />
+            <PhoneInput name="phone" label="Phone" placeholder="Phone" />
+            <Switch name="giant" label="Giant?" />
+            <TextAreaInput name="bio" label="Bio" placeholder="Bio" />
           </Flex>
 
-          <NumberInput
-            name="age"
-            label="Age label"
-            placeholder="Age placeholder"
-          />
-
-          <PercentageInput
-            name="percent"
-            label="Percent label"
-            placeholder="Percent placeholder"
-          />
-
-          <TextAreaInput
-            name="bio"
-            label="Bio label"
-            placeholder="Bio placeholder"
-          />
-
-          <MoneyInput
-            name="value"
-            label="Value label"
-            placeholder="Value placeholder"
-          />
-
-          <Select
-            name="car"
-            label="Car label"
-            placeholder="Car placeholder"
-            options={[
-              { value: 'gol', label: 'Gol' },
-              { value: 'voyage', label: 'Voyage' },
-            ]}
-          />
-
-          <DatePicker
-            name="date"
-            label="Date label"
-            placeholder="Date placeholder"
-          />
-
-          <PhoneInput
-            name="phone"
-            label="Phone label"
-            placeholder="Phone placeholder"
-          />
-
-          <Switch name="isPublic" label="Is public label" />
-
-          <PasswordInput
-            name="password"
-            label="Password label"
-            placeholder="Password placeholder"
-          />
-
-          <Button>submit</Button>
-        </Flex>
+          <Footer>
+            <FooterLeft>
+              <Button
+                type="button"
+                variant="secondary"
+                colorScheme="red"
+                onClick={handleReset}
+              >
+                Reset
+              </Button>
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={handleSetValues}
+              >
+                Set values
+              </Button>
+            </FooterLeft>
+            <Button type="submit">Submit </Button>
+          </Footer>
+        </Card>
       </FormProvider>
-
-      <Button type="button" onClick={() => reset()}>
-        reset form
-      </Button>
     </Flex>
   )
 }
