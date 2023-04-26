@@ -18,6 +18,7 @@ import {
   PhoneInput,
   Switch,
   TextAreaInput,
+  MaskInput,
 } from '@siakit/react-hook-form'
 
 const testFormSchema = z.object({
@@ -34,6 +35,7 @@ const testFormSchema = z.object({
     .optional()
     .transform((val) => !!val),
   bio: z.string().nonempty(),
+  cpf: z.string().nonempty(),
 })
 
 type TestFormData = z.infer<typeof testFormSchema>
@@ -66,6 +68,7 @@ export function ReactHookForm() {
       phone: '(19) 99999-9999',
       giant: true,
       bio: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia nihil recusandae excepturi doloremque commodi non earum ipsa facere eos. Cum aut asperiores ab ipsa nam magni accusantium quis soluta. Nesciunt.',
+      cpf: '468.131.658-01',
     })
   }
 
@@ -104,6 +107,7 @@ export function ReactHookForm() {
             <PhoneInput name="phone" label="Phone" placeholder="Phone" />
             <Switch name="giant" label="Giant?" />
             <TextAreaInput name="bio" label="Bio" placeholder="Bio" />
+            <MaskInput name="cpf" label="CPF" placeholder="CPF" mask="cpf" />
           </Flex>
 
           <Footer>

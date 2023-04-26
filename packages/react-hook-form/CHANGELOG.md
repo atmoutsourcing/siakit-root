@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.10
+
+### Patch Changes
+
+- add mask input
+
 ## 0.0.9
 
 ### Patch Changes
