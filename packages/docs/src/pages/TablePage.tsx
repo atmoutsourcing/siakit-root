@@ -60,12 +60,7 @@ export function TablePage() {
           { label: 'Comentario', dataIndex: 'body' },
           { label: 'Date', dataIndex: 'date', renderType: 'date' },
         ]}
-        data={[
-          { date: '2022-12-25T00:00:00.000Z' },
-          {
-            date: '2022-12-25T13:22:00.000Z',
-          },
-        ]}
+        data={new Array(100).fill({ date: '2022-12-25T00:00:00.000Z' })}
         totalCount={totalCount}
         currentPage={currentPage}
         onPageChange={setCurrentPage}

@@ -1,5 +1,17 @@
 # @siakit/table
 
+## 0.0.19
+
+### Patch Changes
+
+- fix header z-index
+
+## 0.0.18
+
+### Patch Changes
+
+- fix table types
+
 ## 0.0.17
 
 ### Patch Changes
