@@ -11,7 +11,9 @@ export function DefaultLayout() {
 
       <Outlet />
 
-      <Flex width={320}>aside</Flex>
+      <Flex width={320} padding>
+        aside
+      </Flex>
     </Flex>
   )
 }

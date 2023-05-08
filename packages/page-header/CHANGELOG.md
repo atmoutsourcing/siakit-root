@@ -1,5 +1,11 @@
 # @siakit/page-header
 
+## 0.0.10
+
+### Patch Changes
+
+- fix align
+
 ## 0.0.9
 
 ### Patch Changes
