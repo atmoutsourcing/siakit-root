@@ -12,6 +12,10 @@
   "dependencies": {
     "@siakit/core": "*",
     "@siakit/layout": "*",
+    "@siakit/form-unform": "*",
+    "@siakit/footer": "*",
+    "@siakit/button": "*",
+    "@siakit/card": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.0"
