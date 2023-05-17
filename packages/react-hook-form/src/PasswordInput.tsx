@@ -40,7 +40,7 @@ export function PasswordInput({
           <FormControl error={error}>
             <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
             <PasswordInputComponent
-              value={field.value}
+              value={field.value ?? ''}
               onChange={(value) => {
                 field.onChange(value)
 

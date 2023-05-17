@@ -54,6 +54,11 @@ export function DatePicker({
       setMonthSelect(value)
 
       setInputValue(format(value, 'dd/MM/yyyy'))
+    } else {
+      setSelected(null)
+      setMonthSelect(null)
+
+      setInputValue('')
     }
   }, [value])
 

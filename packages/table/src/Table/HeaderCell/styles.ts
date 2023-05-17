@@ -13,6 +13,7 @@ const Container = styled('button', {
   fontWeight: '600 !important',
   cursor: 'default',
   color: '$gray12',
+  zIndex: 1,
 
   variants: {
     isActive: {

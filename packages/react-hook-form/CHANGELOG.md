@@ -1,10 +1,18 @@
 # @siakit/react-hook-form
 
+## 0.0.10
+
+### Patch Changes
+
+- add mask input
+
 ## 0.0.9
 
 ### Patch Changes
 
-- add select-multi
+- fix react hook form components
+- Updated dependencies
+  - @siakit/form-components@0.0.28
 
 ## 0.0.8
 

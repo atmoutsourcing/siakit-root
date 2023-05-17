@@ -3,26 +3,29 @@ import { Controller, useFormContext } from 'react-hook-form'
 import {
   FormControl,
   FormLabel,
-  TextAreaInput as TextAreaInputComponent,
+  MaskInput as MaskInputComponent,
 } from '@siakit/form-components'
+import { MaskType } from '@siakit/mask'
 
 import { get } from './get'
 
-interface TextAreaInputProps {
+interface MaskInputProps {
   name: string
+  mask: MaskType
   label?: string
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
 }
 
-export function TextAreaInput({
+export function MaskInput({
   name,
+  mask,
   label,
   placeholder,
   onChange,
   disabled,
-}: TextAreaInputProps) {
+}: MaskInputProps) {
   const {
     formState: { errors },
     control,
@@ -38,8 +41,8 @@ export function TextAreaInput({
       render={({ field }) => (
         <FormControl error={error}>
           <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
-
-          <TextAreaInputComponent
+          <MaskInputComponent
+            mask={mask}
             value={field.value ?? ''}
             onChange={(value) => {
               field.onChange(value)
