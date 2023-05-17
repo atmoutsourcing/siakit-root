@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.9
+
+### Patch Changes
+
+- add select-multi
+
 ## 0.0.8
 
 ### Patch Changes
