@@ -1,5 +1,11 @@
 # @siakit/sidebar
 
+## 0.0.33
+
+### Patch Changes
+
+- add value and onChange to sidebar
+
 ## 0.0.32
 
 ### Patch Changes
