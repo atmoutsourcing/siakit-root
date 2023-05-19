@@ -43,6 +43,7 @@ export function FileInput({
   name,
   multiple = false,
   disabled,
+  accept,
 }: FileInputProps) {
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -152,6 +153,7 @@ export function FileInput({
               }
             }}
             disabled={disabled}
+            accept={accept}
           />
 
           <Content
