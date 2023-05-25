@@ -22,8 +22,6 @@ export const Bar = styled('div', {
   height: 8,
   borderRadius: 4,
 
-  backgroundColor: '$primary9',
-
   transition: 'all 0.150s',
 
   '&::after': {
