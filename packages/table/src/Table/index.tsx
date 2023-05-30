@@ -45,6 +45,7 @@ type HeaderType = {
   render?: (data: RenderType) => ReactNode
   align?: 'left' | 'right'
   renderType?: 'date' | 'maps'
+  hidden?: boolean
 }
 
 type ActionType = {
@@ -102,7 +103,9 @@ export function Table({
   const { theme } = useTheme()
 
   const columns =
-    headers.length && actions.length ? headers.length + 1 : headers.length
+    headers.filter((field) => !field.hidden).length && actions.length
+      ? headers.filter((field) => !field.hidden).length + 1
+      : headers.filter((field) => !field.hidden).length
 
   const hasPagination =
     !!data.length &&
@@ -120,61 +123,40 @@ export function Table({
               : { gridTemplateColumns: `repeat(${columns}, 1fr)` }
           }
         >
-          {headers.map((field) => (
-            <HeaderCell
-              key={field.dataIndex}
-              dataIndex={field.dataIndex}
-              isSort={!!field.sort}
-              sort={
-                sort?.dataIndex === field.dataIndex
-                  ? sort
-                  : {
-                      dataIndex: field.dataIndex,
-                      direction: '',
-                    }
-              }
-              onSort={onSort}
-              align={field.align}
-            >
-              {field.label}
-            </HeaderCell>
-          ))}
+          {headers
+            .filter((field) => !field.hidden)
+            .map((field) => (
+              <HeaderCell
+                key={field.dataIndex}
+                dataIndex={field.dataIndex}
+                isSort={!!field.sort}
+                sort={
+                  sort?.dataIndex === field.dataIndex
+                    ? sort
+                    : {
+                        dataIndex: field.dataIndex,
+                        direction: '',
+                      }
+                }
+                onSort={onSort}
+                align={field.align}
+              >
+                {field.label}
+              </HeaderCell>
+            ))}
 
           {!!actions.length && <HeaderCell isAction>Ações</HeaderCell>}
 
           {data.map((item) => (
             <>
-              {headers.map((field) => {
-                if (dot.pick(field.dataIndex, item) === null) {
-                  return <BodyCell key={field.dataIndex} />
-                }
-
-                if (dot.pick(field.dataIndex, item) && field.render) {
-                  return (
-                    <BodyCell
-                      key={field.dataIndex}
-                      css={
-                        field.align === 'right'
-                          ? { justifyContent: 'flex-end' }
-                          : {}
-                      }
-                    >
-                      {field.render({
-                        value: dot.pick(field.dataIndex, item),
-                        item,
-                      })}
-                    </BodyCell>
-                  )
-                }
-
-                if (field.renderType === 'date') {
-                  const value = dot.pick(field.dataIndex, item)
-
-                  if (!value) {
+              {headers
+                .filter((field) => !field.hidden)
+                .map((field) => {
+                  if (dot.pick(field.dataIndex, item) === null) {
                     return <BodyCell key={field.dataIndex} />
                   }
 
-                  if (value.includes('T00:00:00.000Z')) {
+                  if (dot.pick(field.dataIndex, item) && field.render) {
                     return (
                       <BodyCell
                         key={field.dataIndex}
@@ -184,84 +166,34 @@ export function Table({
                             : {}
                         }
                       >
-                        {format(addHours(new Date(value), 3), 'dd/MM/yyyy')}
+                        {field.render({
+                          value: dot.pick(field.dataIndex, item),
+                          item,
+                        })}
                       </BodyCell>
                     )
                   }
 
-                  return (
-                    <BodyCell
-                      key={field.dataIndex}
-                      css={
-                        field.align === 'right'
-                          ? { justifyContent: 'flex-end' }
-                          : {}
-                      }
-                    >
-                      {format(new Date(value), 'dd/MM/yyyy HH:mm')}
-                    </BodyCell>
-                  )
-                }
+                  if (field.renderType === 'date') {
+                    const value = dot.pick(field.dataIndex, item)
 
-                if (field.renderType === 'maps') {
-                  const latitude = dot.pick('latitude', item)
-                  const longitude = dot.pick('longitude', item)
+                    if (!value) {
+                      return <BodyCell key={field.dataIndex} />
+                    }
 
-                  if (!latitude || !longitude) {
-                    return <BodyCell key={field.dataIndex} />
-                  }
-
-                  return (
-                    <BodyCell
-                      key={field.dataIndex}
-                      css={
-                        field.align === 'right'
-                          ? { justifyContent: 'flex-end' }
-                          : {}
-                      }
-                    >
-                      <LinkButton
-                        onClick={() =>
-                          window.open(
-                            `https://google.com/maps/place/${latitude},${longitude}`,
-                          )
-                        }
-                      >
-                        Ver no mapa
-                      </LinkButton>
-                    </BodyCell>
-                  )
-                }
-
-                if (
-                  typeof dot.pick(field.dataIndex, item) === 'boolean' &&
-                  field.render
-                ) {
-                  return (
-                    <BodyCell
-                      key={field.dataIndex}
-                      css={
-                        field.align === 'right'
-                          ? { justifyContent: 'flex-end' }
-                          : {}
-                      }
-                    >
-                      {field.render({
-                        value: dot.pick(field.dataIndex, item),
-                        item,
-                      })}
-                    </BodyCell>
-                  )
-                }
-
-                if (typeof dot.pick(field.dataIndex, item) === 'object') {
-                  const { type, value } = dot.pick(field.dataIndex, item) as {
-                    [key: string]: string
-                  }
-
-                  if (type === 'AVATAR') {
-                    const { url } = dot.pick(field.dataIndex, item) as {
-                      [key: string]: string
+                    if (value.includes('T00:00:00.000Z')) {
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          {format(addHours(new Date(value), 3), 'dd/MM/yyyy')}
+                        </BodyCell>
+                      )
                     }
 
                     return (
@@ -273,61 +205,17 @@ export function Table({
                             : {}
                         }
                       >
-                        <Avatar size="sm" src={url} />
+                        {format(new Date(value), 'dd/MM/yyyy HH:mm')}
                       </BodyCell>
                     )
                   }
 
-                  if (type === 'IMAGE') {
-                    const { url } = dot.pick(field.dataIndex, item) as {
-                      [key: string]: string
-                    }
+                  if (field.renderType === 'maps') {
+                    const latitude = dot.pick('latitude', item)
+                    const longitude = dot.pick('longitude', item)
 
-                    return (
-                      <BodyCell
-                        key={field.dataIndex}
-                        css={
-                          field.align === 'right'
-                            ? { justifyContent: 'flex-end' }
-                            : {}
-                        }
-                      >
-                        <div
-                          style={{
-                            width: 40,
-                            height: 40,
-                            background: `url("${url}") no-repeat center`,
-                            backgroundSize: 'cover',
-                          }}
-                        />
-                      </BodyCell>
-                    )
-                  }
-
-                  if (type === 'BADGE') {
-                    const { color } = dot.pick(field.dataIndex, item) as {
-                      [key: string]: string
-                    }
-
-                    return (
-                      <BodyCell
-                        key={field.dataIndex}
-                        css={
-                          field.align === 'right'
-                            ? { justifyContent: 'flex-end' }
-                            : {}
-                        }
-                      >
-                        <Badge color={color.toLowerCase() as Color}>
-                          {value}
-                        </Badge>
-                      </BodyCell>
-                    )
-                  }
-
-                  if (type === 'URL') {
-                    const { label } = dot.pick(field.dataIndex, item) as {
-                      [key: string]: string
+                    if (!latitude || !longitude) {
+                      return <BodyCell key={field.dataIndex} />
                     }
 
                     return (
@@ -340,16 +228,22 @@ export function Table({
                         }
                       >
                         <LinkButton
-                          type="button"
-                          onClick={() => window.open(value)}
+                          onClick={() =>
+                            window.open(
+                              `https://google.com/maps/place/${latitude},${longitude}`,
+                            )
+                          }
                         >
-                          {label}
+                          Ver no mapa
                         </LinkButton>
                       </BodyCell>
                     )
                   }
 
-                  if (type === 'ICCID') {
+                  if (
+                    typeof dot.pick(field.dataIndex, item) === 'boolean' &&
+                    field.render
+                  ) {
                     return (
                       <BodyCell
                         key={field.dataIndex}
@@ -359,15 +253,145 @@ export function Table({
                             : {}
                         }
                       >
-                        <Text>{value.slice(0, 10)}</Text>
-                        <Text css={{ color: '$green9', fontWeight: 'bold' }}>
-                          {value.slice(10)}
-                        </Text>
+                        {field.render({
+                          value: dot.pick(field.dataIndex, item),
+                          item,
+                        })}
                       </BodyCell>
                     )
                   }
 
-                  if (type === 'IMEI') {
+                  if (typeof dot.pick(field.dataIndex, item) === 'object') {
+                    const { type, value } = dot.pick(field.dataIndex, item) as {
+                      [key: string]: string
+                    }
+
+                    if (type === 'AVATAR') {
+                      const { url } = dot.pick(field.dataIndex, item) as {
+                        [key: string]: string
+                      }
+
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          <Avatar size="sm" src={url} />
+                        </BodyCell>
+                      )
+                    }
+
+                    if (type === 'IMAGE') {
+                      const { url } = dot.pick(field.dataIndex, item) as {
+                        [key: string]: string
+                      }
+
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          <div
+                            style={{
+                              width: 40,
+                              height: 40,
+                              background: `url("${url}") no-repeat center`,
+                              backgroundSize: 'cover',
+                            }}
+                          />
+                        </BodyCell>
+                      )
+                    }
+
+                    if (type === 'BADGE') {
+                      const { color } = dot.pick(field.dataIndex, item) as {
+                        [key: string]: string
+                      }
+
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          <Badge color={color.toLowerCase() as Color}>
+                            {value}
+                          </Badge>
+                        </BodyCell>
+                      )
+                    }
+
+                    if (type === 'URL') {
+                      const { label } = dot.pick(field.dataIndex, item) as {
+                        [key: string]: string
+                      }
+
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          <LinkButton
+                            type="button"
+                            onClick={() => window.open(value)}
+                          >
+                            {label}
+                          </LinkButton>
+                        </BodyCell>
+                      )
+                    }
+
+                    if (type === 'ICCID') {
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          <Text>{value.slice(0, 10)}</Text>
+                          <Text css={{ color: '$green9', fontWeight: 'bold' }}>
+                            {value.slice(10)}
+                          </Text>
+                        </BodyCell>
+                      )
+                    }
+
+                    if (type === 'IMEI') {
+                      return (
+                        <BodyCell
+                          key={field.dataIndex}
+                          css={
+                            field.align === 'right'
+                              ? { justifyContent: 'flex-end' }
+                              : {}
+                          }
+                        >
+                          <Text>{value.slice(0, 9)}</Text>
+                          <Text css={{ color: '$red9', fontWeight: 'bold' }}>
+                            {value.slice(9)}
+                          </Text>
+                        </BodyCell>
+                      )
+                    }
+
                     return (
                       <BodyCell
                         key={field.dataIndex}
@@ -377,45 +401,28 @@ export function Table({
                             : {}
                         }
                       >
-                        <Text>{value.slice(0, 9)}</Text>
-                        <Text css={{ color: '$red9', fontWeight: 'bold' }}>
-                          {value.slice(9)}
-                        </Text>
+                        {JSON.stringify(dot.pick(field.dataIndex, item))}
                       </BodyCell>
                     )
                   }
 
-                  return (
-                    <BodyCell
-                      key={field.dataIndex}
-                      css={
-                        field.align === 'right'
-                          ? { justifyContent: 'flex-end' }
-                          : {}
-                      }
-                    >
-                      {JSON.stringify(dot.pick(field.dataIndex, item))}
-                    </BodyCell>
-                  )
-                }
+                  if (field.dataIndex) {
+                    return (
+                      <BodyCell
+                        key={field.dataIndex}
+                        css={
+                          field.align === 'right'
+                            ? { justifyContent: 'flex-end' }
+                            : {}
+                        }
+                      >
+                        {dot.pick(field.dataIndex, item)}
+                      </BodyCell>
+                    )
+                  }
 
-                if (field.dataIndex) {
-                  return (
-                    <BodyCell
-                      key={field.dataIndex}
-                      css={
-                        field.align === 'right'
-                          ? { justifyContent: 'flex-end' }
-                          : {}
-                      }
-                    >
-                      {dot.pick(field.dataIndex, item)}
-                    </BodyCell>
-                  )
-                }
-
-                return <BodyCell key={field.dataIndex} />
-              })}
+                  return <BodyCell key={field.dataIndex} />
+                })}
 
               {!!actions.length && (
                 <ActionCell>

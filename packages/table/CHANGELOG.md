@@ -1,5 +1,23 @@
 # @siakit/table
 
+## 0.0.22
+
+### Patch Changes
+
+- fix hidden
+
+## 0.0.21
+
+### Patch Changes
+
+- add hidden
+
+## 0.0.20
+
+### Patch Changes
+
+- add visible
+
 ## 0.0.19
 
 ### Patch Changes
