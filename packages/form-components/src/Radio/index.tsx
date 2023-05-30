@@ -43,7 +43,7 @@ export function Radio({
             <RadioIndicator />
           </RadioItem>
 
-          <Flex direction="column">
+          <Flex flex direction="column">
             <Text
               as="label"
               size="sm"
