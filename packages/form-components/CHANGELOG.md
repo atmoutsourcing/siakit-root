@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.29
+
+### Patch Changes
+
+- add subtitle to radio
+
 ## 0.0.28
 
 ### Patch Changes
