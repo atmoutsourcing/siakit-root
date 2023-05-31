@@ -1,5 +1,11 @@
 # @siakit/tabs
 
+## 0.0.9
+
+### Patch Changes
+
+- fix tabs item height
+
 ## 0.0.8
 
 ### Patch Changes
