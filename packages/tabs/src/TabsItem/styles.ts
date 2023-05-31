@@ -4,7 +4,7 @@ import { styled } from '@siakit/core'
 export const TabsItemContainer = styled(RadixTabs.Trigger, {
   all: 'unset',
   position: 'relative',
-  height: 40,
+  height: 39,
 
   display: 'flex',
 
