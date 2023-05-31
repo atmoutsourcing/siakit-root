@@ -1,5 +1,11 @@
 # @siakit/card
 
+## 0.0.7
+
+### Patch Changes
+
+- fix align
+
 ## 0.0.6
 
 ### Patch Changes

@@ -8,9 +8,9 @@ export const Container = styled(RadixTabs.List, {
   display: 'flex',
 
   overflowX: 'auto',
-})
 
-export const Placeholder = styled('div', {
-  flex: 1,
-  borderBottom: '2px solid $gray6',
+  borderBottom: '1px solid $gray4',
+
+  padding: '0 8px',
+  gap: 8,
 })

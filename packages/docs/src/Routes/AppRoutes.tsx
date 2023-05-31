@@ -7,6 +7,7 @@ import { Home } from '../pages/Home'
 import { PageHeader } from '../pages/PageHeader'
 import { ProgressBar } from '../pages/ProgressBar'
 import { Sidebar } from '../pages/Sidebar'
+import { Tabs } from '../pages/Tabs'
 
 export function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ export function AppRoutes() {
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/progress-bar" element={<ProgressBar />} />
         <Route path="/form-components" element={<FormComponents />} />
+        <Route path="/tabs" element={<Tabs />} />
       </Route>
     </Routes>
   )

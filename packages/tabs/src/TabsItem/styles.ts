@@ -3,6 +3,7 @@ import { styled } from '@siakit/core'
 
 export const TabsItemContainer = styled(RadixTabs.Trigger, {
   all: 'unset',
+  position: 'relative',
   height: 40,
 
   display: 'flex',
@@ -21,17 +22,15 @@ export const TabsItemContainer = styled(RadixTabs.Trigger, {
     },
   },
 
-  '&[data-state="active"] > div': {
-    color: '$gray12',
-    borderColor: '$primary9',
+  '&[data-state="active"]': {
+    '> div': {
+      color: '$gray12',
+    },
+
+    '> span': {
+      display: 'flex',
+    },
   },
-})
-
-export const Placeholder = styled('span', {
-  flex: 1,
-  borderBottom: '2px solid $gray6',
-
-  width: 8,
 })
 
 export const Content = styled('div', {
@@ -45,6 +44,15 @@ export const Content = styled('div', {
   fontSize: '$sm',
   whiteSpace: 'nowrap',
 
-  borderBottom: '2px solid $gray6',
   transition: 'all 0.150s',
+})
+
+export const SelectedElement = styled('span', {
+  display: 'none',
+  position: 'absolute',
+  height: 2,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  backgroundColor: '$primary9',
 })

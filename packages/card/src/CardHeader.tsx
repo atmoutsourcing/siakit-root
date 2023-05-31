@@ -14,11 +14,12 @@ export function CardHeader({ title, children }: CardHeaderProps) {
       as="header"
       justify="between"
       padding="0 8px"
+      height={40}
       css={{ borderBottom: '1px solid $gray4' }}
     >
-      <Flex padding="12px 8px" align="center">
+      <Flex flex padding="0 8px" align="center">
         {!!title && (
-          <Heading size="xs" weight="medium">
+          <Heading size="xxs" weight="medium">
             {title}
           </Heading>
         )}
