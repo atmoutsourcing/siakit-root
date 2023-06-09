@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.12
+
+### Patch Changes
+
+- add date range picker
+
 ## 0.0.11
 
 ### Patch Changes
