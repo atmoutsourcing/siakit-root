@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Button } from '@siakit/button'
 import { Card } from '@siakit/card'
 import { Footer, FooterLeft } from '@siakit/footer'
-import { DatePicker, Form, FormHandles } from '@siakit/form-unform'
+import { Form, FormHandles, TextInput, NumberInput } from '@siakit/form-unform'
 import { Flex } from '@siakit/layout'
 
 export function FormUnform() {
@@ -21,8 +21,23 @@ export function FormUnform() {
     <Flex flex direction="column" padding>
       <Card>
         <Form ref={formRef} onSubmit={handleSubmit} flex>
-          <Flex padding>
-            <DatePicker name="date" label="Date" placeholder="Date" />
+          <Flex flex padding gap>
+            <Flex flex direction="column" gap>
+              <TextInput
+                name="text-input"
+                label="Text input"
+                placeholder="Text input"
+              />
+              <NumberInput
+                name="number-input"
+                label="Number input"
+                placeholder="Number input"
+              />
+            </Flex>
+
+            <Flex flex direction="column"></Flex>
+
+            <Flex flex direction="column"></Flex>
           </Flex>
 
           <Footer>
