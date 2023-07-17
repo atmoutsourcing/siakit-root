@@ -30,6 +30,35 @@ export const Text = styled('p', {
   },
 
   variants: {
+    weight: {
+      thin: {
+        fontWeight: '100'
+      },
+      'extra-light': {
+        fontWeight: '200'
+      },
+      light: {
+        fontWeight: '300'
+      },
+      regular: {
+        fontWeight: '400'
+      },
+      medium: {
+        fontWeight: '500'
+      },
+      'semi-bold': {
+        fontWeight: '600'
+      },
+      bold: {
+        fontWeight: '700'
+      },
+      'extra-bold': {
+        fontWeight: '800'
+      },
+      black: {
+        fontWeight: '900'
+      },
+    },
     size: {
       xxs: { fontSize: '$xxs' },
       xs: { fontSize: '$xs' },

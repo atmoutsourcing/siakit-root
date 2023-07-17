@@ -1,5 +1,13 @@
 # @siakit/table
 
+## 0.0.23
+
+### Patch Changes
+
+- fix
+- Updated dependencies
+  - @siakit/text@0.0.5
+
 ## 0.0.22
 
 ### Patch Changes

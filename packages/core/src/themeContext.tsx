@@ -36,7 +36,7 @@ export type Color = keyof typeof colors
 
 type ThemeContextData = {
   theme: Theme
-  togggleTheme: (value?: Theme) => void
+  toggleTheme: (value?: Theme) => void
   color: Color
   changeColor: (value: Color) => void
 }
@@ -107,7 +107,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
   html.classList.add(availableThemes[`${theme}-${color}`])
 
-  function togggleTheme(value?: Theme) {
+  function toggleTheme(value?: Theme) {
     const newTheme = value || (theme === 'light' ? 'dark' : 'light')
 
     html.classList.remove(availableThemes[`${theme}-${color}`])
@@ -128,7 +128,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, togggleTheme, color, changeColor }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, color, changeColor }}>
       {children}
     </ThemeContext.Provider>
   )

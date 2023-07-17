@@ -51,6 +51,7 @@ type HeaderType = {
 type ActionType = {
   label: string
   type?: 'info' | 'success' | 'warning' | 'danger'
+  visible?: boolean
   onClick: (
     item:
       | { [key: string]: string }
@@ -103,7 +104,8 @@ export function Table({
   const { theme } = useTheme()
 
   const columns =
-    headers.filter((field) => !field.hidden).length && actions.length
+    headers.filter((field) => !field.hidden).length &&
+    actions.filter((action) => action.visible !== false).length
       ? headers.filter((field) => !field.hidden).length + 1
       : headers.filter((field) => !field.hidden).length
 
@@ -118,7 +120,7 @@ export function Table({
       <TableContainer ref={containerRef}>
         <Content
           css={
-            actions.length
+            actions.filter((action) => action.visible !== false).length
               ? { gridTemplateColumns: `repeat(${columns - 1}, 1fr) 64px` }
               : { gridTemplateColumns: `repeat(${columns}, 1fr)` }
           }
@@ -145,7 +147,9 @@ export function Table({
               </HeaderCell>
             ))}
 
-          {!!actions.length && <HeaderCell isAction>Ações</HeaderCell>}
+          {!!actions.filter((action) => action.visible !== false).length && (
+            <HeaderCell isAction>Ações</HeaderCell>
+          )}
 
           {data.map((item) => (
             <>
@@ -424,7 +428,8 @@ export function Table({
                   return <BodyCell key={field.dataIndex} />
                 })}
 
-              {!!actions.length && (
+              {!!actions.filter((action) => action.visible !== false)
+                .length && (
                 <ActionCell>
                   <Dropdown>
                     <DropdownTrigger>
@@ -451,19 +456,21 @@ export function Table({
                     </DropdownTrigger>
 
                     <DropdownContent align="end">
-                      {actions.map((action) =>
-                        action.label === '-' ? (
-                          <DropdownSeparator key={action.label} />
-                        ) : (
-                          <DropdownItem
-                            key={action.label}
-                            onClick={() => action.onClick(item)}
-                            type={action.type}
-                          >
-                            {action.label}
-                          </DropdownItem>
-                        ),
-                      )}
+                      {actions
+                        .filter((action) => action.visible !== false)
+                        .map((action) =>
+                          action.label === '-' ? (
+                            <DropdownSeparator key={action.label} />
+                          ) : (
+                            <DropdownItem
+                              key={action.label}
+                              onClick={() => action.onClick(item)}
+                              type={action.type}
+                            >
+                              {action.label}
+                            </DropdownItem>
+                          ),
+                        )}
                     </DropdownContent>
                   </Dropdown>
                 </ActionCell>
@@ -488,12 +495,15 @@ export function Table({
                 ),
             )}
 
-          {footer && actions.length > 0 && (
-            <FooterCell
-              isAction
-              css={{ backgroundColor: theme === 'light' ? '$gray3' : '$gray4' }}
-            />
-          )}
+          {footer &&
+            actions.filter((action) => action.visible !== false).length > 0 && (
+              <FooterCell
+                isAction
+                css={{
+                  backgroundColor: theme === 'light' ? '$gray3' : '$gray4',
+                }}
+              />
+            )}
         </Content>
       </TableContainer>
 
