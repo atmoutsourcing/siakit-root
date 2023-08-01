@@ -12,7 +12,7 @@ export const LinkButtonContainer = styled('button', {
 
   borderRadius: 8,
 
-  fontWeight: 600,
+  fontWeight: 500,
 
   cursor: 'pointer',
 

@@ -1,5 +1,11 @@
 # @siakit/link-button
 
+## 0.0.6
+
+### Patch Changes
+
+- fix color and font weight
+
 ## 0.0.5
 
 ### Patch Changes

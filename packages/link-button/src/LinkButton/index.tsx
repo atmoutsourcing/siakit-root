@@ -16,7 +16,7 @@ export function LinkButton({
 }: LinkButtonProps) {
   return (
     <LinkButtonContainer
-      css={{ color: colorScheme ? `$${colorScheme}11` : '$primary11' }}
+      css={{ color: colorScheme ? `$${colorScheme}10` : '$primary10' }}
       {...props}
     >
       {children}
