@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.24
+
+### Patch Changes
+
+- add align items center to bodycell
+
 ## 0.0.23
 
 ### Patch Changes

@@ -22,6 +22,7 @@ export const BodyCell = styled('div', {
   borderTop: '1px solid $gray6',
   display: 'flex',
   fontSize: '0.875rem',
+  alignItems: 'center',
 })
 
 export const ActionCell = styled('div', {
