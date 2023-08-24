@@ -1,5 +1,11 @@
 # @siakit/table
 
+## 0.0.25
+
+### Patch Changes
+
+- fix number render
+
 ## 0.0.24
 
 ### Patch Changes

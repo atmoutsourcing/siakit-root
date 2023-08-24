@@ -160,7 +160,11 @@ export function Table({
                     return <BodyCell key={field.dataIndex} />
                   }
 
-                  if (dot.pick(field.dataIndex, item) && field.render) {
+                  if (
+                    (dot.pick(field.dataIndex, item) ||
+                      typeof dot.pick(field.dataIndex, item) === 'number') &&
+                    field.render
+                  ) {
                     return (
                       <BodyCell
                         key={field.dataIndex}
