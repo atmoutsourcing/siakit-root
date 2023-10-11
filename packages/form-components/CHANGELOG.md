@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.31
+
+### Patch Changes
+
+- fix timepicker value change
+
 ## 0.0.30
 
 ### Patch Changes

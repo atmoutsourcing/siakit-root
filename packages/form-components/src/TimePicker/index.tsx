@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 
 import { IconButton } from '@siakit/icon-button'
 import { Flex } from '@siakit/layout'
@@ -37,6 +37,15 @@ export function TimePicker({
   const [open, setOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
 
+  useEffect(() => {
+    setInputValue(
+      `${String(value[0]).padStart(2, '0')}:${String(value[1]).padStart(
+        2,
+        '0',
+      )}`,
+    )
+  }, [value])
+
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const targetValue = event.target.value
 
@@ -62,12 +71,6 @@ export function TimePicker({
     }
 
     onChange(newValue)
-    setInputValue(
-      `${String(newValue[0]).padStart(2, '0')}:${String(newValue[1]).padStart(
-        2,
-        '0',
-      )}`,
-    )
   }
 
   function handleSelectMinute(minute: number) {
@@ -80,12 +83,6 @@ export function TimePicker({
     }
 
     onChange(newValue)
-    setInputValue(
-      `${String(newValue[0]).padStart(2, '0')}:${String(newValue[1]).padStart(
-        2,
-        '0',
-      )}`,
-    )
   }
 
   function handleClear() {
