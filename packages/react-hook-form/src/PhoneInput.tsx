@@ -5,7 +5,9 @@ import {
   FormLabel,
   PhoneInput as PhoneInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 interface PhoneInputProps {
@@ -14,6 +16,7 @@ interface PhoneInputProps {
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function PhoneInput({
@@ -22,6 +25,7 @@ export function PhoneInput({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: PhoneInputProps) {
   const {
     formState: { errors },
@@ -37,7 +41,16 @@ export function PhoneInput({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
+
           <PhoneInputComponent
             value={field.value ?? ''}
             onChange={(value) => {

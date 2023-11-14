@@ -6,7 +6,9 @@ import {
   DateRangePicker as DateRangePickerComponent,
   DateRange,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 interface DateRangePickerProps {
@@ -15,6 +17,7 @@ interface DateRangePickerProps {
   placeholder?: string
   onChange?: (value: DateRange | null) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function DateRangePicker({
@@ -23,6 +26,7 @@ export function DateRangePicker({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: DateRangePickerProps) {
   const {
     formState: { errors },
@@ -39,7 +43,15 @@ export function DateRangePicker({
       render={({ field }) => {
         return (
           <FormControl error={error}>
-            <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+            <>
+              {(label || explanation) && (
+                <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                  <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                  {explanation && <InfoIcon explanation={explanation} />}
+                </Flex>
+              )}
+            </>
 
             <DateRangePickerComponent
               value={field?.value}

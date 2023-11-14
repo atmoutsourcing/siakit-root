@@ -5,7 +5,9 @@ import {
   FormLabel,
   PercentageInput as PercentageInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 interface PercentageInputProps {
@@ -14,6 +16,7 @@ interface PercentageInputProps {
   placeholder?: string
   onChange?: (value: number | undefined) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function PercentageInput({
@@ -22,6 +25,7 @@ export function PercentageInput({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: PercentageInputProps) {
   const {
     formState: { errors },
@@ -37,7 +41,15 @@ export function PercentageInput({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
 
           <PercentageInputComponent
             value={field.value ? String(field.value) : ''}

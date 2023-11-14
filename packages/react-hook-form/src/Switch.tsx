@@ -5,7 +5,9 @@ import {
   FormLabel,
   Switch as SwitchComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 interface SwitchProps {
@@ -13,9 +15,16 @@ interface SwitchProps {
   label?: string
   onChange?: (value: boolean) => void
   disabled?: boolean
+  explanation?: string
 }
 
-export function Switch({ name, label, onChange, disabled }: SwitchProps) {
+export function Switch({
+  name,
+  label,
+  onChange,
+  disabled,
+  explanation,
+}: SwitchProps) {
   const {
     formState: { errors },
     control,
@@ -30,7 +39,16 @@ export function Switch({ name, label, onChange, disabled }: SwitchProps) {
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
+
           <SwitchComponent
             value={!!field.value}
             onChange={(value) => {

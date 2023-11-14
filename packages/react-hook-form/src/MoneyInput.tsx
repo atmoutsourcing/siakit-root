@@ -5,7 +5,9 @@ import {
   FormLabel,
   MoneyInput as MoneyInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 function convertToNumber(value: string) {
@@ -22,6 +24,7 @@ interface MoneyInputProps {
   placeholder?: string
   onChange?: (value: number) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function MoneyInput({
@@ -30,6 +33,7 @@ export function MoneyInput({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: MoneyInputProps) {
   const {
     formState: { errors },
@@ -46,7 +50,16 @@ export function MoneyInput({
       render={({ field }) => {
         return (
           <FormControl error={error}>
-            <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+            <>
+              {(label || explanation) && (
+                <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                  <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                  {explanation && <InfoIcon explanation={explanation} />}
+                </Flex>
+              )}
+            </>
+
             <MoneyInputComponent
               value={
                 field.value

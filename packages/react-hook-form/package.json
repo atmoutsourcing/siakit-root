@@ -1,6 +1,6 @@
 {
   "name": "@siakit/react-hook-form",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -24,8 +24,10 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "@siakit/tooltip": "*",
     "@siakit/core": "*",
     "@siakit/mask": "*",
+    "@siakit/layout": "*",
     "@siakit/form-components": "*",
     "@siakit/icon-button": "*",
     "react-hook-form": "^7.43.9"

@@ -5,7 +5,9 @@ import {
   FormLabel,
   Select as SelectComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 type OptionType = {
@@ -30,6 +32,7 @@ interface SelectProps {
   options: OptionType[]
   onChange?: (value: any) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function Select({
@@ -39,6 +42,7 @@ export function Select({
   options = [],
   onChange,
   disabled,
+  explanation,
 }: SelectProps) {
   const {
     formState: { errors },
@@ -54,7 +58,15 @@ export function Select({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
 
           <SelectComponent
             value={findOption(field.value, options)}

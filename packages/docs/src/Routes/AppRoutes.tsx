@@ -6,6 +6,7 @@ import { FormUnform } from '../pages/FormUnform'
 import { Home } from '../pages/Home'
 import { PageHeader } from '../pages/PageHeader'
 import { ProgressBar } from '../pages/ProgressBar'
+import { ReactHookForm } from '../pages/ReactHookForm'
 import { Sidebar } from '../pages/Sidebar'
 import { Table } from '../pages/Table'
 import { Tabs } from '../pages/Tabs'
@@ -24,6 +25,7 @@ export function AppRoutes() {
         <Route path="/tabs" element={<Tabs />} />
         <Route path="/table" element={<Table />} />
         <Route path="/text" element={<Text />} />
+        <Route path="/react-hook-form" element={<ReactHookForm />} />
       </Route>
     </Routes>
   )

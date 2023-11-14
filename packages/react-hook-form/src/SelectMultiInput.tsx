@@ -5,7 +5,9 @@ import {
   FormLabel,
   SelectMulti as SelectMultiComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 type OptionType = {
@@ -20,6 +22,7 @@ interface SelectMultiInputProps {
   options: OptionType[]
   onChange?: (value: any) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function SelectMultiInput({
@@ -29,6 +32,7 @@ export function SelectMultiInput({
   options = [],
   onChange,
   disabled,
+  explanation,
 }: SelectMultiInputProps) {
   const {
     formState: { errors },
@@ -44,7 +48,15 @@ export function SelectMultiInput({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
 
           <SelectMultiComponent
             value={field.value}

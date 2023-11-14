@@ -5,7 +5,9 @@ import {
   FormLabel,
   NumberInput as NumberInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 interface NumberInputProps {
@@ -14,6 +16,7 @@ interface NumberInputProps {
   placeholder?: string
   onChange?: (value: number | undefined) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function NumberInput({
@@ -22,6 +25,7 @@ export function NumberInput({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: NumberInputProps) {
   const {
     formState: { errors },
@@ -37,7 +41,15 @@ export function NumberInput({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
 
           <NumberInputComponent
             value={field.value ? String(field.value) : ''}

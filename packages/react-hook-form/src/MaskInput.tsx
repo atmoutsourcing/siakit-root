@@ -5,8 +5,10 @@ import {
   FormLabel,
   MaskInput as MaskInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { MaskType } from '@siakit/mask'
 
+import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
 interface MaskInputProps {
@@ -16,6 +18,7 @@ interface MaskInputProps {
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function MaskInput({
@@ -25,6 +28,7 @@ export function MaskInput({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: MaskInputProps) {
   const {
     formState: { errors },
@@ -40,7 +44,16 @@ export function MaskInput({
       control={control}
       render={({ field }) => (
         <FormControl error={error}>
-          <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+          <>
+            {(label || explanation) && (
+              <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+                <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+                {explanation && <InfoIcon explanation={explanation} />}
+              </Flex>
+            )}
+          </>
+
           <MaskInputComponent
             mask={mask}
             value={field.value ?? ''}
