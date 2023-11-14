@@ -1,5 +1,12 @@
 # @siakit/sidebar
 
+## 0.0.34
+
+### Patch Changes
+
+- Updated dependencies
+  - @siakit/tooltip@0.0.9
+
 ## 0.0.33
 
 ### Patch Changes

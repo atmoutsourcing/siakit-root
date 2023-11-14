@@ -1,5 +1,11 @@
 # @siakit/tooltip
 
+## 0.0.9
+
+### Patch Changes
+
+- fix zIndex
+
 ## 0.0.8
 
 ### Patch Changes
