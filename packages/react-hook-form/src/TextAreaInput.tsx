@@ -16,6 +16,7 @@ interface TextAreaInputProps {
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
+  rows?: number
   explanation?: string
 }
 
@@ -25,6 +26,7 @@ export function TextAreaInput({
   placeholder,
   onChange,
   disabled,
+  rows,
   explanation,
 }: TextAreaInputProps) {
   const {
@@ -62,6 +64,7 @@ export function TextAreaInput({
             }}
             placeholder={placeholder}
             disabled={disabled}
+            rows={rows}
           />
         </FormControl>
       )}
