@@ -11,7 +11,6 @@ export const Container = styled('div', {
   lineHeight: '16px',
   color: '$gray1',
   textAlign: 'center',
-  zIndex: 9500,
 
   '&::selection': {
     backgroundColor: '$primary11',

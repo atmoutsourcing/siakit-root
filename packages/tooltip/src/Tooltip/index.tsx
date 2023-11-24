@@ -22,7 +22,11 @@ export function Tooltip({ children, content, side, align }: TooltipProps) {
 
         {!!content && (
           <RadixTooltip.Portal>
-            <RadixTooltip.Content side={side} align={align}>
+            <RadixTooltip.Content
+              side={side}
+              align={align}
+              style={{ zIndex: 9500 }}
+            >
               <Arrow css={{ fill: theme === 'dark' ? '$white' : '$gray12' }} />
 
               <Container

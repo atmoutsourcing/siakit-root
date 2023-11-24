@@ -11,6 +11,7 @@ import { Sidebar } from '../pages/Sidebar'
 import { Table } from '../pages/Table'
 import { Tabs } from '../pages/Tabs'
 import { Text } from '../pages/Text'
+import { Tooltip } from '../pages/Tooltip'
 
 export function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ export function AppRoutes() {
         <Route path="/table" element={<Table />} />
         <Route path="/text" element={<Text />} />
         <Route path="/react-hook-form" element={<ReactHookForm />} />
+        <Route path="/tooltip" element={<Tooltip />} />
       </Route>
     </Routes>
   )

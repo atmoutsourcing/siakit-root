@@ -12,6 +12,7 @@
     "@siakit/button": "*",
     "@siakit/card": "*",
     "@siakit/core": "*",
+    "@siakit/modal": "*",
     "@siakit/footer": "*",
     "@siakit/form-unform": "*",
     "@siakit/layout": "*",
