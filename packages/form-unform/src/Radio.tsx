@@ -6,7 +6,10 @@ import {
   OptionType,
   Radio as RadioComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type RadioProps = {
   name: string
@@ -14,6 +17,7 @@ type RadioProps = {
   label?: string
   onChange?: (value: string) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function Radio({
@@ -22,6 +26,7 @@ export function Radio({
   label,
   onChange,
   disabled,
+  explanation,
 }: RadioProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -56,7 +61,15 @@ export function Radio({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <RadioComponent
         options={options}

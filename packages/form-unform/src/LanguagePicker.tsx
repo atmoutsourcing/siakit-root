@@ -6,7 +6,10 @@ import {
   LanguagePicker as LanguagePickerComponent,
   FlagOptionType,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type LanguagePickerProps = {
   name: string
@@ -14,6 +17,7 @@ type LanguagePickerProps = {
   placeholder?: string
   onChange?: (option: FlagOptionType | null) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function LanguagePicker({
@@ -22,6 +26,7 @@ export function LanguagePicker({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: LanguagePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -54,7 +59,15 @@ export function LanguagePicker({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <LanguagePickerComponent
         value={fieldValue}

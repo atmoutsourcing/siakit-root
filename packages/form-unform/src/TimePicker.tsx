@@ -5,7 +5,10 @@ import {
   FormLabel,
   TimePicker as TimePickerComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type TimePickerProps = {
   name: string
@@ -13,6 +16,7 @@ type TimePickerProps = {
   placeholder?: string
   onChange?: (value: number[]) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function TimePicker({
@@ -21,6 +25,7 @@ export function TimePicker({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: TimePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -49,7 +54,15 @@ export function TimePicker({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <TimePickerComponent
         value={fieldValue}

@@ -5,8 +5,11 @@ import {
   FormLabel,
   MaskInput as MaskInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { MaskType } from '@siakit/mask'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type MaskInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -16,6 +19,7 @@ type MaskInputProps = Omit<
   mask: MaskType
   label?: string
   onChange?: (value: string) => void
+  explanation?: string
 }
 
 export function MaskInput({
@@ -23,6 +27,7 @@ export function MaskInput({
   mask,
   label,
   onChange,
+  explanation,
   ...props
 }: MaskInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
@@ -54,7 +59,15 @@ export function MaskInput({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <MaskInputComponent
         mask={mask}

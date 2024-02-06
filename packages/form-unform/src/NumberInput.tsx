@@ -5,7 +5,10 @@ import {
   FormLabel,
   NumberInput as NumberInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type NumberInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -14,13 +17,14 @@ type NumberInputProps = Omit<
   name: string
   label?: string
   onChange?: (value: string) => void
+  explanation?: string
 }
 
 export function NumberInput({
   name,
   label,
   onChange,
-
+  explanation,
   ...props
 }: NumberInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
@@ -72,7 +76,15 @@ export function NumberInput({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <NumberInputComponent
         value={fieldValue}

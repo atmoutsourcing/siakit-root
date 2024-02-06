@@ -5,7 +5,10 @@ import {
   FormLabel,
   PasswordInput as PasswordInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type PasswordInputProps = {
   name: string
@@ -14,6 +17,7 @@ type PasswordInputProps = {
   strength?: number
   onChange?: (value: string) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function PasswordInput({
@@ -23,6 +27,7 @@ export function PasswordInput({
   strength,
   onChange,
   disabled,
+  explanation,
 }: PasswordInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -53,7 +58,15 @@ export function PasswordInput({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <PasswordInputComponent
         value={fieldValue}

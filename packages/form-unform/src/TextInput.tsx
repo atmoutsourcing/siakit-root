@@ -5,7 +5,10 @@ import {
   FormLabel,
   TextInput as TextInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type TextInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -14,9 +17,16 @@ type TextInputProps = Omit<
   name: string
   label?: string
   onChange?: (value: string) => void
+  explanation?: string
 }
 
-export function TextInput({ name, label, onChange, ...props }: TextInputProps) {
+export function TextInput({
+  name,
+  label,
+  onChange,
+  explanation,
+  ...props
+}: TextInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
   const [fieldValue, setFieldValue] = useState(defaultValue ?? '')
@@ -46,7 +56,15 @@ export function TextInput({ name, label, onChange, ...props }: TextInputProps) {
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <TextInputComponent
         value={fieldValue}

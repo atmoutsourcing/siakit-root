@@ -1,6 +1,6 @@
 {
   "name": "@siakit/form-unform",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -29,6 +29,8 @@
     "@siakit/core": "*",
     "@siakit/form-components": "*",
     "@siakit/icon-button": "*",
+    "@siakit/layout": "*",
+    "@siakit/tooltip": "*",
     "@unform/core": "*",
     "@unform/web": "*",
     "crypto": "^1.0.1",

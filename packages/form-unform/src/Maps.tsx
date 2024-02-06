@@ -6,7 +6,10 @@ import {
   FormLabel,
   Maps as MapsComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type MapsProps = {
   name: string
@@ -15,6 +18,7 @@ type MapsProps = {
   label?: string
   onChange?: (value: Coordinates) => void
   defaultZoom?: number
+  explanation?: string
 }
 
 export function Maps({
@@ -24,6 +28,7 @@ export function Maps({
   defaultCenter,
   apiKey,
   defaultZoom = 12,
+  explanation,
 }: MapsProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -56,7 +61,15 @@ export function Maps({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <MapsComponent
         coordinates={fieldValue}

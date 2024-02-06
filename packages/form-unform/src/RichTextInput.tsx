@@ -6,7 +6,10 @@ import {
   FormLabel,
   RichTextInput as RichTextInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type RichTextInputProps = {
   name: string
@@ -16,6 +19,7 @@ type RichTextInputProps = {
   removeOptions?: string[]
   onChange?: (text: string) => void
   flex?: boolean
+  explanation?: string
 }
 
 export function RichTextInput({
@@ -26,6 +30,7 @@ export function RichTextInput({
   removeOptions,
   onChange,
   flex,
+  explanation,
 }: RichTextInputProps) {
   const editorRef = useRef<EditorHandles>(null)
 
@@ -49,7 +54,15 @@ export function RichTextInput({
 
   return (
     <FormControl error={error} flex={flex}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <RichTextInputComponent
         ref={editorRef}

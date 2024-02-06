@@ -6,7 +6,10 @@ import {
   OptionType,
   SelectMulti as SelectMultiComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type SelectMultiProps = {
   name: string
@@ -19,6 +22,7 @@ type SelectMultiProps = {
   closeMenuOnSelect?: boolean
   menuPlacement?: 'auto' | 'bottom' | 'top'
   maxHeight?: number
+  explanation?: string
 }
 
 export function SelectMulti({
@@ -32,6 +36,7 @@ export function SelectMulti({
   closeMenuOnSelect = true,
   menuPlacement,
   maxHeight,
+  explanation,
 }: SelectMultiProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -93,7 +98,15 @@ export function SelectMulti({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <SelectMultiComponent
         options={options}

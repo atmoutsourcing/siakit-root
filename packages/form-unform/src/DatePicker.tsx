@@ -5,7 +5,10 @@ import {
   FormLabel,
   DatePicker as DatePickerComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type DatePickerProps = {
   name: string
@@ -13,6 +16,7 @@ type DatePickerProps = {
   placeholder?: string
   onChange?: (value: Date | null) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function DatePicker({
@@ -21,6 +25,7 @@ export function DatePicker({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: DatePickerProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -53,7 +58,15 @@ export function DatePicker({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <DatePickerComponent
         value={fieldValue}

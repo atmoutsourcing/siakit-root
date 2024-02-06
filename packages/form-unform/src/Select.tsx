@@ -8,7 +8,10 @@ import {
   OptionType,
   Select as SelectComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type SelectProps = {
   name: string
@@ -19,6 +22,7 @@ type SelectProps = {
   onChange?: (option: OptionType | null) => void
   disabled?: boolean
   menuPlacement?: 'auto' | 'bottom' | 'top'
+  explanation?: string
 }
 
 export function Select({
@@ -30,6 +34,7 @@ export function Select({
   onChange,
   disabled,
   menuPlacement = 'auto',
+  explanation,
 }: SelectProps) {
   const [data, setData] = useState(options)
 
@@ -91,7 +96,15 @@ export function Select({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <SelectComponent
         options={data}

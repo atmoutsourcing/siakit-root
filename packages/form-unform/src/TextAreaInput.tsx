@@ -5,7 +5,10 @@ import {
   FormLabel,
   TextAreaInput as TextAreaInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type TextAreaInputProps = {
   name: string
@@ -14,6 +17,7 @@ type TextAreaInputProps = {
   rows?: number
   onChange?: (value: string) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function TextAreaInput({
@@ -23,6 +27,7 @@ export function TextAreaInput({
   rows = 5,
   onChange,
   disabled,
+  explanation,
 }: TextAreaInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -53,7 +58,15 @@ export function TextAreaInput({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <TextAreaInputComponent
         value={fieldValue}

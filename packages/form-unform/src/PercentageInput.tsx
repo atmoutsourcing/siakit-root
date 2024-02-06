@@ -5,7 +5,10 @@ import {
   FormLabel,
   PercentageInput as PercentageInputComponent,
 } from '@siakit/form-components'
+import { Flex } from '@siakit/layout'
 import { useField } from '@unform/core'
+
+import { InfoIcon } from './components/InfoIcon'
 
 type PercentageInputProps = {
   name: string
@@ -13,6 +16,7 @@ type PercentageInputProps = {
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
+  explanation?: string
 }
 
 export function PercentageInput({
@@ -21,6 +25,7 @@ export function PercentageInput({
   placeholder,
   onChange,
   disabled,
+  explanation,
 }: PercentageInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
 
@@ -51,7 +56,15 @@ export function PercentageInput({
 
   return (
     <FormControl error={error}>
-      <>{!!label && <FormLabel isErrored={!!error}>{label}</FormLabel>}</>
+      <>
+        {(label || explanation) && (
+          <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
+            <FormLabel isErrored={!!error}>{label}</FormLabel>
+
+            {explanation && <InfoIcon explanation={explanation} />}
+          </Flex>
+        )}
+      </>
 
       <PercentageInputComponent
         value={fieldValue}
