@@ -1,5 +1,13 @@
 # @siakit/table
 
+## 0.0.26
+
+### Patch Changes
+
+- add tooltip and disabled in table component
+- Updated dependencies
+  - @siakit/dropdown@0.0.10
+
 ## 0.0.25
 
 ### Patch Changes

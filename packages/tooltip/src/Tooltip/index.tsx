@@ -25,7 +25,7 @@ export function Tooltip({ children, content, side, align }: TooltipProps) {
             <RadixTooltip.Content
               side={side}
               align={align}
-              style={{ zIndex: 9500 }}
+              style={{ zIndex: 10005 }}
             >
               <Arrow css={{ fill: theme === 'dark' ? '$white' : '$gray12' }} />
 
@@ -33,11 +33,11 @@ export function Tooltip({ children, content, side, align }: TooltipProps) {
                 css={
                   theme === 'dark'
                     ? {
-                        backgroundColor: '$white',
-                      }
+                      backgroundColor: '$white',
+                    }
                     : {
-                        backgroundColor: '$gray12',
-                      }
+                      backgroundColor: '$gray12',
+                    }
                 }
               >
                 {content}

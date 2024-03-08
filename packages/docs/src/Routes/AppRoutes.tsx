@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 import { DefaultLayout } from '../pages/_layouts/Default'
+import { DropdownComponent } from '../pages/Dropdown'
 import { FormComponents } from '../pages/FormComponents'
 import { FormUnform } from '../pages/FormUnform'
 import { Home } from '../pages/Home'
@@ -28,6 +29,7 @@ export function AppRoutes() {
         <Route path="/text" element={<Text />} />
         <Route path="/react-hook-form" element={<ReactHookForm />} />
         <Route path="/tooltip" element={<Tooltip />} />
+        <Route path="/dropdown" element={<DropdownComponent />} />
       </Route>
     </Routes>
   )

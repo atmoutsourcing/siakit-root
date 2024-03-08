@@ -11,6 +11,16 @@ export const DropdownItemContainer = styled(DropdownMenu.Item, {
 
   cursor: 'pointer',
 
+  '&[data-disabled=true]': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+    outline: 'none',
+
+    '&:hover': {
+      backgroundColor: 'transparent'
+    }
+  },
+
   '& svg': {
     width: 14,
     height: 14,

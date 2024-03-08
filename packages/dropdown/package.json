@@ -1,6 +1,6 @@
 {
   "name": "@siakit/dropdown",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -28,6 +28,7 @@
     "@siakit/card": "*",
     "@siakit/core": "*",
     "@siakit/layout": "*",
-    "@siakit/text": "*"
+    "@siakit/text": "*",
+    "@siakit/tooltip": "*"
   }
 }

@@ -16,7 +16,15 @@ export function Table() {
         data={[
           {
             name: 'John Doe',
-            age: 0,
+            age: 24,
+          },
+          {
+            name: 'John Doe',
+            age: 40,
+          },
+          {
+            name: 'John Doe',
+            age: 60,
           },
         ]}
         actions={[
@@ -24,7 +32,15 @@ export function Table() {
             label: 'Delete',
             type: 'danger',
             onClick: () => console.log('delete'),
-            visible: false,
+            tooltip: 'teste de tooltip',
+            visible: (item) => {
+              if (item.age > 30 && item.age < 60) {
+                return true
+              }
+
+              return false
+            },
+            disabled: true,
           },
         ]}
       />

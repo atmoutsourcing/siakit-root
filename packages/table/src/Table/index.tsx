@@ -48,10 +48,14 @@ type HeaderType = {
   hidden?: boolean
 }
 
+type ActionVisibleAction = (data: Record<string, any>) => boolean
+
 type ActionType = {
   label: string
   type?: 'info' | 'success' | 'warning' | 'danger'
-  visible?: boolean
+  visible?: ActionVisibleAction | boolean
+  disabled?: ActionVisibleAction | boolean
+  tooltip?: string
   onClick: (
     item:
       | { [key: string]: string }
@@ -105,7 +109,7 @@ export function Table({
 
   const columns =
     headers.filter((field) => !field.hidden).length &&
-    actions.filter((action) => action.visible !== false).length
+      actions.filter((action) => action.visible !== false).length
       ? headers.filter((field) => !field.hidden).length + 1
       : headers.filter((field) => !field.hidden).length
 
@@ -136,9 +140,9 @@ export function Table({
                   sort?.dataIndex === field.dataIndex
                     ? sort
                     : {
-                        dataIndex: field.dataIndex,
-                        direction: '',
-                      }
+                      dataIndex: field.dataIndex,
+                      direction: '',
+                    }
                 }
                 onSort={onSort}
                 align={field.align}
@@ -434,51 +438,61 @@ export function Table({
 
               {!!actions.filter((action) => action.visible !== false)
                 .length && (
-                <ActionCell>
-                  <Dropdown>
-                    <DropdownTrigger>
-                      <IconButton
-                        type="button"
-                        variant="ghost"
-                        colorScheme="gray"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-6 h-6"
+                  <ActionCell>
+                    <Dropdown>
+                      <DropdownTrigger>
+                        <IconButton
+                          type="button"
+                          variant="ghost"
+                          colorScheme="gray"
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                          />
-                        </svg>
-                      </IconButton>
-                    </DropdownTrigger>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                            />
+                          </svg>
+                        </IconButton>
+                      </DropdownTrigger>
 
-                    <DropdownContent align="end">
-                      {actions
-                        .filter((action) => action.visible !== false)
-                        .map((action) =>
-                          action.label === '-' ? (
-                            <DropdownSeparator key={action.label} />
-                          ) : (
-                            <DropdownItem
-                              key={action.label}
-                              onClick={() => action.onClick(item)}
-                              type={action.type}
-                            >
-                              {action.label}
-                            </DropdownItem>
-                          ),
-                        )}
-                    </DropdownContent>
-                  </Dropdown>
-                </ActionCell>
-              )}
+                      <DropdownContent align="end">
+                        {actions
+                          .filter((action) =>
+                            typeof action.visible === 'function'
+                              ? action.visible(item)
+                              : action.visible !== false,
+                          )
+                          .map((action) =>
+                            action.label === '-' ? (
+                              <DropdownSeparator key={action.label} />
+                            ) : (
+                              <DropdownItem
+                                key={action.label}
+                                onClick={() => action.onClick(item)}
+                                type={action.type}
+                                tooltip={action.tooltip}
+                                disabled={
+                                  typeof action.disabled === 'function'
+                                    ? action.disabled(item)
+                                    : action.disabled
+                                }
+                              >
+                                {action.label}
+                              </DropdownItem>
+                            ),
+                          )}
+                      </DropdownContent>
+                    </Dropdown>
+                  </ActionCell>
+                )}
             </>
           ))}
 

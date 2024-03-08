@@ -1,5 +1,11 @@
 # @siakit/tooltip
 
+## 0.0.11
+
+### Patch Changes
+
+- add tooltip and disabled in table component
+
 ## 0.0.10
 
 ### Patch Changes
