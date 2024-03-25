@@ -1,6 +1,6 @@
 {
   "name": "@siakit/form-components",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -58,7 +58,7 @@
     "prosemirror-state": "^1.4.2",
     "prosemirror-transform": "^1.7.0",
     "prosemirror-view": "^1.29.1",
-    "react-day-picker": "^8.3.5",
+    "react-day-picker": "^8.10.0",
     "react-select": "^5.5.0"
   }
 }

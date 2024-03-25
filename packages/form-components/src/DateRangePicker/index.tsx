@@ -2,7 +2,7 @@ import { ChangeEvent, useEffect, useState } from 'react'
 import { DayPicker, DateRange } from 'react-day-picker'
 
 import { format, isValid } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
+import { ptBR } from 'date-fns/locale'
 
 import { IconButton } from '@siakit/icon-button'
 import { toMask } from '@siakit/mask'
