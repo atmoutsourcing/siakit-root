@@ -1,5 +1,11 @@
 # @siakit/react-hook-form
 
+## 0.0.15
+
+### Patch Changes
+
+- add required to react-hook-form
+
 ## 0.0.14
 
 ### Patch Changes

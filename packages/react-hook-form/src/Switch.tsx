@@ -13,6 +13,7 @@ import { get } from './get'
 interface SwitchProps {
   name: string
   label?: string
+  required?: boolean
   onChange?: (value: boolean) => void
   disabled?: boolean
   explanation?: string
@@ -21,6 +22,7 @@ interface SwitchProps {
 export function Switch({
   name,
   label,
+  required,
   onChange,
   disabled,
   explanation,
@@ -42,7 +44,9 @@ export function Switch({
           <>
             {(label || explanation) && (
               <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                <FormLabel isErrored={!!error}>{label}</FormLabel>
+                <FormLabel isErrored={!!error}>
+                  {label} {required && <span style={{ color: 'red' }}>*</span>}
+                </FormLabel>
 
                 {explanation && <InfoIcon explanation={explanation} />}
               </Flex>

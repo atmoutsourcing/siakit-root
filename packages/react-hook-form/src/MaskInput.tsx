@@ -15,6 +15,7 @@ interface MaskInputProps {
   name: string
   mask: MaskType
   label?: string
+  required?: boolean
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
@@ -25,6 +26,7 @@ export function MaskInput({
   name,
   mask,
   label,
+  required,
   placeholder,
   onChange,
   disabled,
@@ -47,7 +49,9 @@ export function MaskInput({
           <>
             {(label || explanation) && (
               <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                <FormLabel isErrored={!!error}>{label}</FormLabel>
+                <FormLabel isErrored={!!error}>
+                  {label} {required && <span style={{ color: 'red' }}>*</span>}
+                </FormLabel>
 
                 {explanation && <InfoIcon explanation={explanation} />}
               </Flex>

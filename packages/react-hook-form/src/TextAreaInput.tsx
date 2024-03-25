@@ -13,6 +13,7 @@ import { get } from './get'
 interface TextAreaInputProps {
   name: string
   label?: string
+  required?: boolean
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
@@ -23,6 +24,7 @@ interface TextAreaInputProps {
 export function TextAreaInput({
   name,
   label,
+  required,
   placeholder,
   onChange,
   disabled,
@@ -46,7 +48,9 @@ export function TextAreaInput({
           <>
             {(label || explanation) && (
               <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                <FormLabel isErrored={!!error}>{label}</FormLabel>
+                <FormLabel isErrored={!!error}>
+                  {label} {required && <span style={{ color: 'red' }}>*</span>}
+                </FormLabel>
 
                 {explanation && <InfoIcon explanation={explanation} />}
               </Flex>

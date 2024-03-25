@@ -28,6 +28,7 @@ function findOption(value: any, options: OptionType[]) {
 interface SelectProps {
   name: string
   label?: string
+  required?: boolean
   placeholder?: string
   options: OptionType[]
   onChange?: (value: any) => void
@@ -38,6 +39,7 @@ interface SelectProps {
 export function Select({
   name,
   label,
+  required,
   placeholder,
   options = [],
   onChange,
@@ -61,7 +63,9 @@ export function Select({
           <>
             {(label || explanation) && (
               <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                <FormLabel isErrored={!!error}>{label}</FormLabel>
+                <FormLabel isErrored={!!error}>
+                  {label} {required && <span style={{ color: 'red' }}>*</span>}
+                </FormLabel>
 
                 {explanation && <InfoIcon explanation={explanation} />}
               </Flex>

@@ -21,6 +21,7 @@ function convertToNumber(value: string) {
 interface MoneyInputProps {
   name: string
   label?: string
+  required?: boolean
   placeholder?: string
   onChange?: (value: number) => void
   disabled?: boolean
@@ -30,6 +31,7 @@ interface MoneyInputProps {
 export function MoneyInput({
   name,
   label,
+  required,
   placeholder,
   onChange,
   disabled,
@@ -53,7 +55,10 @@ export function MoneyInput({
             <>
               {(label || explanation) && (
                 <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                  <FormLabel isErrored={!!error}>{label}</FormLabel>
+                  <FormLabel isErrored={!!error}>
+                    {label}{' '}
+                    {required && <span style={{ color: 'red' }}>*</span>}
+                  </FormLabel>
 
                   {explanation && <InfoIcon explanation={explanation} />}
                 </Flex>

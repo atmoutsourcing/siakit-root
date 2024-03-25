@@ -18,6 +18,7 @@ type OptionType = {
 interface SelectMultiInputProps {
   name: string
   label?: string
+  required?: boolean
   placeholder?: string
   options: OptionType[]
   onChange?: (value: any) => void
@@ -28,6 +29,7 @@ interface SelectMultiInputProps {
 export function SelectMultiInput({
   name,
   label,
+  required,
   placeholder,
   options = [],
   onChange,
@@ -51,7 +53,9 @@ export function SelectMultiInput({
           <>
             {(label || explanation) && (
               <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                <FormLabel isErrored={!!error}>{label}</FormLabel>
+                <FormLabel isErrored={!!error}>
+                  {label} {required && <span style={{ color: 'red' }}>*</span>}
+                </FormLabel>
 
                 {explanation && <InfoIcon explanation={explanation} />}
               </Flex>

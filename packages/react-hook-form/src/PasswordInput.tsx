@@ -13,6 +13,7 @@ import { get } from './get'
 interface PasswordInputProps {
   name: string
   label?: string
+  required?: boolean
   placeholder?: string
   onChange?: (value: string) => void
   disabled?: boolean
@@ -22,6 +23,7 @@ interface PasswordInputProps {
 export function PasswordInput({
   name,
   label,
+  required,
   placeholder,
   onChange,
   disabled,
@@ -45,7 +47,10 @@ export function PasswordInput({
             <>
               {(label || explanation) && (
                 <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                  <FormLabel isErrored={!!error}>{label}</FormLabel>
+                  <FormLabel isErrored={!!error}>
+                    {label}{' '}
+                    {required && <span style={{ color: 'red' }}>*</span>}
+                  </FormLabel>
 
                   {explanation && <InfoIcon explanation={explanation} />}
                 </Flex>

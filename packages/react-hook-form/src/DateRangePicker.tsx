@@ -14,6 +14,7 @@ import { get } from './get'
 interface DateRangePickerProps {
   name: string
   label?: string
+  required?: boolean
   placeholder?: string
   onChange?: (value: DateRange | null) => void
   disabled?: boolean
@@ -23,6 +24,7 @@ interface DateRangePickerProps {
 export function DateRangePicker({
   name,
   label,
+  required,
   placeholder,
   onChange,
   disabled,
@@ -46,7 +48,10 @@ export function DateRangePicker({
             <>
               {(label || explanation) && (
                 <Flex align="center" gap={4} css={{ fill: '$gray9' }}>
-                  <FormLabel isErrored={!!error}>{label}</FormLabel>
+                  <FormLabel isErrored={!!error}>
+                    {label}{' '}
+                    {required && <span style={{ color: 'red' }}>*</span>}
+                  </FormLabel>
 
                   {explanation && <InfoIcon explanation={explanation} />}
                 </Flex>
