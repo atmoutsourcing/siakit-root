@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.34
+
+### Patch Changes
+
+- add missing dependencies
+
 ## 0.0.33
 
 ### Patch Changes
