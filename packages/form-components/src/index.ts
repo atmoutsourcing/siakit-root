@@ -11,6 +11,7 @@ export * from './MaskInput'
 export * from './PercentageInput'
 export * from './TextAreaInput'
 export * from './RichTextInput'
+export * from './FileInput'
 
 export * from './Switch'
 export * from './Checkbox'

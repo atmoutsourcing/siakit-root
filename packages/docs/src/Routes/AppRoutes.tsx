@@ -11,6 +11,7 @@ import { ReactHookForm } from '../pages/ReactHookForm'
 import { Sidebar } from '../pages/Sidebar'
 import { Table } from '../pages/Table'
 import { Tabs } from '../pages/Tabs'
+import { Test } from '../pages/test'
 import { Text } from '../pages/Text'
 import { Tooltip } from '../pages/Tooltip'
 
@@ -30,6 +31,7 @@ export function AppRoutes() {
         <Route path="/react-hook-form" element={<ReactHookForm />} />
         <Route path="/tooltip" element={<Tooltip />} />
         <Route path="/dropdown" element={<DropdownComponent />} />
+        <Route path="/test" element={<Test />} />
       </Route>
     </Routes>
   )
