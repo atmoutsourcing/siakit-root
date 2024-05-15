@@ -70,7 +70,7 @@ export function ColorPicker({
       <ColorPickerComponent
         value={fieldValue}
         onChange={handleChange}
-        disabled
+        disabled={disabled}
       />
     </FormControl>
   )

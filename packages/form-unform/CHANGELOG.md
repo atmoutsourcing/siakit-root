@@ -1,5 +1,11 @@
 # @siakit/form-unform
 
+## 0.0.52
+
+### Patch Changes
+
+- fix disabled
+
 ## 0.0.51
 
 ### Patch Changes
