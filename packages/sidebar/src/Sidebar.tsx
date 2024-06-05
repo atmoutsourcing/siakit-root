@@ -19,11 +19,19 @@ export const SidebarContext = createContext<SidebarContextData>(
 
 type SidebarProps = {
   children: ReactNode[]
-  value?: string | number | null
-  onChange?: (value: string | number | null) => void
+  menu?: string | number | null
+  onMenuChange?: (value: string | number | null) => void
+  subMenu?: string | number | null
+  onSubMenuChange?: (value: string | number | null) => void
 }
 
-export function Sidebar({ children, value = null, onChange }: SidebarProps) {
+export function Sidebar({
+  children,
+  menu = null,
+  onMenuChange,
+  subMenu = null,
+  onSubMenuChange,
+}: SidebarProps) {
   const [selected, setSelected] = useState<string | number | null>(null)
   const [subMenuSelected, setSubMenuSelected] = useState<
     number | string | null
@@ -31,27 +39,35 @@ export function Sidebar({ children, value = null, onChange }: SidebarProps) {
   const [minimized, setMinimized] = useState(false)
 
   useEffect(() => {
-    if (value === selected) {
+    if (menu === selected) {
       return
     }
 
-    setSelected(value)
-    setSubMenuSelected(null)
+    if (subMenu === subMenuSelected) {
+      return
+    }
+
+    setSelected(menu)
+    setSubMenuSelected(subMenuSelected)
     setMinimized(true)
-  }, [value])
+  }, [menu])
 
   function selectMenu({ value, minimize }: SelectMenuData) {
     setSelected(value)
     setSubMenuSelected(null)
     setMinimized(minimize)
 
-    if (onChange) {
-      onChange(value)
+    if (onMenuChange) {
+      onMenuChange(value)
     }
   }
 
   function selectSubMenu(index: number | string | null) {
     setSubMenuSelected(index)
+
+    if (onSubMenuChange) {
+      onSubMenuChange(index)
+    }
   }
 
   return (
