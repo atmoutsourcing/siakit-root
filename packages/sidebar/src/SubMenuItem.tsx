@@ -9,6 +9,7 @@ const Container = styled('a', {
   position: 'relative',
   minHeight: 32,
   padding: '6px 6px 6px 12px',
+  flexShrink: 0,
 
   cursor: 'pointer',
 
