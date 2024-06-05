@@ -1,5 +1,41 @@
 # @siakit/sidebar
 
+## 0.0.43
+
+### Patch Changes
+
+- fix
+
+## 0.0.42
+
+### Patch Changes
+
+- fix
+
+## 0.0.41
+
+### Patch Changes
+
+- fix
+
+## 0.0.40
+
+### Patch Changes
+
+- fix
+
+## 0.0.39
+
+### Patch Changes
+
+- fix sidebar useEffect
+
+## 0.0.38
+
+### Patch Changes
+
+- fix useEffect
+
 ## 0.0.37
 
 ### Patch Changes

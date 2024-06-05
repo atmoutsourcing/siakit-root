@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
+import { createContext, ReactNode, useState } from 'react'
 
 type SelectMenuData = {
   value: string | number | null
@@ -32,25 +32,11 @@ export function Sidebar({
   subMenu = null,
   onSubMenuChange,
 }: SidebarProps) {
-  const [selected, setSelected] = useState<string | number | null>(null)
+  const [selected, setSelected] = useState<string | number | null>(menu)
   const [subMenuSelected, setSubMenuSelected] = useState<
     number | string | null
-  >(null)
-  const [minimized, setMinimized] = useState(false)
-
-  useEffect(() => {
-    if (menu === selected) {
-      return
-    }
-
-    if (subMenu === subMenuSelected) {
-      return
-    }
-
-    setSelected(menu)
-    setSubMenuSelected(subMenuSelected)
-    setMinimized(true)
-  }, [menu])
+  >(subMenu)
+  const [minimized, setMinimized] = useState(!!selected)
 
   function selectMenu({ value, minimize }: SelectMenuData) {
     setSelected(value)
