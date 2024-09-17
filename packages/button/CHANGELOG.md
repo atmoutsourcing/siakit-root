@@ -1,5 +1,11 @@
 # @siakit/button
 
+## 0.1.0
+
+### Minor Changes
+
+- update typescript to 5
+
 ## 0.0.8
 
 ### Patch Changes
