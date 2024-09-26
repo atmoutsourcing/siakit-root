@@ -1,5 +1,11 @@
 # @siakit/icon-button
 
+## 0.0.6
+
+### Patch Changes
+
+- add outline
+
 ## 0.0.5
 
 ### Patch Changes

@@ -20,6 +20,10 @@ export const IconButtonContainer = styled('button', {
     cursor: 'not-allowed',
   },
 
+  '&:focus': {
+    outline: '2px solid black',
+  },
+
   svg: {
     width: 16,
     height: 16,
