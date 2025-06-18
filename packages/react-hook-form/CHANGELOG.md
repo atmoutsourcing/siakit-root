@@ -1,5 +1,13 @@
 # @siakit/react-hook-form
 
+## 0.0.16
+
+### Patch Changes
+
+- Foi adicionado o isLoading, corrigido bug do estado continuar mesmo removendo o valor do campo do select e corrigido bug do select de ao abrir ele em telas menores, estava gerando overflow quebrado
+- Updated dependencies
+  - @siakit/form-components@0.0.36
+
 ## 0.0.15
 
 ### Patch Changes

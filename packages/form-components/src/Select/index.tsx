@@ -74,7 +74,8 @@ export function Select({
       options={options}
       placeholder={placeholder}
       classNamePrefix="react-select"
-      menuPlacement={menuPlacement}
+      menuPlacement={menuPlacement} // agora default 'auto'
+      menuPosition="fixed" // importa pro portal usar fixed positioning
       isDisabled={disabled}
       isClearable={isClearable}
       components={{
@@ -97,28 +98,25 @@ export function Select({
           backgroundColor: `var(${themeKeys.colors.shape.variable})`,
           border: `1px solid var(${themeKeys.colors.gray3.variable})`,
           padding: '8px 0',
+          maxHeight: '80vh',
         }),
         menuList: (base) => ({
           ...base,
           padding: 0,
+          overflowY: 'auto',
         }),
         option: (base, state) => ({
           ...base,
           padding: '8px 12px',
           display: 'flex',
           alignItems: 'center',
-
           fontSize: '14px',
           color: `var(${themeKeys.colors.gray12.variable})`,
-
           cursor: 'pointer',
-
           transition: 'all 0.1s',
-
           '&:hover': {
             backgroundColor: `var(${themeKeys.colors.primary4.variable})`,
           },
-
           backgroundColor: state.isSelected
             ? `var(${themeKeys.colors.primary6.variable})`
             : state.isFocused

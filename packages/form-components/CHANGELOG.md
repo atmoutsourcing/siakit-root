@@ -1,5 +1,17 @@
 # @siakit/form-components
 
+## 0.0.37
+
+### Patch Changes
+
+- corrigido bug do estado continuar mesmo removendo o valor do campo do select e corrigido bug do select de ao abrir ele em telas menores
+
+## 0.0.36
+
+### Patch Changes
+
+- Foi adicionado o isLoading, corrigido bug do estado continuar mesmo removendo o valor do campo do select e corrigido bug do select de ao abrir ele em telas menores, estava gerando overflow quebrado
+
 ## 0.0.35
 
 ### Patch Changes

@@ -7,6 +7,7 @@ import { Overlay } from './styles'
 type LoadingContextData = {
   setLoading: (value: boolean) => void
   clearLoading: () => void
+  isLoading: boolean
 }
 
 const LoadingContext = createContext<LoadingContextData>(
@@ -33,7 +34,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
   }
 
   return (
-    <LoadingContext.Provider value={{ setLoading, clearLoading }}>
+    <LoadingContext.Provider value={{ setLoading, isLoading: !!refs, clearLoading }}>
       {refs > 0 && (
         <Overlay>
           <Spinner inverted />

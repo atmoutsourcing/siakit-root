@@ -75,7 +75,7 @@ export function Select({
           <SelectComponent
             value={findOption(field.value, options)}
             onChange={(option) => {
-              const newValue = option?.value
+              const newValue = option?.value ? option?.value : null
               field.onChange(newValue)
 
               if (onChange) {
