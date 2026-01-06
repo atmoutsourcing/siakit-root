@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useEffect, useState } from 'react'
+import React, { InputHTMLAttributes, useEffect, useState } from 'react'
 
 import {
   FormControl,
@@ -18,6 +18,7 @@ type TextInputProps = Omit<
   label?: string
   onChange?: (value: string) => void
   explanation?: string
+  leftIcon?: React.ReactNode
 }
 
 export function TextInput({
@@ -25,6 +26,7 @@ export function TextInput({
   label,
   onChange,
   explanation,
+  leftIcon,
   ...props
 }: TextInputProps) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
@@ -69,6 +71,7 @@ export function TextInput({
       <TextInputComponent
         value={fieldValue}
         onChange={handleChange}
+        leftIcon={leftIcon}
         {...props}
       />
     </FormControl>

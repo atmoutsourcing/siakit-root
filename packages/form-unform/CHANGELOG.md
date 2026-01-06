@@ -1,5 +1,13 @@
 # @siakit/form-unform
 
+## 0.0.53
+
+### Patch Changes
+
+- Adicionado opção de leftIcon
+- Updated dependencies
+  - @siakit/form-components@0.0.38
+
 ## 0.0.52
 
 ### Patch Changes

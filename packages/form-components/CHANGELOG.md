@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.38
+
+### Patch Changes
+
+- Adicionado opção de leftIcon
+
 ## 0.0.37
 
 ### Patch Changes

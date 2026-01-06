@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 
+import { Search, Mail } from 'lucide-react'
+
 import { Button } from '@siakit/button'
 import { Card } from '@siakit/card'
 import { Footer, FooterLeft } from '@siakit/footer'
@@ -30,6 +32,23 @@ export function FormUnform() {
           <Flex flex padding gap>
             <Flex flex direction="column" gap>
               <TextInput
+                leftIcon={<Search />}
+                // leftIcon={
+                //   <svg
+                //     xmlns="http://www.w3.org/2000/svg"
+                //     fill="none"
+                //     viewBox="0 0 24 24"
+                //     strokeWidth="1.5"
+                //     stroke="currentColor"
+                //     className="w-6 h-12"
+                //   >
+                //     <path
+                //       strokeLinecap="round"
+                //       strokeLinejoin="round"
+                //       d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 5.5 5.5a7.5 7.5 0 0 0 11.15 11.15z"
+                //     />
+                //   </svg>
+                // }
                 name="text-input"
                 label="Text input"
                 placeholder="Text input"

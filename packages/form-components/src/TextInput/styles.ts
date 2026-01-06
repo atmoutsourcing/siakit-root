@@ -51,4 +51,15 @@ export const Input = styled('input', {
   },
 })
 
+export const Prefix = styled('div', {
+  display: 'flex',
+  color: '$gray8',
+  paddingRight: 6,
+
+  svg: {
+    width: 18,
+    height: 18,
+  },
+})
+
 export const Suffix = styled('div')

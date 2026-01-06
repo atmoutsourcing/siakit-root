@@ -1,8 +1,8 @@
-import { ChangeEvent, InputHTMLAttributes } from 'react'
+import React, { ChangeEvent, InputHTMLAttributes } from 'react'
 
 import { IconButton } from '@siakit/icon-button'
 
-import { Input, Suffix, TextInputContainer } from './styles'
+import { Input, Prefix, Suffix, TextInputContainer } from './styles'
 
 type TextInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -10,6 +10,7 @@ type TextInputProps = Omit<
 > & {
   value: string
   onChange: (value: string) => void
+  leftIcon?: React.ReactNode
 }
 
 type RestProps = {
@@ -21,6 +22,7 @@ export function TextInput({
   onChange,
   placeholder,
   disabled,
+  leftIcon,
   ...props
 }: TextInputProps) {
   const { isErrored } = props as RestProps
@@ -37,6 +39,8 @@ export function TextInput({
 
   return (
     <TextInputContainer isErrored={isErrored} disabled={disabled}>
+      {leftIcon && <Prefix>{leftIcon}</Prefix>}
+
       <Input
         type="text"
         value={value}
