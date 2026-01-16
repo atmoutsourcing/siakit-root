@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { InputHTMLAttributes } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
 import {
@@ -12,7 +12,10 @@ import { MaskType } from '@siakit/mask'
 import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
-interface MaskInputProps {
+type MaskInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange'
+> & {
   name: string
   mask: MaskType
   label?: string
@@ -21,7 +24,6 @@ interface MaskInputProps {
   onChange?: (value: string) => void
   disabled?: boolean
   explanation?: string
-  css?: ComponentProps<typeof MaskInputComponent>['css']
 }
 
 export function MaskInput({
@@ -33,7 +35,7 @@ export function MaskInput({
   onChange,
   disabled,
   explanation,
-  css,
+  ...props
 }: MaskInputProps) {
   const {
     formState: { errors },
@@ -73,7 +75,7 @@ export function MaskInput({
             }}
             placeholder={placeholder}
             disabled={disabled}
-            css={css}
+            {...props}
           />
         </FormControl>
       )}

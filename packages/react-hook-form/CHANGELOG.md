@@ -1,5 +1,13 @@
 # @siakit/react-hook-form
 
+## 0.0.18
+
+### Patch Changes
+
+- add styles
+- Updated dependencies
+  - @siakit/form-components@0.0.40
+
 ## 0.0.17
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.40
+
+### Patch Changes
+
+- add styles
+
 ## 0.0.39
 
 ### Patch Changes
