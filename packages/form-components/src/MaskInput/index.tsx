@@ -1,5 +1,7 @@
+import { ChangeEvent, ComponentProps } from 'react'
+
+import type {} from '@siakit/core'
 import { IconButton } from '@siakit/icon-button'
-import { ChangeEvent } from 'react'
 import { toMask, MaskType } from '@siakit/mask'
 
 import { Input, Suffix, MaskInputContainer } from './styles'
@@ -10,6 +12,7 @@ type MaskInputProps = {
   mask: MaskType
   placeholder?: string
   disabled?: boolean
+  css?: ComponentProps<typeof Input>['css']
 }
 
 type RestProps = {
@@ -22,6 +25,7 @@ export function MaskInput({
   mask,
   placeholder,
   disabled,
+  css,
   ...props
 }: MaskInputProps) {
   const { isErrored } = props as RestProps
@@ -39,7 +43,7 @@ export function MaskInput({
   }
 
   return (
-    <MaskInputContainer isErrored={isErrored} disabled={disabled}>
+    <MaskInputContainer isErrored={isErrored} disabled={disabled} css={css}>
       <Input
         type="text"
         value={toMask({ value, mask })}

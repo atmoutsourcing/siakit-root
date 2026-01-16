@@ -1,3 +1,4 @@
+import { ComponentProps } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
 import {
@@ -20,6 +21,7 @@ interface MaskInputProps {
   onChange?: (value: string) => void
   disabled?: boolean
   explanation?: string
+  css?: ComponentProps<typeof MaskInputComponent>['css']
 }
 
 export function MaskInput({
@@ -31,6 +33,7 @@ export function MaskInput({
   onChange,
   disabled,
   explanation,
+  css,
 }: MaskInputProps) {
   const {
     formState: { errors },
@@ -70,6 +73,7 @@ export function MaskInput({
             }}
             placeholder={placeholder}
             disabled={disabled}
+            css={css}
           />
         </FormControl>
       )}
