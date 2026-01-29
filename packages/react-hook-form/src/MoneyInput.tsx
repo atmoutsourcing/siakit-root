@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
 import {
@@ -18,7 +19,10 @@ function convertToNumber(value: string) {
   return Number(value.replace('.', '').replace(',', '.'))
 }
 
-interface MoneyInputProps {
+type MoneyInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange'
+> & {
   name: string
   label?: string
   required?: boolean

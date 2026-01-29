@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
 import {
@@ -10,7 +11,10 @@ import { Flex } from '@siakit/layout'
 import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
-interface NumberInputProps {
+type NumberInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onChange' | 'value'
+> & {
   name: string
   label?: string
   required?: boolean
@@ -28,6 +32,7 @@ export function NumberInput({
   onChange,
   disabled,
   explanation,
+  ...props
 }: NumberInputProps) {
   const {
     formState: { errors },
@@ -76,6 +81,7 @@ export function NumberInput({
             }}
             placeholder={placeholder}
             disabled={disabled}
+            {...props}
           />
         </FormControl>
       )}

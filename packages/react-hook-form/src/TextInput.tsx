@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 
 import {
@@ -10,7 +11,7 @@ import { Flex } from '@siakit/layout'
 import { InfoIcon } from './components/InfoIcon'
 import { get } from './get'
 
-interface TextInputProps {
+type TextInputProps = Pick<InputHTMLAttributes<HTMLInputElement>, 'style'> & {
   name: string
   label?: string
   required?: boolean
@@ -28,6 +29,7 @@ export function TextInput({
   onChange,
   disabled,
   explanation,
+  ...props
 }: TextInputProps) {
   const {
     formState: { errors },
@@ -66,6 +68,7 @@ export function TextInput({
             }}
             placeholder={placeholder}
             disabled={disabled}
+            {...props}
           />
         </FormControl>
       )}
