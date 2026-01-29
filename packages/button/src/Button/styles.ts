@@ -22,7 +22,7 @@ export const ButtonContainer = styled('button', {
     cursor: 'not-allowed'
   },
 
-  '&:focus': {
+  '&:focus-visible': {
     outline: '2px solid black',
   },
 

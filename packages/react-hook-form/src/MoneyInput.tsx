@@ -19,10 +19,7 @@ function convertToNumber(value: string) {
   return Number(value.replace('.', '').replace(',', '.'))
 }
 
-type MoneyInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'onChange'
-> & {
+type MoneyInputProps = Pick<InputHTMLAttributes<HTMLInputElement>, 'style'> & {
   name: string
   label?: string
   required?: boolean
@@ -40,6 +37,7 @@ export function MoneyInput({
   onChange,
   disabled,
   explanation,
+  ...props
 }: MoneyInputProps) {
   const {
     formState: { errors },
@@ -88,6 +86,7 @@ export function MoneyInput({
               }}
               placeholder={placeholder}
               disabled={disabled}
+              {...props}
             />
           </FormControl>
         )

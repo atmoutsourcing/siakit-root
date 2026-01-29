@@ -1,5 +1,11 @@
 # @siakit/button
 
+## 0.1.2
+
+### Patch Changes
+
+- fix outline
+
 ## 0.1.1
 
 ### Patch Changes
