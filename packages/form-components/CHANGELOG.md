@@ -1,5 +1,17 @@
 # @siakit/form-components
 
+## 0.0.42
+
+### Patch Changes
+
+- fix
+
+## 0.0.41
+
+### Patch Changes
+
+- fix: select multi mode dark
+
 ## 0.0.40
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @siakit/modal
 
+## 0.1.0
+
+### Minor Changes
+
+- fix: close button modal
+
 ## 0.0.14
 
 ### Patch Changes

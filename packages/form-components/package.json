@@ -1,6 +1,6 @@
 {
   "name": "@siakit/form-components",
-  "version": "0.0.40",
+  "version": "0.0.42",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

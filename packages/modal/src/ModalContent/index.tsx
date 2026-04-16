@@ -32,8 +32,12 @@ export function ModalContent({
 
           {children}
 
-          <Dialog.Close asChild>
-            <CloseButton type="button" variant="ghost" colorScheme="gray">
+          <Dialog.Close>
+            <CloseButton type="button" variant="ghost" colorScheme="gray" css={{
+              position: 'absolute',
+              top: 8,
+              right: 8,
+            }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

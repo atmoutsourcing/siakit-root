@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { themeKeys } from '@siakit/core'
 import { IconButton } from '@siakit/icon-button'
 
@@ -69,6 +71,15 @@ export function Select({
 }: SelectProps) {
   const { isErrored } = props as RestProps
 
+  useEffect(() => {
+    if (options && options?.length === 1) {
+      const singleOption = options[0]
+      if (!value || value.value !== singleOption.value) {
+        onChange(singleOption)
+      }
+    }
+  }, [options, value, onChange])
+
   return (
     <SelectContainer
       options={options}
@@ -120,8 +131,8 @@ export function Select({
           backgroundColor: state.isSelected
             ? `var(${themeKeys.colors.primary6.variable})`
             : state.isFocused
-            ? `var(${themeKeys.colors.primary3.variable})`
-            : `var(${themeKeys.colors.shape.variable})`,
+              ? `var(${themeKeys.colors.primary3.variable})`
+              : `var(${themeKeys.colors.shape.variable})`,
         }),
       }}
       {...props}

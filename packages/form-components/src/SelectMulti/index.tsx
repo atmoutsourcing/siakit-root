@@ -113,17 +113,22 @@ export function SelectMulti({
           backgroundColor: state.isSelected
             ? `var(${themeKeys.colors.primary6.variable})`
             : state.isFocused
-            ? `var(${themeKeys.colors.primary3.variable})`
-            : `var(${themeKeys.colors.shape.variable})`,
+              ? `var(${themeKeys.colors.primary3.variable})`
+              : `var(${themeKeys.colors.shape.variable})`,
+        }),
+        // fix
+        input: (base) => ({
+          ...base,
+          color: `var(${themeKeys.colors.gray12.variable})`,
         }),
       }}
       css={
         maxHeight
           ? {
-              '.react-select__value-container': {
-                maxHeight,
-              },
-            }
+            '.react-select__value-container': {
+              maxHeight,
+            },
+          }
           : {}
       }
       {...props}
