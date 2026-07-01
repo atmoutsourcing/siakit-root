@@ -61,7 +61,7 @@ export function NumberInput({
           </>
 
           <NumberInputComponent
-            value={field.value ? String(field.value) : ''}
+            value={field.value ? String(field.value) : '0'}
             onChange={(value) => {
               if (value) {
                 const newValue = Number(value)
@@ -71,7 +71,7 @@ export function NumberInput({
                   onChange(newValue)
                 }
               } else {
-                const newValue = ''
+                const newValue = 0
 
                 field.onChange(newValue)
                 if (onChange) {
