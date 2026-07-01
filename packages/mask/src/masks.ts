@@ -3,7 +3,7 @@ export const masks = {
   simcard: '99999999999999999999',
   zipcode: '99999-999',
   cpf: '999.999.999-99',
-  cnpj: '99.999.999/9999-99',
+  cnpj: 'SS.SSS.SSS/SSSS-SS',
   pis: '999.99999.99-9',
   code: '9999',
   phone: '(99) 99999-9999',

@@ -18,6 +18,25 @@ type ToMaskData = {
   mask: CustomMaskType
 }
 
+function toCnpj(value: string) {
+  const cleaned = value
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, '')
+    .slice(0, 14)
+
+  let result = ''
+
+  for (let i = 0; i < cleaned.length; i++) {
+    if (i === 2 || i === 5) result += '.'
+    if (i === 8) result += '/'
+    if (i === 12) result += '-'
+
+    result += cleaned[i]
+  }
+
+  return result
+}
+
 export function toMask({ value, mask }: ToMaskData) {
   if (mask === 'money') {
     return toMoney(value)
@@ -49,6 +68,10 @@ export function toMask({ value, mask }: ToMaskData) {
     }
 
     return toPattern(newValue, '99')
+  }
+
+  if (mask === 'cnpj') {
+    return toCnpj(value)
   }
 
   return toPattern(value, masks[mask])
