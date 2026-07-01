@@ -19,7 +19,7 @@ type NumberInputProps = Omit<
   label?: string
   required?: boolean
   placeholder?: string
-  onChange?: (value: number | undefined) => void
+  onChange?: (value: number | undefined | string) => void
   disabled?: boolean
   explanation?: string
 }
@@ -71,7 +71,7 @@ export function NumberInput({
                   onChange(newValue)
                 }
               } else {
-                const newValue = undefined
+                const newValue = ''
 
                 field.onChange(newValue)
                 if (onChange) {

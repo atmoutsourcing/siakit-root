@@ -66,7 +66,7 @@ export function PercentageInput({
                   onChange(newValue)
                 }
               } else {
-                const newValue = undefined
+                const newValue = 0
 
                 field.onChange(newValue)
                 if (onChange) {
