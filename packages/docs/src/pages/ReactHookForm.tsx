@@ -4,7 +4,13 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { Button } from '@siakit/button'
 import { Flex } from '@siakit/layout'
 import { useLoading } from '@siakit/loading'
-import { MoneyInput, Select, TextInput } from '@siakit/react-hook-form'
+import {
+  DatePickerV2,
+  DateRangePickerV2,
+  MoneyInput,
+  Select,
+  TextInput,
+} from '@siakit/react-hook-form'
 
 const array = Array.from({ length: 50 }).map((item, index) => ({
   value: index + 1,
@@ -19,6 +25,7 @@ export function ReactHookForm() {
       teste: 1,
       name: 'asdasdsadsad',
       money: 50,
+      date: '',
     },
   })
 
@@ -31,8 +38,6 @@ export function ReactHookForm() {
       money: 50,
     })
   }, [])
-
-  console.log(isLoading)
 
   return (
     <Flex flex padding direction="column" gap>
@@ -49,7 +54,7 @@ export function ReactHookForm() {
       </Button>
 
       <FormProvider {...form}>
-        <Flex flex as="form" gap={8}>
+        <Flex flex as="form" gap={8} direction={'column'}>
           <MoneyInput name="money" label="Money" />
 
           <Select
@@ -65,6 +70,28 @@ export function ReactHookForm() {
             placeholder="Label"
             explanation="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem beatae amet ratione quis numquam debitis maiores. Architecto illo, tenetur enim placeat saepe et quod aliquid soluta doloremque maxime, dolores odit."
           />
+
+          <DateRangePickerV2
+            presets
+            name="date"
+            label="Labels"
+            placeholder="Label"
+          />
+
+          <DatePickerV2
+            name="date2"
+            label="Date Picker"
+            placeholder="Label"
+
+            blockedDates={[
+                    { date: new Date(2026, 8, 7), label: 'Independência do Brasil' },
+                    { date: new Date(2026, 8, 8), label: 'Nossa Senhora Aparecida' },
+              {
+                from: new Date(2026, 11, 22),
+                to: new Date(2027, 0, 5),
+                label: 'Recesso de fim de ano',
+              },
+                  ]}  />
         </Flex>
       </FormProvider>
     </Flex>

@@ -30,6 +30,7 @@
     "@radix-ui/react-radio-group": "^1.0.0",
     "@radix-ui/react-slider": "^1.0.0",
     "@radix-ui/react-switch": "^1.0.0",
+    "@siakit/button": "*",
     "@siakit/core": "*",
     "@siakit/icon-button": "*",
     "@siakit/layout": "*",
