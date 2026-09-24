@@ -1,5 +1,5 @@
 import { MouseEvent, useEffect } from 'react'
-import Lottie from 'react-lottie'
+import * as LottieImport from 'react-lottie'
 
 import { Button } from '@siakit/button'
 import { useTheme } from '@siakit/core'
@@ -9,6 +9,10 @@ import { Text } from '@siakit/text'
 
 import emptyDarkAnimationData from './assets/empty_dark.json'
 import emptyAnimationData from './assets/empty.json'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Lottie = ((LottieImport as any).default ??
+  LottieImport) as typeof LottieImport.default
 
 type EmptyProps = {
   title: string

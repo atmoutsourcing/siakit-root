@@ -1,5 +1,18 @@
 # @siakit/form-components
 
+## 0.0.44
+
+### Patch Changes
+
+- fix autoselect
+
+## 0.0.43
+
+### Patch Changes
+
+- fix
+- fix
+
 ## 0.0.42
 
 ### Patch Changes

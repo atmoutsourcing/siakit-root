@@ -1,5 +1,11 @@
 # @siakit/tabs
 
+## 0.0.10
+
+### Patch Changes
+
+- fix tabs count
+
 ## 0.0.9
 
 ### Patch Changes

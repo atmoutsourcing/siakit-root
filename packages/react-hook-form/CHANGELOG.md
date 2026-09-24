@@ -1,5 +1,23 @@
 # @siakit/react-hook-form
 
+## 0.2.4
+
+### Patch Changes
+
+- fix autoselect
+- Updated dependencies
+  - @siakit/form-components@0.0.44
+
+## 0.2.3
+
+### Patch Changes
+
+- fix
+- fix
+- Updated dependencies
+- Updated dependencies
+  - @siakit/form-components@0.0.43
+
 ## 0.2.2
 
 ### Patch Changes

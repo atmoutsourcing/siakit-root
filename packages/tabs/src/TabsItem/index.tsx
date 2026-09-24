@@ -6,7 +6,7 @@ import { useTheme } from '@siakit/core'
 
 import { Content, SelectedElement, TabsItemContainer } from './styles'
 
-type TabsItemProps = { badge?: number } & ComponentProps<
+type TabsItemProps = { badge?: number | string } & ComponentProps<
   typeof RadixTabs.Trigger
 >
 
@@ -17,7 +17,9 @@ export function TabsItem({ children, badge, ...props }: TabsItemProps) {
     <TabsItemContainer {...props}>
       <Content>
         {children}
-        {typeof badge === 'number' && <Badge color={color}>{badge}</Badge>}
+        {(typeof badge === 'number' || typeof badge === 'string') && (
+          <Badge color={color}>{badge}</Badge>
+        )}
       </Content>
 
       <SelectedElement />

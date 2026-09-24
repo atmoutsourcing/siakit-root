@@ -53,6 +53,7 @@ type SelectProps = {
   disabled?: boolean
   menuPlacement?: 'auto' | 'bottom' | 'top'
   isClearable?: boolean
+  autoSelect?: boolean
 }
 
 type RestProps = {
@@ -67,18 +68,19 @@ export function Select({
   disabled,
   menuPlacement,
   isClearable = true,
+  autoSelect = false,
   ...props
 }: SelectProps) {
   const { isErrored } = props as RestProps
 
   useEffect(() => {
-    if (options && options?.length === 1) {
+    if (options && options?.length === 1 && autoSelect) {
       const singleOption = options[0]
       if (!value || value.value !== singleOption.value) {
         onChange(singleOption)
       }
     }
-  }, [options, value, onChange])
+  }, [options, value, onChange, autoSelect])
 
   return (
     <SelectContainer
@@ -131,8 +133,8 @@ export function Select({
           backgroundColor: state.isSelected
             ? `var(${themeKeys.colors.primary6.variable})`
             : state.isFocused
-              ? `var(${themeKeys.colors.primary3.variable})`
-              : `var(${themeKeys.colors.shape.variable})`,
+            ? `var(${themeKeys.colors.primary3.variable})`
+            : `var(${themeKeys.colors.shape.variable})`,
         }),
       }}
       {...props}
