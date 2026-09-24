@@ -38,7 +38,7 @@ const PT_PT: DateLocaleType = {
   ...PT_BR,
   dateFnsLocale: pt,
 }
-
+ 
 const EN_US: DateLocaleType = {
   dateFormat: 'dd/MM/yyyy',
   dateFnsLocale: enUS,

@@ -138,7 +138,7 @@ export function DatePickerV2({
         placeholder={placeholder}
         disabled={disabled}
       />
-
+ 
       <Suffix css={{ visibility: text ? 'visible' : 'hidden' }}>
         <IconButton
           type="button"

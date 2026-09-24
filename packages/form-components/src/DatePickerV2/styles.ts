@@ -66,7 +66,7 @@ export const CustomPopoverContent = styled(PopoverContent, {
     '--rdp-cell-size': '38px',
     fontSize: '$sm',
   },
-
+ 
   '.rdp-day': {
     width: '30px',
     height: '30px',

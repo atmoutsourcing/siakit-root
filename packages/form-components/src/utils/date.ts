@@ -164,7 +164,7 @@ export type BlockOptionsType = {
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
 }
-
+ 
 // Devolve o motivo do bloqueio
 export function getBlockReason(
   date: Date,

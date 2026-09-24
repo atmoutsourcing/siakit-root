@@ -44,7 +44,7 @@ export const Input = styled('input', {
   all: 'unset',
 
   flex: 1,
-
+ 
   width: '$full',
   height: '$full',
   marginRight: '$2.5',

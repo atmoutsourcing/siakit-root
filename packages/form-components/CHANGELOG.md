@@ -1,5 +1,23 @@
 # @siakit/form-components
 
+## 0.0.45
+
+### Patch Changes
+
+- v2
+
+## 0.0.44
+
+### Patch Changes
+
+- v2datepicker
+
+## 0.0.43
+
+### Patch Changes
+
+- v2 dos datepicker e daterangepicker
+
 ## 0.0.42
 
 ### Patch Changes

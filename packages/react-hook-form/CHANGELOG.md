@@ -1,5 +1,29 @@
 # @siakit/react-hook-form
 
+## 0.2.5
+
+### Patch Changes
+
+- v2
+- Updated dependencies
+  - @siakit/form-components@0.0.45
+
+## 0.2.4
+
+### Patch Changes
+
+- v2datepicker
+- Updated dependencies
+  - @siakit/form-components@0.0.44
+
+## 0.2.3
+
+### Patch Changes
+
+- v2 dos datepicker e daterangepicker
+- Updated dependencies
+  - @siakit/form-components@0.0.43
+
 ## 0.2.2
 
 ### Patch Changes

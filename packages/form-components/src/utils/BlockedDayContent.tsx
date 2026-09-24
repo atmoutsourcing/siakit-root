@@ -12,7 +12,7 @@ export function BlockedDayContent(props: DayContentProps) {
   const reason = getBlockReason(props.date, options)
 
   if (!reason) return <DayContent {...props} />
-
+ 
   return (
     <Tooltip content={reason}>
       <span
