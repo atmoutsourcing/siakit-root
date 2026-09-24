@@ -1,5 +1,13 @@
 # @siakit/react-hook-form
 
+## 0.2.6
+
+### Patch Changes
+
+- add datepicker props
+- Updated dependencies
+  - @siakit/form-components@0.0.46
+
 ## 0.2.5
 
 ### Patch Changes

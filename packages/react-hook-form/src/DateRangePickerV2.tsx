@@ -24,10 +24,11 @@ interface DateRangePickerV2Props {
   maxDate?: Date
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
+  disablePastDates?: boolean
   presets?: boolean
   locale?: string
 }
- 
+
 export function DateRangePickerV2({
   name,
   label,
@@ -40,6 +41,7 @@ export function DateRangePickerV2({
   maxDate,
   blockedDates,
   disableWeekends,
+  disablePastDates,
   presets,
   locale,
 }: DateRangePickerV2Props) {
@@ -86,6 +88,7 @@ export function DateRangePickerV2({
               maxDate={maxDate}
               blockedDates={blockedDates}
               disableWeekends={disableWeekends}
+              disablePastDates={disablePastDates}
               presets={presets}
               locale={locale}
             />

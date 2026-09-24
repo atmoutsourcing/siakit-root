@@ -59,6 +59,19 @@ export function roundDate(text: string, dateFormat: string): Date | null {
   return new Date(year, month - 1, day)
 }
 
+// Com disablePastDates, o minDate efetivo passa a ser hoje (quando o minDate
+// informado for anterior a hoje ou não existir).
+export function getMinDate(
+  minDate: Date | undefined,
+  disablePastDates: boolean | undefined,
+): Date | undefined {
+  if (!disablePastDates) return minDate
+
+  const today = startOfDay(new Date())
+
+  return minDate && isAfter(minDate, today) ? minDate : today
+}
+
 export function isOutOfLimits(
   date: Date,
   { minDate, maxDate }: DateLimits,
@@ -159,23 +172,33 @@ export const RANGE_PRESETS: RangePresetType[] = [
 export type BlockedDateType =
   | { date: Date; label?: string }
   | { from: Date; to: Date; label?: string }
+  // data recorrente (ex.: feriado fixo), bloqueada em todos os anos.
+  // month vai de 1 a 12.
+  | { day: number; month: number; label?: string }
 
 export type BlockOptionsType = {
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
 }
- 
+
 // Devolve o motivo do bloqueio
 export function getBlockReason(
   date: Date,
   { blockedDates = [], disableWeekends }: BlockOptionsType,
 ): string | null {
   for (const blocked of blockedDates) {
-    const isBlocked =
-      'date' in blocked
-        ? isSameDay(date, blocked.date)
-        : !isBefore(date, startOfDay(blocked.from)) &&
-          !isAfter(date, startOfDay(blocked.to))
+    let isBlocked: boolean
+
+    if ('date' in blocked) {
+      isBlocked = isSameDay(date, blocked.date)
+    } else if ('day' in blocked) {
+      isBlocked =
+        date.getDate() === blocked.day && date.getMonth() + 1 === blocked.month
+    } else {
+      isBlocked =
+        !isBefore(date, startOfDay(blocked.from)) &&
+        !isAfter(date, startOfDay(blocked.to))
+    }
 
     if (isBlocked) return blocked.label ?? ''
   }

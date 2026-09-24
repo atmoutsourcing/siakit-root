@@ -19,6 +19,7 @@ import {
   DateRangeType,
   formatRange,
   getBlockReason,
+  getMinDate,
   isOutOfLimits,
   isSameRange,
   parseRange,
@@ -48,6 +49,8 @@ export type DateRangePickerV2Props = {
   isErrored?: boolean
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
+  /** Bloqueia datas anteriores a hoje. */
+  disablePastDates?: boolean
   presets?: boolean
   locale?: string
 }
@@ -61,16 +64,18 @@ export function DateRangePickerV2({
   onChange,
   placeholder,
   disabled,
-  minDate,
+  minDate: minDateProp,
   maxDate,
   isErrored,
   blockedDates,
   disableWeekends,
+  disablePastDates,
   presets,
   locale,
 }: DateRangePickerV2Props) {
   const { dateFormat, dateFnsLocale, texts, presetLabels } =
     useDateLocale(locale)
+  const minDate = getMinDate(minDateProp, disablePastDates)
   const [open, setOpen] = useState(false)
   const [text, setText] = useState(() => formatRange(value, dateFormat))
   const [month, setMonth] = useState<Date>(() => value?.from ?? new Date())
@@ -232,7 +237,7 @@ export function DateRangePickerV2({
             variant="ghost"
             colorScheme="gray"
             disabled={disabled}
-          > 
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

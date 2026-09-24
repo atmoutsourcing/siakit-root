@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.46
+
+### Patch Changes
+
+- add datepicker props
+
 ## 0.0.45
 
 ### Patch Changes

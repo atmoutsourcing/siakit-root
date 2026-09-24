@@ -22,6 +22,7 @@ type DatePickerV2Props = {
   maxDate?: Date
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
+  disablePastDates?: boolean
   locale?: string
 }
 
@@ -36,6 +37,7 @@ export function DatePickerV2({
   maxDate,
   blockedDates,
   disableWeekends,
+  disablePastDates,
   locale,
 }: DatePickerV2Props) {
   const { fieldName, defaultValue, registerField, error } = useField(name)
@@ -79,7 +81,6 @@ export function DatePickerV2({
         )}
       </>
 
-
       <DatePickerV2Component
         value={fieldValue}
         onChange={handleChange}
@@ -89,6 +90,7 @@ export function DatePickerV2({
         maxDate={maxDate}
         blockedDates={blockedDates}
         disableWeekends={disableWeekends}
+        disablePastDates={disablePastDates}
         locale={locale}
       />
     </FormControl>

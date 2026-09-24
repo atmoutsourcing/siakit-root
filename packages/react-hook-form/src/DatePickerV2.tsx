@@ -23,6 +23,7 @@ interface DatePickerV2Props {
   maxDate?: Date
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
+  disablePastDates?: boolean
   locale?: string
 }
 
@@ -38,6 +39,7 @@ export function DatePickerV2({
   maxDate,
   blockedDates,
   disableWeekends,
+  disablePastDates,
   locale,
 }: DatePickerV2Props) {
   const {
@@ -67,7 +69,7 @@ export function DatePickerV2({
                 </Flex>
               )}
             </>
- 
+
             <DatePickerV2Component
               value={field?.value ?? null}
               onChange={(value) => {
@@ -83,6 +85,7 @@ export function DatePickerV2({
               maxDate={maxDate}
               blockedDates={blockedDates}
               disableWeekends={disableWeekends}
+              disablePastDates={disablePastDates}
               locale={locale}
             />
           </FormControl>

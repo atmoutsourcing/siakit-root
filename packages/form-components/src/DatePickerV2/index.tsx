@@ -19,6 +19,7 @@ import {
   DATE_TEXT_LENGTH,
   formatDate,
   getBlockReason,
+  getMinDate,
   isOutOfLimits,
   parseDate,
   roundDate,
@@ -43,6 +44,8 @@ export type DatePickerV2Props = {
   isErrored?: boolean
   blockedDates?: BlockedDateType[]
   disableWeekends?: boolean
+  /** Bloqueia datas anteriores a hoje. */
+  disablePastDates?: boolean
   locale?: string
 }
 
@@ -51,14 +54,16 @@ export function DatePickerV2({
   onChange,
   placeholder,
   disabled,
-  minDate,
+  minDate: minDateProp,
   maxDate,
   isErrored,
   blockedDates,
   disableWeekends,
+  disablePastDates,
   locale,
 }: DatePickerV2Props) {
   const { dateFormat, dateFnsLocale, texts } = useDateLocale(locale)
+  const minDate = getMinDate(minDateProp, disablePastDates)
   const [open, setOpen] = useState(false)
   const [text, setText] = useState(() => formatDate(value, dateFormat))
   const [month, setMonth] = useState<Date>(() => value ?? new Date())
@@ -138,7 +143,7 @@ export function DatePickerV2({
         placeholder={placeholder}
         disabled={disabled}
       />
- 
+
       <Suffix css={{ visibility: text ? 'visible' : 'hidden' }}>
         <IconButton
           type="button"
