@@ -62,11 +62,6 @@ export const CustomPopoverContent = styled(PopoverContent, {
     backgroundColor: '$primary9',
   },
 
-  // '.rdp-button:focus, .rdp-button:active': {
-  //   borderColor: '$primary9',
-  //   backgroundColor: '$primary3',
-  // },
-
   '.rdp': {
     '--rdp-cell-size': '38px',
     fontSize: '$sm',
