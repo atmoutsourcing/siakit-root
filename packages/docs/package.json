@@ -13,6 +13,8 @@
     "@siakit/layout": "*",
     "@siakit/loading": "*",
     "@siakit/react-hook-form": "*",
+    "@siakit/form-unform": "*",
+    "@siakit/form-components": "*",
     "@siakit/sidebar": "*",
     "lucide-react": "^0.562.0",
     "react": "^18.2.0",
