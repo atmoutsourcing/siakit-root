@@ -79,11 +79,6 @@ export const CustomPopoverContent = styled(PopoverContent, {
     fontSize: '$sm',
   },
 
-  '.rdp-day_range_middle': {
-    backgroundColor: 'transparent',
-    color: '$primary11',
-  },
-
   '.rdp-cell:has(.rdp-day_range_middle)': {
     background:
       'linear-gradient($primary3, $primary3) center / 100% 30px no-repeat',

@@ -1,5 +1,11 @@
 # @siakit/form-components
 
+## 0.0.47
+
+### Patch Changes
+
+- ajuste
+
 ## 0.0.46
 
 ### Patch Changes

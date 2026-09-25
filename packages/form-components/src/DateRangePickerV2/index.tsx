@@ -128,7 +128,11 @@ export function DateRangePickerV2({
 
   function handleOpenPopover(nextOpen: boolean) {
     if (nextOpen) {
-      setDraft(value ?? EMPTY_DRAFT)
+      setDraft(
+        value
+          ? { from: startOfDay(value.from), to: startOfDay(value.to) }
+          : EMPTY_DRAFT,
+      )
       setMonth(value?.from ?? new Date())
       setHovered(null)
     }
