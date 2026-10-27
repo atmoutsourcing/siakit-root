@@ -1,5 +1,23 @@
 # @siakit/form-components
 
+## 0.0.50
+
+### Patch Changes
+
+- remove auto select
+
+## 0.0.49
+
+### Patch Changes
+
+- add autoselect prop
+
+## 0.0.48
+
+### Patch Changes
+
+- add autoSelect prop
+
 ## 0.0.47
 
 ### Patch Changes
